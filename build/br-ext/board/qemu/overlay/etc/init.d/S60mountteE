@@ -1,0 +1,19 @@
+#!/bin/sh
+
+mkdir -p /mnt/storage /data/tee /sys/dev
+if [ -b /dev/vda ]; then
+    echo "Mounting /dev/vda to /mnt/storage"
+    mount /dev/vda /mnt/storage
+
+    # 创建和绑定 tee 存储路径
+    if [ -d /mnt/storage/tee ]; then
+        mount --bind /mnt/storage/tee /data/tee
+    else
+        mkdir -p /mnt/storage/tee
+        mount --bind /mnt/storage/tee /data/tee
+    fi
+
+    chown -R tee:tee /data/tee
+else
+    echo "ERROR: /dev/vda not found!"
+fi

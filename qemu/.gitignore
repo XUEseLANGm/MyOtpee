@@ -1,0 +1,87 @@
+# ======================
+# 通用构建/编译忽略规则
+# ======================
+
+# 编译生成的目标文件和库
+*.o
+*.a
+*.so
+*.dll
+*.lib
+*.exe
+*.obj
+*.lo
+*.la
+*.dylib
+
+# 自动生成的配置和编译系统文件
+/config.log
+/config.status
+/configure
+/Makefile
+/Makefile.in
+/.deps/
+/.libs/
+/autom4te.cache/
+/stamp-h1
+
+# QEMU 可执行文件和插件
+/qemu-*
+/*.so
+/*.dll
+/*.dylib
+
+# 临时文件和备份文件
+*~
+*.bak
+*.swp
+*.swo
+*.patch
+
+# 测试和日志文件
+/test-*
+/*.log
+/*.trs
+
+# ======================
+# QEMU 特有的忽略规则
+# ======================
+
+# 构建目录（通常为 `build/` 或 `obj-*/`）
+/build/
+/obj-*/
+
+# QEMU 运行时生成的文件
+/*.qcow2
+/*.qed
+/*.vmdk
+/*.vdi
+/*.img
+
+# 覆盖率报告
+/*.gcda
+/*.gcno
+/*.gcov
+
+# 文档生成文件
+/docs/*.html
+/docs/*.pdf
+/docs/*.1
+/docs/*.pod
+/docs/man/
+
+# Python 缓存文件
+*.pyc
+*.pyo
+__pycache__/
+
+# ======================
+# 开发环境文件（可选）
+# ======================
+
+# IDE 和编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+

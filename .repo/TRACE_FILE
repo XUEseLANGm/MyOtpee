@@ -1,0 +1,118 @@
+PID: 1414 START: 1744291488786607616 :+++++++++++++++NEW COMMAND+++++++++++++++++++ starting new command: init, -u, https://github.com/OP-TEE/manifest.git, -m, qemu_v8.xml, --repo-url=https://mirrors.tuna.tsinghua.edu.cn/git/git-repo, -b, 3.8.0 [sid=repo-20250410T132447Z-P00000586/repo-20250410T132448Z-P00000586]
+
+PID: 1414 START: 1744291488793227264 :git command None ['git', 'config', '--file', '/optee/.repo/repo/.git/config', '--includes', '--null', '--list'] with debug: : git config --file /optee/.repo/repo/.git/config --includes --null --list 1>| 2>|
+
+PID: 1414 END: 1744291488794689280 :git command None ['git', 'config', '--file', '/optee/.repo/repo/.git/config', '--includes', '--null', '--list'] with debug: : git config --file /optee/.repo/repo/.git/config --includes --null --list 1>| 2>|
+
+PID: 1414 START: 1744291488794929920 :: parsing /root/.gitconfig
+
+PID: 1414 END: 1744291488794982144 :: parsing /root/.gitconfig
+
+PID: 1414 START: 1744291488795226624 :git command /optee/.repo/manifests.git ['git', 'init'] with debug: : export GIT_DIR=/optee/.repo/manifests.git
+: git init 1>| 2>|
+
+PID: 1414 END: 1744291488797689088 :git command /optee/.repo/manifests.git ['git', 'init'] with debug: : export GIT_DIR=/optee/.repo/manifests.git
+: git init 1>| 2>|
+
+PID: 1414 START: 1744291488798374912 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--null', '--list'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --null --list 1>| 2>|
+
+PID: 1414 END: 1744291488799714560 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--null', '--list'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --null --list 1>| 2>|
+
+PID: 1414 START: 1744291488800012544 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--replace-all', 'filter.lfs.smudge', 'git-lfs smudge --skip -- %f'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --replace-all filter.lfs.smudge git-lfs smudge --skip -- %f 1>| 2>|
+
+PID: 1414 END: 1744291488801600512 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--replace-all', 'filter.lfs.smudge', 'git-lfs smudge --skip -- %f'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --replace-all filter.lfs.smudge git-lfs smudge --skip -- %f 1>| 2>|
+
+PID: 1414 START: 1744291488801864192 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--replace-all', 'filter.lfs.process', 'git-lfs filter-process --skip'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --replace-all filter.lfs.process git-lfs filter-process --skip 1>| 2>|
+
+PID: 1414 END: 1744291488803530240 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--replace-all', 'filter.lfs.process', 'git-lfs filter-process --skip'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --replace-all filter.lfs.process git-lfs filter-process --skip 1>| 2>|
+
+PID: 1414 START: 1744291488803756288 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--unset-all', 'core.bare'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --unset-all core.bare 1>| 2>|
+
+PID: 1414 END: 1744291488805179392 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--unset-all', 'core.bare'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --unset-all core.bare 1>| 2>|
+
+PID: 1414 START: 1744291488805421824 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--replace-all', 'remote.origin.url', 'https://github.com/OP-TEE/manifest.git'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --replace-all remote.origin.url https://github.com/OP-TEE/manifest.git 1>| 2>|
+
+PID: 1414 END: 1744291488806924800 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--replace-all', 'remote.origin.url', 'https://github.com/OP-TEE/manifest.git'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --replace-all remote.origin.url https://github.com/OP-TEE/manifest.git 1>| 2>|
+
+PID: 1414 START: 1744291488807131392 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--replace-all', 'remote.origin.fetch', '+refs/heads/*:refs/remotes/origin/*'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --replace-all remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 1>| 2>|
+
+PID: 1414 END: 1744291488808554752 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--replace-all', 'remote.origin.fetch', '+refs/heads/*:refs/remotes/origin/*'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --replace-all remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 1>| 2>|
+
+PID: 1414 START: 1744291488808899072 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--replace-all', 'manifest.platform', 'auto'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --replace-all manifest.platform auto 1>| 2>|
+
+PID: 1414 END: 1744291488810403328 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--replace-all', 'manifest.platform', 'auto'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --replace-all manifest.platform auto 1>| 2>|
+
+PID: 1414 START: 1744291488810700800 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--replace-all', 'core.repositoryFormatVersion', '1'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --replace-all core.repositoryFormatVersion 1 1>| 2>|
+
+PID: 1414 END: 1744291488812164096 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--replace-all', 'core.repositoryFormatVersion', '1'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --replace-all core.repositoryFormatVersion 1 1>| 2>|
+
+PID: 1414 START: 1744291488812422656 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--replace-all', 'extensions.preciousObjects', 'true'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --replace-all extensions.preciousObjects true 1>| 2>|
+
+PID: 1414 END: 1744291488813803264 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/optee/.repo/manifests.git/config', '--includes', '--replace-all', 'extensions.preciousObjects', 'true'] with debug: : git config --file /optee/.repo/manifests.git/config --includes --replace-all extensions.preciousObjects true 1>| 2>|
+
+PID: 1414 START: 1744291488814213632 :git command /optee/.repo/manifests.git ['git', 'fetch', '--quiet', 'origin', '--recurse-submodules=no', '--tags', '+refs/heads/3.8.0:refs/remotes/origin/3.8.0', '+refs/tags/*:refs/tags/*'] with debug: : export GIT_OBJECT_DIRECTORY=/optee/.repo/manifests.git/objects
+: git fetch --quiet origin --recurse-submodules=no --tags +refs/heads/3.8.0:refs/remotes/origin/3.8.0 +refs/tags/*:refs/tags/* 1>| 2>&1
+
+PID: 1414 END: 1744291488970865408 :git command /optee/.repo/manifests.git ['git', 'fetch', '--quiet', 'origin', '--recurse-submodules=no', '--tags', '+refs/heads/3.8.0:refs/remotes/origin/3.8.0', '+refs/tags/*:refs/tags/*'] with debug: : export GIT_OBJECT_DIRECTORY=/optee/.repo/manifests.git/objects
+: git fetch --quiet origin --recurse-submodules=no --tags +refs/heads/3.8.0:refs/remotes/origin/3.8.0 +refs/tags/*:refs/tags/* 1>| 2>&1
+
+PID: 1414 START: 1744291488971257088 :git command /optee/.repo/manifests.git ['git', 'config', '--get', 'trace2.eventtarget'] with debug: : git config --get trace2.eventtarget 1>| 2>|
+
+PID: 1414 END: 1744291488973148160 :git command /optee/.repo/manifests.git ['git', 'config', '--get', 'trace2.eventtarget'] with debug: : git config --get trace2.eventtarget 1>| 2>|
+
+PID: 1414 START: 1744291492978408192 :git command /optee/.repo/manifests.git ['git', 'fetch', '--quiet', 'origin', '--recurse-submodules=no', '--tags', '+refs/heads/3.8.0:refs/remotes/origin/3.8.0', '+refs/tags/*:refs/tags/*'] with debug: : export GIT_OBJECT_DIRECTORY=/optee/.repo/manifests.git/objects
+: git fetch --quiet origin --recurse-submodules=no --tags +refs/heads/3.8.0:refs/remotes/origin/3.8.0 +refs/tags/*:refs/tags/* 1>| 2>&1
+
+PID: 1414 END: 1744291494968578560 :git command /optee/.repo/manifests.git ['git', 'fetch', '--quiet', 'origin', '--recurse-submodules=no', '--tags', '+refs/heads/3.8.0:refs/remotes/origin/3.8.0', '+refs/tags/*:refs/tags/*'] with debug: : export GIT_OBJECT_DIRECTORY=/optee/.repo/manifests.git/objects
+: git fetch --quiet origin --recurse-submodules=no --tags +refs/heads/3.8.0:refs/remotes/origin/3.8.0 +refs/tags/*:refs/tags/* 1>| 2>&1
+
+PID: 1414 START: 1744291494968894976 :git command /optee/.repo/manifests.git ['git', 'pack-refs', '--all', '--prune'] with debug: : git pack-refs --all --prune 1>| 2>|
+
+PID: 1414 END: 1744291494972862208 :git command /optee/.repo/manifests.git ['git', 'pack-refs', '--all', '--prune'] with debug: : git pack-refs --all --prune 1>| 2>|
+
+PID: 1414 START: 1744291494974709760 :git command /optee/.repo/manifests.git ['git', 'rev-parse', '--verify', 'refs/remotes/origin/3.8.0^0'] with debug: : git rev-parse --verify refs/remotes/origin/3.8.0^0 1>| 2>|
+
+PID: 1414 END: 1744291494976899328 :git command /optee/.repo/manifests.git ['git', 'rev-parse', '--verify', 'refs/remotes/origin/3.8.0^0'] with debug: : git rev-parse --verify refs/remotes/origin/3.8.0^0 1>| 2>|
+
+PID: 1414 START: 1744291494977339648 :git command /optee/.repo/manifests.git ['git', 'read-tree', '--reset', '-u', '-v', 'HEAD'] with debug: 
+: cd /optee/.repo/manifests
+: git read-tree --reset -u -v HEAD 2>|
+
+PID: 1414 END: 1744291494980270592 :git command /optee/.repo/manifests.git ['git', 'read-tree', '--reset', '-u', '-v', 'HEAD'] with debug: 
+: cd /optee/.repo/manifests
+: git read-tree --reset -u -v HEAD 2>|
+
+PID: 1414 START: 1744291494980529152 :: load refs /optee/.repo/manifests.git
+
+PID: 1414 END: 1744291494980847360 :: load refs /optee/.repo/manifests.git
+
+PID: 1414 START: 1744291494981184768 :git command /optee/.repo/manifests.git ['git', 'checkout', '-q', 'eda643f4d2211616e36bdf9e7513a3e19c03c6a6', '--'] with debug: : git checkout -q eda643f4d2211616e36bdf9e7513a3e19c03c6a6 -- 2>|
+
+PID: 1414 END: 1744291494983851776 :git command /optee/.repo/manifests.git ['git', 'checkout', '-q', 'eda643f4d2211616e36bdf9e7513a3e19c03c6a6', '--'] with debug: : git checkout -q eda643f4d2211616e36bdf9e7513a3e19c03c6a6 -- 2>|
+
+PID: 1414 START: 1744291494984175872 :git command /optee/.repo/manifests.git ['git', 'update-ref', '-d', 'refs/heads/default'] with debug: : git update-ref -d refs/heads/default 1>| 2>|
+
+PID: 1414 END: 1744291494986114816 :git command /optee/.repo/manifests.git ['git', 'update-ref', '-d', 'refs/heads/default'] with debug: : git update-ref -d refs/heads/default 1>| 2>|
+
+PID: 1414 START: 1744291494986391040 :: scan refs /optee/.repo/manifests.git
+
+PID: 1414 END: 1744291494986426368 :: scan refs /optee/.repo/manifests.git
+
+PID: 1414 START: 1744291494986569728 :: scan refs /optee/.repo/manifests.git
+
+PID: 1414 END: 1744291494986589440 :: scan refs /optee/.repo/manifests.git
+
+PID: 1414 START: 1744291494986744064 :git command /optee/.repo/manifests.git ['git', 'update-ref', 'refs/heads/default', 'eda643f4d2211616e36bdf9e7513a3e19c03c6a6'] with debug: : git update-ref refs/heads/default eda643f4d2211616e36bdf9e7513a3e19c03c6a6 1>| 2>|
+
+PID: 1414 END: 1744291494988896256 :git command /optee/.repo/manifests.git ['git', 'update-ref', 'refs/heads/default', 'eda643f4d2211616e36bdf9e7513a3e19c03c6a6'] with debug: : git update-ref refs/heads/default eda643f4d2211616e36bdf9e7513a3e19c03c6a6 1>| 2>|
+
+PID: 1414 START: 1744291494989133568 :git command /optee/.repo/manifests.git ['git', 'symbolic-ref', 'HEAD', 'refs/heads/default'] with debug: : git symbolic-ref HEAD refs/heads/default 1>| 2>|
+
+PID: 1414 END: 1744291494991155200 :git command /optee/.repo/manifests.git ['git', 'symbolic-ref', 'HEAD', 'refs/heads/default'] with debug: : git symbolic-ref HEAD refs/heads/default 1>| 2>|
+
+PID: 1414 START: 1744291498099890176 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/root/.gitconfig', '--includes', '--replace-all', 'color.ui', 'auto'] with debug: : git config --file /root/.gitconfig --includes --replace-all color.ui auto 1>| 2>|
+
+PID: 1414 END: 1744291498120058624 :git command /optee/.repo/manifests.git ['git', 'config', '--file', '/root/.gitconfig', '--includes', '--replace-all', 'color.ui', 'auto'] with debug: : git config --file /root/.gitconfig --includes --replace-all color.ui auto 1>| 2>|
+
+PID: 1414 END: 1744291498120420352 :+++++++++++++++NEW COMMAND+++++++++++++++++++ starting new command: init, -u, https://github.com/OP-TEE/manifest.git, -m, qemu_v8.xml, --repo-url=https://mirrors.tuna.tsinghua.edu.cn/git/git-repo, -b, 3.8.0 [sid=repo-20250410T132447Z-P00000586/repo-20250410T132448Z-P00000586]
+
