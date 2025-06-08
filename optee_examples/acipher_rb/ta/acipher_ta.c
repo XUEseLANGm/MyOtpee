@@ -133,23 +133,6 @@ void TA_CloseSessionEntryPoint(void *session)
 	TEE_Free(state);
 }
 
-TEE_Result TA_InvokeCommandEntryPoint(void *session, uint32_t cmd,
-				      uint32_t param_types,
-				      TEE_Param params[TEE_NUM_PARAMS])
-{
-	EMSG("test");
-	open_database(session);
-	// struct acipher *state = session;
-	switch (cmd) {
-		case TA_ACIPHER_CMD_GEN_KEY:
-			return cmd_gen_key(session, param_types, params);
-		default:
-			EMSG("Unknown command 0x%" PRIx32, cmd);
-			return TEE_ERROR_BAD_PARAMETERS;
-	}
-
-}
-
 TEE_Result open_database(void *session){
 
 	struct acipher *state = session;
@@ -162,9 +145,10 @@ TEE_Result open_database(void *session){
 	uint32_t count = 0;
 	// 尝试打开现有的持久化存储对象
 	TEE_Result res = TEE_OpenPersistentObject(TEE_STORAGE_PRIVATE,
-                                        "key_database", sizeof("key_database"),
+                                        "keydatabase", sizeof("keydatabase"),
                                         flags, &persistent_db_obj);
 
+	
 	if (res == TEE_SUCCESS) {
 		DMSG("Found existing key database");
 		// 读取数据库头信息（不加载全部密钥，按需加载）
@@ -192,7 +176,7 @@ TEE_Result open_database(void *session){
 		
 		// 创建新的空数据库
 		res = TEE_CreatePersistentObject(TEE_STORAGE_PRIVATE,
-									"key_database", sizeof("key_database"),
+									"keydatabase", sizeof("keydatabase"),
 									flags, TEE_HANDLE_NULL, NULL, 0,
 									&persistent_db_obj);
 		if (res != TEE_SUCCESS) {
@@ -224,7 +208,7 @@ TEE_Result open_database(void *session){
 		}else{
 			DMSG("New key database created successfully");
 		}
-		
+		 
 		state->db_handle = persistent_db_obj;
 		state->db_header = db_data;
 	} else {
@@ -234,3 +218,22 @@ TEE_Result open_database(void *session){
 	}
 
 }
+
+TEE_Result TA_InvokeCommandEntryPoint(void *session, uint32_t cmd,
+				      uint32_t param_types,
+				      TEE_Param params[TEE_NUM_PARAMS])
+{
+	EMSG("test");
+	open_database(session);
+	// struct acipher *state = session;
+	switch (cmd) {
+		case TA_ACIPHER_CMD_GEN_KEY:
+			return cmd_gen_key(session, param_types, params);
+		default:
+			EMSG("Unknown command 0x%" PRIx32, cmd);
+			return TEE_ERROR_BAD_PARAMETERS;
+	}
+
+}
+
+
