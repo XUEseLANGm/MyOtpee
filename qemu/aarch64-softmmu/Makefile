@@ -1,1 +1,1 @@
-/root/optee/qemu/Makefile.target
+/optee/qemu/Makefile.target

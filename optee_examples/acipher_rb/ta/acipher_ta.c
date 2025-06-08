@@ -100,7 +100,6 @@ TEE_Result TA_OpenSessionEntryPoint(uint32_t param_types,
 					void **session)
 {
 	DMSG("has been called");
-	DMSG("test");
 	struct acipher *state;
 	/*
 	 * Allocate and init state for the session.
@@ -111,7 +110,6 @@ TEE_Result TA_OpenSessionEntryPoint(uint32_t param_types,
 
 	state->key = TEE_HANDLE_NULL;
 	*session = state;
-
 	
 	return TEE_SUCCESS;
 }
@@ -139,6 +137,9 @@ TEE_Result TA_InvokeCommandEntryPoint(void *session, uint32_t cmd,
 				      uint32_t param_types,
 				      TEE_Param params[TEE_NUM_PARAMS])
 {
+	EMSG("test");
+	open_database(session);
+	// struct acipher *state = session;
 	switch (cmd) {
 		case TA_ACIPHER_CMD_GEN_KEY:
 			return cmd_gen_key(session, param_types, params);
