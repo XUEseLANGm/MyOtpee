@@ -1,0 +1,1142 @@
+testHelp (TianoCompress.Tests) ... ok
+testRandomDataCycles (TianoCompress.Tests) ... ok
+test_AutoGen_AutoGen (CheckPythonSyntax.Tests) ... ok
+test_AutoGen_BuildEngine (CheckPythonSyntax.Tests) ... ok
+test_AutoGen_GenC (CheckPythonSyntax.Tests) ... ok
+test_AutoGen_GenDepex (CheckPythonSyntax.Tests) ... ok
+test_AutoGen_GenMake (CheckPythonSyntax.Tests) ... ok
+test_AutoGen_GenPcdDb (CheckPythonSyntax.Tests) ... ok
+test_AutoGen_GenVar (CheckPythonSyntax.Tests) ... ok
+test_AutoGen_IdfClassObject (CheckPythonSyntax.Tests) ... ok
+test_AutoGen_InfSectionParser (CheckPythonSyntax.Tests) ... ok
+test_AutoGen_StrGather (CheckPythonSyntax.Tests) ... ok
+test_AutoGen_UniClassObject (CheckPythonSyntax.Tests) ... ok
+test_AutoGen_ValidCheckingInfoObject (CheckPythonSyntax.Tests) ... ok
+test_AutoGen___init__ (CheckPythonSyntax.Tests) ... ok
+test_BPDG_BPDG (CheckPythonSyntax.Tests) ... ok
+test_BPDG_GenVpd (CheckPythonSyntax.Tests) ... ok
+test_BPDG_StringTable (CheckPythonSyntax.Tests) ... ok
+test_BPDG___init__ (CheckPythonSyntax.Tests) ... ok
+test_Capsule_GenerateCapsule (CheckPythonSyntax.Tests) ... ok
+test_CommonDataClass_CommonClass (CheckPythonSyntax.Tests) ... ok
+test_CommonDataClass_DataClass (CheckPythonSyntax.Tests) ... ok
+test_CommonDataClass_Exceptions (CheckPythonSyntax.Tests) ... ok
+test_CommonDataClass_FdfClass (CheckPythonSyntax.Tests) ... ok
+test_CommonDataClass___init__ (CheckPythonSyntax.Tests) ... ok
+test_Common_BuildToolError (CheckPythonSyntax.Tests) ... ok
+test_Common_BuildVersion (CheckPythonSyntax.Tests) ... ok
+test_Common_DataType (CheckPythonSyntax.Tests) ... ok
+test_Common_Database (CheckPythonSyntax.Tests) ... ok
+test_Common_Edk2_Capsule_FmpPayloadHeader (CheckPythonSyntax.Tests) ... ok
+test_Common_Edk2_Capsule___init__ (CheckPythonSyntax.Tests) ... ok
+test_Common_Edk2___init__ (CheckPythonSyntax.Tests) ... ok
+test_Common_EdkLogger (CheckPythonSyntax.Tests) ... ok
+test_Common_Expression (CheckPythonSyntax.Tests) ... ok
+test_Common_GlobalData (CheckPythonSyntax.Tests) ... ok
+test_Common_Identification (CheckPythonSyntax.Tests) ... ok
+test_Common_LongFilePathOs (CheckPythonSyntax.Tests) ... ok
+test_Common_LongFilePathOsPath (CheckPythonSyntax.Tests) ... ok
+test_Common_LongFilePathSupport (CheckPythonSyntax.Tests) ... ok
+test_Common_Misc (CheckPythonSyntax.Tests) ... ok
+test_Common_MultipleWorkspace (CheckPythonSyntax.Tests) ... ok
+test_Common_Parsing (CheckPythonSyntax.Tests) ... ok
+test_Common_RangeExpression (CheckPythonSyntax.Tests) ... ok
+test_Common_StringUtils (CheckPythonSyntax.Tests) ... ok
+test_Common_TargetTxtClassObject (CheckPythonSyntax.Tests) ... ok
+test_Common_ToolDefClassObject (CheckPythonSyntax.Tests) ... ok
+test_Common_Uefi_Capsule_FmpAuthHeader (CheckPythonSyntax.Tests) ... ok
+test_Common_Uefi_Capsule_FmpCapsuleHeader (CheckPythonSyntax.Tests) ... ok
+test_Common_Uefi_Capsule_UefiCapsuleHeader (CheckPythonSyntax.Tests) ... ok
+test_Common_Uefi_Capsule___init__ (CheckPythonSyntax.Tests) ... ok
+test_Common_Uefi___init__ (CheckPythonSyntax.Tests) ... ok
+test_Common_VariableAttributes (CheckPythonSyntax.Tests) ... ok
+test_Common_VpdInfoFile (CheckPythonSyntax.Tests) ... ok
+test_Common___init__ (CheckPythonSyntax.Tests) ... ok
+test_Ecc_CLexer (CheckPythonSyntax.Tests) ... ok
+test_Ecc_CParser (CheckPythonSyntax.Tests) ... ok
+test_Ecc_Check (CheckPythonSyntax.Tests) ... ok
+test_Ecc_CodeFragment (CheckPythonSyntax.Tests) ... ok
+test_Ecc_CodeFragmentCollector (CheckPythonSyntax.Tests) ... ok
+test_Ecc_Configuration (CheckPythonSyntax.Tests) ... ok
+test_Ecc_Database (CheckPythonSyntax.Tests) ... ok
+test_Ecc_Ecc (CheckPythonSyntax.Tests) ... ok
+test_Ecc_EccGlobalData (CheckPythonSyntax.Tests) ... ok
+test_Ecc_EccToolError (CheckPythonSyntax.Tests) ... ok
+test_Ecc_Exception (CheckPythonSyntax.Tests) ... ok
+test_Ecc_FileProfile (CheckPythonSyntax.Tests) ... ok
+test_Ecc_MetaDataParser (CheckPythonSyntax.Tests) ... ok
+test_Ecc_MetaFileWorkspace_MetaDataTable (CheckPythonSyntax.Tests) ... ok
+test_Ecc_MetaFileWorkspace_MetaFileParser (CheckPythonSyntax.Tests) ... ok
+test_Ecc_MetaFileWorkspace_MetaFileTable (CheckPythonSyntax.Tests) ... ok
+test_Ecc_MetaFileWorkspace___init__ (CheckPythonSyntax.Tests) ... ok
+test_Ecc_ParserWarning (CheckPythonSyntax.Tests) ... ok
+test_Ecc_Xml_XmlRoutines (CheckPythonSyntax.Tests) ... ok
+test_Ecc_Xml___init__ (CheckPythonSyntax.Tests) ... ok
+test_Ecc___init__ (CheckPythonSyntax.Tests) ... ok
+test_Ecc_c (CheckPythonSyntax.Tests) ... ok
+test_Eot_CLexer (CheckPythonSyntax.Tests) ... ok
+test_Eot_CParser (CheckPythonSyntax.Tests) ... ok
+test_Eot_CodeFragment (CheckPythonSyntax.Tests) ... ok
+test_Eot_CodeFragmentCollector (CheckPythonSyntax.Tests) ... ok
+test_Eot_Database (CheckPythonSyntax.Tests) ... ok
+test_Eot_Eot (CheckPythonSyntax.Tests) ... ok
+test_Eot_EotGlobalData (CheckPythonSyntax.Tests) ... ok
+test_Eot_EotToolError (CheckPythonSyntax.Tests) ... ok
+test_Eot_FileProfile (CheckPythonSyntax.Tests) ... ok
+test_Eot_InfParserLite (CheckPythonSyntax.Tests) ... ok
+test_Eot_Parser (CheckPythonSyntax.Tests) ... ok
+test_Eot_ParserWarning (CheckPythonSyntax.Tests) ... ok
+test_Eot_Report (CheckPythonSyntax.Tests) ... ok
+test_Eot___init__ (CheckPythonSyntax.Tests) ... ok
+test_Eot_c (CheckPythonSyntax.Tests) ... ok
+test_GenFds_AprioriSection (CheckPythonSyntax.Tests) ... ok
+test_GenFds_Attribute (CheckPythonSyntax.Tests) ... ok
+test_GenFds_Capsule (CheckPythonSyntax.Tests) ... ok
+test_GenFds_CapsuleData (CheckPythonSyntax.Tests) ... ok
+test_GenFds_ComponentStatement (CheckPythonSyntax.Tests) ... ok
+test_GenFds_CompressSection (CheckPythonSyntax.Tests) ... ok
+test_GenFds_DataSection (CheckPythonSyntax.Tests) ... ok
+test_GenFds_DepexSection (CheckPythonSyntax.Tests) ... ok
+test_GenFds_EfiSection (CheckPythonSyntax.Tests) ... ok
+test_GenFds_Fd (CheckPythonSyntax.Tests) ... ok
+test_GenFds_FdfParser (CheckPythonSyntax.Tests) ... ok
+test_GenFds_Ffs (CheckPythonSyntax.Tests) ... ok
+test_GenFds_FfsFileStatement (CheckPythonSyntax.Tests) ... ok
+test_GenFds_FfsInfStatement (CheckPythonSyntax.Tests) ... ok
+test_GenFds_Fv (CheckPythonSyntax.Tests) ... ok
+test_GenFds_FvImageSection (CheckPythonSyntax.Tests) ... ok
+test_GenFds_GenFds (CheckPythonSyntax.Tests) ... ok
+test_GenFds_GenFdsGlobalVariable (CheckPythonSyntax.Tests) ... ok
+test_GenFds_GuidSection (CheckPythonSyntax.Tests) ... ok
+test_GenFds_OptRomFileStatement (CheckPythonSyntax.Tests) ... ok
+test_GenFds_OptRomInfStatement (CheckPythonSyntax.Tests) ... ok
+test_GenFds_OptionRom (CheckPythonSyntax.Tests) ... ok
+test_GenFds_Region (CheckPythonSyntax.Tests) ... ok
+test_GenFds_Rule (CheckPythonSyntax.Tests) ... ok
+test_GenFds_RuleComplexFile (CheckPythonSyntax.Tests) ... ok
+test_GenFds_RuleSimpleFile (CheckPythonSyntax.Tests) ... ok
+test_GenFds_Section (CheckPythonSyntax.Tests) ... ok
+test_GenFds_UiSection (CheckPythonSyntax.Tests) ... ok
+test_GenFds_VerSection (CheckPythonSyntax.Tests) ... ok
+test_GenFds_Vtf (CheckPythonSyntax.Tests) ... ok
+test_GenFds___init__ (CheckPythonSyntax.Tests) ... ok
+test_GenPatchPcdTable_GenPatchPcdTable (CheckPythonSyntax.Tests) ... ok
+test_GenPatchPcdTable___init__ (CheckPythonSyntax.Tests) ... ok
+test_PatchPcdValue_PatchPcdValue (CheckPythonSyntax.Tests) ... ok
+test_PatchPcdValue___init__ (CheckPythonSyntax.Tests) ... ok
+test_Pkcs7Sign_Pkcs7Sign (CheckPythonSyntax.Tests) ... ok
+test_Rsa2048Sha256Sign_Rsa2048Sha256GenerateKeys (CheckPythonSyntax.Tests) ... ok
+test_Rsa2048Sha256Sign_Rsa2048Sha256Sign (CheckPythonSyntax.Tests) ... ok
+test_Table_Table (CheckPythonSyntax.Tests) ... ok
+test_Table_TableDataModel (CheckPythonSyntax.Tests) ... ok
+test_Table_TableDec (CheckPythonSyntax.Tests) ... ok
+test_Table_TableDsc (CheckPythonSyntax.Tests) ... ok
+test_Table_TableEotReport (CheckPythonSyntax.Tests) ... ok
+test_Table_TableFdf (CheckPythonSyntax.Tests) ... ok
+test_Table_TableFile (CheckPythonSyntax.Tests) ... ok
+test_Table_TableFunction (CheckPythonSyntax.Tests) ... ok
+test_Table_TableIdentifier (CheckPythonSyntax.Tests) ... ok
+test_Table_TableInf (CheckPythonSyntax.Tests) ... ok
+test_Table_TablePcd (CheckPythonSyntax.Tests) ... ok
+test_Table_TableQuery (CheckPythonSyntax.Tests) ... ok
+test_Table_TableReport (CheckPythonSyntax.Tests) ... ok
+test_Table___init__ (CheckPythonSyntax.Tests) ... ok
+test_TargetTool_TargetTool (CheckPythonSyntax.Tests) ... ok
+test_TargetTool___init__ (CheckPythonSyntax.Tests) ... ok
+test_Trim_Trim (CheckPythonSyntax.Tests) ... ok
+test_UPT_BuildVersion (CheckPythonSyntax.Tests) ... ok
+test_UPT_Core_DependencyRules (CheckPythonSyntax.Tests) ... ok
+test_UPT_Core_DistributionPackageClass (CheckPythonSyntax.Tests) ... ok
+test_UPT_Core_FileHook (CheckPythonSyntax.Tests) ... ok
+test_UPT_Core_IpiDb (CheckPythonSyntax.Tests) ... ok
+test_UPT_Core_PackageFile (CheckPythonSyntax.Tests) ... ok
+test_UPT_Core___init__ (CheckPythonSyntax.Tests) ... ok
+test_UPT_GenMetaFile_GenDecFile (CheckPythonSyntax.Tests) ... ok
+test_UPT_GenMetaFile_GenInfFile (CheckPythonSyntax.Tests) ... ok
+test_UPT_GenMetaFile_GenMetaFileMisc (CheckPythonSyntax.Tests) ... ok
+test_UPT_GenMetaFile_GenXmlFile (CheckPythonSyntax.Tests) ... ok
+test_UPT_GenMetaFile___init__ (CheckPythonSyntax.Tests) ... ok
+test_UPT_InstallPkg (CheckPythonSyntax.Tests) ... ok
+test_UPT_InventoryWs (CheckPythonSyntax.Tests) ... ok
+test_UPT_Library_CommentGenerating (CheckPythonSyntax.Tests) ... ok
+test_UPT_Library_CommentParsing (CheckPythonSyntax.Tests) ... ok
+test_UPT_Library_DataType (CheckPythonSyntax.Tests) ... ok
+test_UPT_Library_ExpressionValidate (CheckPythonSyntax.Tests) ... ok
+test_UPT_Library_GlobalData (CheckPythonSyntax.Tests) ... ok
+test_UPT_Library_Misc (CheckPythonSyntax.Tests) ... ok
+test_UPT_Library_ParserValidate (CheckPythonSyntax.Tests) ... ok
+test_UPT_Library_Parsing (CheckPythonSyntax.Tests) ... ok
+test_UPT_Library_StringUtils (CheckPythonSyntax.Tests) ... ok
+test_UPT_Library_UniClassObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Library_Xml_XmlRoutines (CheckPythonSyntax.Tests) ... ok
+test_UPT_Library_Xml___init__ (CheckPythonSyntax.Tests) ... ok
+test_UPT_Library___init__ (CheckPythonSyntax.Tests) ... ok
+test_UPT_Logger_Log (CheckPythonSyntax.Tests) ... ok
+test_UPT_Logger_StringTable (CheckPythonSyntax.Tests) ... ok
+test_UPT_Logger_ToolError (CheckPythonSyntax.Tests) ... ok
+test_UPT_Logger___init__ (CheckPythonSyntax.Tests) ... ok
+test_UPT_MkPkg (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_POM_CommonObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_POM_ModuleObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_POM_PackageObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_POM___init__ (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser_DecObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser_InfBinaryObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser_InfBuildOptionObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser_InfCommonObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser_InfDefineCommonObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser_InfDefineObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser_InfDepexObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser_InfGuidObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser_InfHeaderObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser_InfLibraryClassesObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser_InfMisc (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser_InfPackagesObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser_InfPcdObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser_InfPpiObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser_InfProtocolObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser_InfSoucesObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser_InfUserExtensionObject (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object_Parser___init__ (CheckPythonSyntax.Tests) ... ok
+test_UPT_Object___init__ (CheckPythonSyntax.Tests) ... ok
+test_UPT_Parser_DecParser (CheckPythonSyntax.Tests) ... ok
+test_UPT_Parser_DecParserMisc (CheckPythonSyntax.Tests) ... ok
+test_UPT_Parser_InfAsBuiltProcess (CheckPythonSyntax.Tests) ... ok
+test_UPT_Parser_InfBinarySectionParser (CheckPythonSyntax.Tests) ... ok
+test_UPT_Parser_InfBuildOptionSectionParser (CheckPythonSyntax.Tests) ... ok
+test_UPT_Parser_InfDefineSectionParser (CheckPythonSyntax.Tests) ... ok
+test_UPT_Parser_InfDepexSectionParser (CheckPythonSyntax.Tests) ... ok
+test_UPT_Parser_InfGuidPpiProtocolSectionParser (CheckPythonSyntax.Tests) ... ok
+test_UPT_Parser_InfLibrarySectionParser (CheckPythonSyntax.Tests) ... ok
+test_UPT_Parser_InfPackageSectionParser (CheckPythonSyntax.Tests) ... ok
+test_UPT_Parser_InfParser (CheckPythonSyntax.Tests) ... ok
+test_UPT_Parser_InfParserMisc (CheckPythonSyntax.Tests) ... ok
+test_UPT_Parser_InfPcdSectionParser (CheckPythonSyntax.Tests) ... ok
+test_UPT_Parser_InfSectionParser (CheckPythonSyntax.Tests) ... ok
+test_UPT_Parser_InfSourceSectionParser (CheckPythonSyntax.Tests) ... ok
+test_UPT_Parser___init__ (CheckPythonSyntax.Tests) ... ok
+test_UPT_PomAdapter_DecPomAlignment (CheckPythonSyntax.Tests) ... ok
+test_UPT_PomAdapter_InfPomAlignment (CheckPythonSyntax.Tests) ... ok
+test_UPT_PomAdapter_InfPomAlignmentMisc (CheckPythonSyntax.Tests) ... ok
+test_UPT_PomAdapter___init__ (CheckPythonSyntax.Tests) ... ok
+test_UPT_ReplacePkg (CheckPythonSyntax.Tests) ... ok
+test_UPT_RmPkg (CheckPythonSyntax.Tests) ... ok
+test_UPT_TestInstall (CheckPythonSyntax.Tests) ... ok
+test_UPT_UPT (CheckPythonSyntax.Tests) ... ok
+test_UPT_UnitTest_CommentGeneratingUnitTest (CheckPythonSyntax.Tests) ... ok
+test_UPT_UnitTest_CommentParsingUnitTest (CheckPythonSyntax.Tests) ... ok
+test_UPT_UnitTest_DecParserTest (CheckPythonSyntax.Tests) ... ok
+test_UPT_UnitTest_DecParserUnitTest (CheckPythonSyntax.Tests) ... ok
+test_UPT_UnitTest_InfBinarySectionTest (CheckPythonSyntax.Tests) ... ok
+test_UPT_Xml_CommonXml (CheckPythonSyntax.Tests) ... ok
+test_UPT_Xml_GuidProtocolPpiXml (CheckPythonSyntax.Tests) ... ok
+test_UPT_Xml_IniToXml (CheckPythonSyntax.Tests) ... ok
+test_UPT_Xml_ModuleSurfaceAreaXml (CheckPythonSyntax.Tests) ... ok
+test_UPT_Xml_PackageSurfaceAreaXml (CheckPythonSyntax.Tests) ... ok
+test_UPT_Xml_PcdXml (CheckPythonSyntax.Tests) ... ok
+test_UPT_Xml_XmlParser (CheckPythonSyntax.Tests) ... ok
+test_UPT_Xml_XmlParserMisc (CheckPythonSyntax.Tests) ... ok
+test_UPT_Xml___init__ (CheckPythonSyntax.Tests) ... ok
+test_Workspace_BuildClassObject (CheckPythonSyntax.Tests) ... ok
+test_Workspace_DecBuildData (CheckPythonSyntax.Tests) ... ok
+test_Workspace_DscBuildData (CheckPythonSyntax.Tests) ... ok
+test_Workspace_InfBuildData (CheckPythonSyntax.Tests) ... ok
+test_Workspace_MetaDataTable (CheckPythonSyntax.Tests) ... ok
+test_Workspace_MetaFileCommentParser (CheckPythonSyntax.Tests) ... ok
+test_Workspace_MetaFileParser (CheckPythonSyntax.Tests) ... ok
+test_Workspace_MetaFileTable (CheckPythonSyntax.Tests) ... ok
+test_Workspace_WorkspaceCommon (CheckPythonSyntax.Tests) ... ok
+test_Workspace_WorkspaceDatabase (CheckPythonSyntax.Tests) ... ok
+test_Workspace___init__ (CheckPythonSyntax.Tests) ... ok
+test_build_BuildReport (CheckPythonSyntax.Tests) ... ok
+test_build___init__ (CheckPythonSyntax.Tests) ... ok
+test_build_build (CheckPythonSyntax.Tests) ... ok
+test_sitecustomize (CheckPythonSyntax.Tests) ... ok
+test32bitUnicodeCharInUtf8Comment (CheckUnicodeSourceFiles.Tests) ... ok
+test32bitUnicodeCharInUtf8File (CheckUnicodeSourceFiles.Tests) ... ok
+testSupplementaryPlaneUnicodeCharInUtf16File (CheckUnicodeSourceFiles.Tests) ... ok
+testSurrogatePairUnicodeCharInUtf16File (CheckUnicodeSourceFiles.Tests) ... ok
+testSurrogatePairUnicodeCharInUtf8File (CheckUnicodeSourceFiles.Tests) ... ok
+testSurrogatePairUnicodeCharInUtf8FileWithBom (CheckUnicodeSourceFiles.Tests) ... ok
+testUtf16InUniFile (CheckUnicodeSourceFiles.Tests) ... ok
+testValidUtf8File (CheckUnicodeSourceFiles.Tests) ... ok
+testValidUtf8FileWithBom (CheckUnicodeSourceFiles.Tests) ... ok
+
+----------------------------------------------------------------------
+Ran 263 tests in 0.860s
+
+OK
+Build environment: Linux-5.15.0-136-generic-x86_64-with-Ubuntu-20.04-focal
+Build start time: 22:46:45, Jun.08 2025
+
+WORKSPACE        = /root/optee/edk2
+PACKAGES_PATH    = /root/optee/edk2:
+ECP_SOURCE       = /root/optee/edk2/EdkCompatibilityPkg
+EDK_SOURCE       = /root/optee/edk2/EdkCompatibilityPkg
+EFI_SOURCE       = /root/optee/edk2/EdkCompatibilityPkg
+EDK_TOOLS_PATH   = /optee/build/../edk2/BaseTools
+CONF_PATH        = /root/optee/edk2/Conf
+Building ... /root/optee/edk2/MdePkg/Library/BaseStackCheckLib/BaseStackCheckLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPkg/Library/CompilerIntrinsicsLib/CompilerIntrinsicsLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/DxeServicesLib/DxeServicesLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/FileExplorerLib/FileExplorerLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/UefiDriverEntryPoint/UefiDriverEntryPoint.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/UefiHiiLib/UefiHiiLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/UefiLib/UefiLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/UefiHiiServicesLib/UefiHiiServicesLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/UefiDevicePathLibDevicePathProtocol/UefiDevicePathLibDevicePathProtocol.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BasePrintLib/BasePrintLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/UefiMemoryAllocationLib/UefiMemoryAllocationLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/UefiBootServicesTableLib/UefiBootServicesTableLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BaseLib/BaseLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BaseMemoryLibOptDxe/BaseMemoryLibOptDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/DxePcdLib/DxePcdLib.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/Library/QemuFwCfgS3Lib/BaseQemuFwCfgS3LibNull.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/BaseBmpSupportLib/BaseBmpSupportLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BaseSafeIntLib/BaseSafeIntLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/UefiUsbLib/UefiUsbLib.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/PlatformDxe/Platform.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/FrameBufferBltLib/FrameBufferBltLib.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/Library/UefiPciCapPciIoLib/UefiPciCapPciIoLib.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/Library/BasePciCapLib/BasePciCapLib.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/VirtioPciDeviceDxe/VirtioPciDeviceDxe.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/Library/FdtPciHostBridgeLib/FdtPciHostBridgeLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BasePciSegmentLibPci/BasePciSegmentLibPci.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BasePciLibPciExpress/BasePciLibPciExpress.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/Library/BaseCachingPciExpressLib/BaseCachingPciExpressLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/Library/FdtPciPcdProducerLib/FdtPciPcdProducerLib.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/Library/SmbiosVersionLib/DetectSmbiosVersionLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/UefiScsiLib/UefiScsiLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/DxeIpIoLib/DxeIpIoLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/DxeUdpIoLib/DxeUdpIoLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/DxeDpcLib/DxeDpcLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Network/DpcDxe/DpcDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/BootMaintenanceManagerUiLib/BootMaintenanceManagerUiLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/BootManagerUiLib/BootManagerUiLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/DeviceManagerUiLib/DeviceManagerUiLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Logo/LogoDxe.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/BootLogoLib/BootLogoLib.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/Library/QemuBootOrderLib/QemuBootOrderLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/Library/QemuFwCfgLib/QemuFwCfgLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/CustomizedDisplayLib/CustomizedDisplayLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Disk/UdfDxe/UdfDxe.inf [AARCH64]
+Building ... /root/optee/edk2/FatPkg/EnhancedFatDxe/Fat.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BaseOrderedCollectionRedBlackTreeLib/BaseOrderedCollectionRedBlackTreeLib.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/Library/VirtioLib/VirtioLib.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/Library/VirtioMmioDeviceLib/VirtioMmioDeviceLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/Library/NorFlashQemuLib/NorFlashQemuLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/Library/ArmVirtTimerFdtClientLib/ArmVirtTimerFdtClientLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/Library/ArmVirtGicArchLib/ArmVirtGicArchLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPkg/Drivers/ArmGic/ArmGicLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/Library/ArmVirtPL031FdtClientLib/ArmVirtPL031FdtClientLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPlatformPkg/Library/PL031RealTimeClockLib/PL031RealTimeClockLib.inf [AARCH64]
+Building ... /root/optee/edk2/EmbeddedPkg/Library/TimeBaseLib/TimeBaseLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/Library/ArmVirtPsciResetSystemLib/ArmVirtPsciResetSystemLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPkg/Library/ArmSmcLib/ArmSmcLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPkg/Library/ArmHvcLib/ArmHvcLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/DxeCapsuleLibNull/DxeCapsuleLibNull.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/DxeSecurityManagementLib/DxeSecurityManagementLib.inf [AARCH64]
+Building ... /root/optee/edk2/EmbeddedPkg/Library/NvVarStoreFormattedLib/NvVarStoreFormattedLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/VarCheckUefiLib/VarCheckUefiLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/AuthVariableLibNull/AuthVariableLibNull.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/TpmMeasurementLibNull/TpmMeasurementLibNull.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/UefiRuntimeLib/UefiRuntimeLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BaseSynchronizationLib/BaseSynchronizationLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/VarCheckLib/VarCheckLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BaseCpuLib/BaseCpuLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/DxeCrc32GuidedSectionExtractLib/DxeCrc32GuidedSectionExtractLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPkg/Library/ArmExceptionLib/ArmExceptionLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/DebugAgentLibNull/DebugAgentLibNull.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/DxeCorePerformanceLib/DxeCorePerformanceLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/DxeExtractGuidedSectionLib/DxeExtractGuidedSectionLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPkg/Library/DefaultExceptionHandlerLib/DefaultExceptionHandlerLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPkg/Library/ArmDisassemblerLib/ArmDisassemblerLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/Library/FdtPL011SerialPortLib/FdtPL011SerialPortLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/DxeCoreHobLib/DxeCoreHobLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/DxeCoreEntryPoint/DxeCoreEntryPoint.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/DxeCoreMemoryAllocationLib/DxeCoreMemoryAllocationLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/Library/ArmVirtMemoryInitPeiLib/ArmVirtMemoryInitPeiLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/Library/PlatformPeiLib/PlatformPeiLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPkg/Library/ArmMmuLib/ArmMmuBaseLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/Library/QemuVirtMemInfoLib/QemuVirtMemInfoLib.inf [AARCH64]
+Building ... /root/optee/edk2/EmbeddedPkg/Library/PrePiMemoryAllocationLib/PrePiMemoryAllocationLib.inf [AARCH64]
+Building ... /root/optee/edk2/EmbeddedPkg/Library/PrePiLib/PrePiLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPkg/Library/ArmArchTimerLib/ArmArchTimerLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/Library/FdtPL011SerialPortLib/EarlyFdtPL011SerialPortLib.inf [AARCH64]
+Building ... /root/optee/edk2/EmbeddedPkg/Library/PrePiExtractGuidedSectionLib/PrePiExtractGuidedSectionLib.inf [AARCH64]
+Building ... /root/optee/edk2/EmbeddedPkg/Library/PrePiHobLib/PrePiHobLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPkg/Library/ArmCacheMaintenanceLib/ArmCacheMaintenanceLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BaseUefiDecompressLib/BaseUefiDecompressLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BasePeCoffLib/BasePeCoffLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BasePerformanceLibNull/BasePerformanceLibNull.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPkg/Library/ArmGenericTimerVirtCounterLib/ArmGenericTimerVirtCounterLib.inf [AARCH64]
+Building ... /root/optee/edk2/EmbeddedPkg/Library/FdtLib/FdtLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPlatformPkg/Library/PL011UartLib/PL011UartLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPlatformPkg/Library/PrePiHobListPointerLib/PrePiHobListPointerLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPkg/Library/DebugPeCoffExtraActionLib/DebugPeCoffExtraActionLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPkg/Library/ArmLib/ArmBaseLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BaseMemoryLib/BaseMemoryLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/EbcDxe/EbcDxe.inf [AARCH64]
+Building ... /root/optee/edk2/EmbeddedPkg/Library/PlatformHasAcpiLib/PlatformHasAcpiLib.inf [AARCH64]
+Building ... /root/optee/edk2/ShellPkg/Library/UefiShellNetwork1CommandsLib/UefiShellNetwork1CommandsLib.inf [AARCH64]
+Building ... /root/optee/edk2/ShellPkg/Library/UefiShellInstall1CommandsLib/UefiShellInstall1CommandsLib.inf [AARCH64]
+Building ... /root/optee/edk2/ShellPkg/Library/UefiShellDebug1CommandsLib/UefiShellDebug1CommandsLib.inf [AARCH64]
+Building ... /root/optee/edk2/ShellPkg/Library/UefiShellDriver1CommandsLib/UefiShellDriver1CommandsLib.inf [AARCH64]
+Building ... /root/optee/edk2/ShellPkg/Library/UefiShellLevel3CommandsLib/UefiShellLevel3CommandsLib.inf [AARCH64]
+Building ... /root/optee/edk2/ShellPkg/Library/UefiShellLevel1CommandsLib/UefiShellLevel1CommandsLib.inf [AARCH64]
+Building ... /root/optee/edk2/ShellPkg/Library/UefiShellLevel2CommandsLib/UefiShellLevel2CommandsLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/UefiApplicationEntryPoint/UefiApplicationEntryPoint.inf [AARCH64]
+Building ... /root/optee/edk2/ShellPkg/Library/UefiShellBcfgCommandLib/UefiShellBcfgCommandLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BaseIoLibIntrinsic/BaseIoLibIntrinsicArmVirt.inf [AARCH64]
+Building ... /root/optee/edk2/ShellPkg/Library/UefiShellCommandLib/UefiShellCommandLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/UefiBootManagerLib/UefiBootManagerLib.inf [AARCH64]
+Building ... /root/optee/edk2/ShellPkg/Library/UefiHandleParsingLib/UefiHandleParsingLib.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/Library/ArmVirtDxeHobLib/ArmVirtDxeHobLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/DxePerformanceLib/DxePerformanceLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/DxeServicesTableLib/DxeServicesTableLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BaseReportStatusCodeLibNull/BaseReportStatusCodeLibNull.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/BasePeCoffGetEntryPointLib/BasePeCoffGetEntryPointLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/DxeNetLib/DxeNetLib.inf [AARCH64]
+Building ... /root/optee/edk2/ShellPkg/Library/UefiShellLib/UefiShellLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdePkg/Library/UefiFileHandleLib/UefiFileHandleLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Library/UefiSortLib/UefiSortLib.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Disk/RamDiskDxe/RamDiskDxe.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/AcpiPlatformDxe/QemuFwCfgAcpiPlatformDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/PlatformHasAcpiDtDxe/PlatformHasAcpiDtDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Bus/Pci/EhciDxe/EhciDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Bus/Pci/UhciDxe/UhciDxe.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/VirtioGpuDxe/VirtioGpu.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/QemuRamfbDxe/QemuRamfbDxe.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/Virtio10Dxe/Virtio10.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Bus/Pci/PciHostBridgeDxe/PciHostBridgeDxe.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPkg/Drivers/ArmPciCpuIo2Dxe/ArmPciCpuIo2Dxe.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/SmbiosPlatformDxe/SmbiosPlatformDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Bus/Scsi/ScsiDiskDxe/ScsiDiskDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Bus/Scsi/ScsiBusDxe/ScsiBusDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Network/IScsiDxe/IScsiDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Network/UefiPxeBcDxe/UefiPxeBcDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Network/Tcp4Dxe/Tcp4Dxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Network/Udp4Dxe/Udp4Dxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Network/Mtftp4Dxe/Mtftp4Dxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Network/VlanConfigDxe/VlanConfigDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Network/MnpDxe/MnpDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Network/Ip4Dxe/Ip4Dxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Network/Dhcp4Dxe/Dhcp4Dxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Network/ArpDxe/ArpDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Application/UiApp/UiApp.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/BdsDxe/BdsDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/DisplayEngineDxe/DisplayEngineDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/VirtioRngDxe/VirtioRng.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/VirtioNetDxe/VirtioNet.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/VirtioScsiDxe/VirtioScsi.inf [AARCH64]
+Building ... /root/optee/edk2/OvmfPkg/VirtioBlkDxe/VirtioBlk.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/HighMemDxe/HighMemDxe.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/FdtClientDxe/FdtClientDxe.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/VirtioFdtDxe/VirtioFdtDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPlatformPkg/Drivers/NorFlashDxe/NorFlashDxe.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPkg/Drivers/TimerDxe/TimerDxe.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPkg/Drivers/ArmGic/ArmGicDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/SerialDxe/SerialDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf [AARCH64]
+Building ... /root/optee/edk2/EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf [AARCH64]
+Building ... /root/optee/edk2/EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/MonotonicCounterRuntimeDxe/MonotonicCounterRuntimeDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/FaultTolerantWriteDxe/FaultTolerantWriteDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf [AARCH64]
+Building ... /root/optee/edk2/ArmPkg/Drivers/CpuDxe/CpuDxe.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/PCD/Dxe/Pcd.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Core/Dxe/DxeMain.inf [AARCH64]
+Building ... /root/optee/edk2/ArmVirtPkg/PrePi/ArmVirtPrePiUniCoreRelocatable.inf [AARCH64]
+Building ... /root/optee/edk2/MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf [AARCH64]
+Building ... /root/optee/edk2/ShellPkg/Application/Shell/Shell.inf [AARCH64]
+Building ... /root/optee/edk2/ShellPkg/DynamicCommand/TftpDynamicCommand/TftpDynamicCommand.inf [AARCH64]
+
+- Done -
+Build end time: 22:46:54, Jun.08 2025
+Build total time: 00:00:09
+
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    BUILD_DOC
+    BUILD_DOCS
+    BUILD_EXAMPLE
+    BUILD_EXAMPLES
+    BUILD_TEST
+    BUILD_TESTING
+    BUILD_TESTS
+
+
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    BUILD_DOC
+    BUILD_DOCS
+    BUILD_EXAMPLE
+    BUILD_EXAMPLES
+    BUILD_SHARED_LIBS
+    BUILD_TEST
+    BUILD_TESTING
+    BUILD_TESTS
+    OPTEE_EXAMPLES_SDK
+
+
+acipher_ta.c: 在函数‘TA_OpenSessionEntryPoint’中:
+acipher_ta.c:101:46: 警告： unused parameter ‘param_types’ [-Wunused-parameter]
+ TEE_Result TA_OpenSessionEntryPoint(uint32_t param_types,
+                                     ~~~~~~~~~^~~~~~~~~~~
+acipher_ta.c: 在文件作用域：
+acipher_ta.c:139:12: 警告： ‘open_database’先前没有原型 [-Wmissing-prototypes]
+ TEE_Result open_database(void *session){
+            ^~~~~~~~~~~~~
+acipher_ta.c: 在函数‘open_database’中:
+acipher_ta.c:223:1: 警告： 在有返回值的函数中，控制流程到达函数尾 [-Wreturn-type]
+ }
+ ^
+CMake Warning (dev) in CMakeLists.txt:
+  No cmake_minimum_required command is present.  A line of code such as
+
+    cmake_minimum_required(VERSION 3.8)
+
+  should be added at the top of the file.  The version specified may be lower
+  if you wish to support older CMake versions for this project.  For more
+  information run "cmake --help-policy CMP0000".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    BUILD_DOC
+    BUILD_DOCS
+    BUILD_EXAMPLE
+    BUILD_EXAMPLES
+    BUILD_SHARED_LIBS
+    BUILD_TEST
+    BUILD_TESTING
+    BUILD_TESTS
+
+
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    BUILD_DOC
+    BUILD_DOCS
+    BUILD_EXAMPLE
+    BUILD_EXAMPLES
+    BUILD_TEST
+    BUILD_TESTING
+    BUILD_TESTS
+
+
+Warning: target file "./lib/libnss_files-2.28.so" is touched by more than one package: [u'glibc', u'optee_client']
+Warning: target file "./usr/lib/libstdc++.so.6.0.25" is touched by more than one package: [u'toolchain-buildroot', u'optee_client']
+Warning: target file "./usr/bin/optee_example_hello_world" is touched by more than one package: [u'optee_client', u'optee_examples']
+Warning: target file "./lib/libatomic.so.1.2.0" is touched by more than one package: [u'toolchain-buildroot', u'optee_client']
+Warning: target file "./lib/libresolv-2.28.so" is touched by more than one package: [u'glibc', u'optee_client']
+Warning: target file "./lib/ld-2.28.so" is touched by more than one package: [u'glibc', u'optee_client']
+Warning: target file "./usr/bin/optee_example_rb_hello_world" is touched by more than one package: [u'optee_client', u'optee_examples']
+Warning: target file "./usr/lib/libssl.so.1.1" is touched by more than one package: [u'libopenssl', u'optee_client']
+Warning: target file "./lib/libutil-2.28.so" is touched by more than one package: [u'glibc', u'optee_client']
+Warning: target file "./usr/lib/libinproctrace.so" is touched by more than one package: [u'gdb', u'optee_client']
+Warning: target file "./usr/bin/optee_example_secure_storage" is touched by more than one package: [u'optee_client', u'optee_examples']
+Warning: target file "./lib/libgcc_s.so.1" is touched by more than one package: [u'toolchain-buildroot', u'optee_client']
+Warning: target file "./usr/bin/optee_example_acipher" is touched by more than one package: [u'optee_client', u'optee_examples']
+Warning: target file "./lib/libanl-2.28.so" is touched by more than one package: [u'glibc', u'optee_client']
+Warning: target file "./etc/shadow" is touched by more than one package: [u'skeleton-init-common', u'optee_client']
+Warning: target file "./lib/libm-2.28.so" is touched by more than one package: [u'glibc', u'optee_client']
+Warning: target file "./lib/libc-2.28.so" is touched by more than one package: [u'glibc', u'optee_client']
+Warning: target file "./usr/lib/libz.so.1.2.11" is touched by more than one package: [u'libzlib', u'optee_client']
+Warning: target file "./usr/bin/xtest" is touched by more than one package: [u'optee_client', u'optee_test']
+Warning: target file "./usr/bin/optee_example_rb_acipher" is touched by more than one package: [u'optee_client', u'optee_examples']
+Warning: target file "./lib/libnss_dns-2.28.so" is touched by more than one package: [u'glibc', u'optee_client']
+Warning: target file "./etc/inittab" is touched by more than one package: [u'busybox', u'optee_client']
+Warning: target file "./usr/bin/optee_example_random" is touched by more than one package: [u'optee_client', u'optee_examples']
+Warning: target file "./usr/bin/mmc" is touched by more than one package: [u'mmc-utils', u'optee_client']
+Warning: target file "./usr/lib/libcrypto.so.1.1" is touched by more than one package: [u'libopenssl', u'optee_client']
+Warning: target file "./lib/librt-2.28.so" is touched by more than one package: [u'glibc', u'optee_client']
+Warning: target file "./usr/bin/strace" is touched by more than one package: [u'strace', u'optee_client']
+Warning: target file "./lib/libcrypt-2.28.so" is touched by more than one package: [u'glibc', u'optee_client']
+Warning: target file "./usr/bin/gdbserver" is touched by more than one package: [u'gdb', u'optee_client']
+Warning: target file "./usr/bin/optee_example_hotp" is touched by more than one package: [u'optee_client', u'optee_examples']
+Warning: target file "./bin/busybox" is touched by more than one package: [u'busybox', u'optee_client']
+Warning: target file "./etc/hosts" is touched by more than one package: [u'skeleton-init-common', u'optee_client']
+Warning: target file "./usr/bin/optee_example_aes" is touched by more than one package: [u'optee_client', u'optee_examples']
+Warning: target file "./lib/libdl-2.28.so" is touched by more than one package: [u'glibc', u'optee_client']
+Warning: target file "./lib/libthread_db-1.0.so" is touched by more than one package: [u'glibc', u'optee_client']
+Warning: target file "./lib/libpthread-2.28.so" is touched by more than one package: [u'glibc', u'optee_client']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/langhooks.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gstab.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./libexec/gcc/aarch64-buildroot-linux-gnu/8.2.0/install-tools/fixinc.sh" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/fr/LC_MESSAGES/bfd.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include/arm_acle.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/attribs.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/params-options.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/hr/LC_MESSAGES/bfd.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./bin/aarch64-linux-nm" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-gcov-tool" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/omp-general.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-ld.bfd" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/mem-stats-traits.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/lra.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/aarch64/aarch64-elf.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/asan.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-buildroot-linux-gnu-gcov" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/defaults.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gimple-ssa.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ipa-chkp.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/man/man1/aarch64-buildroot-linux-gnu-gcov-dump.1" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-address.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/da/LC_MESSAGES/opcodes.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/plugin-version.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/streamer-hooks.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/regset.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/internal-fn.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ipa-fnsummary.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-strlen.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/xcoffout.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/resource.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tm.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/limitx.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gimplify.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/aarch64/aarch64-cores.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/gtype.state" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/aarch64/aarch64.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ada/gcc-interface/ada-tree.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/arm/aarch-common-protos.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gimple-pretty-print.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/gnu-user.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/all-tree.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/cfg.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/rtl-iter.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ipa-prop.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/real.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-gcc-8.2.0.br_real" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/install-tools/include/README" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/internal-fn.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/incpath.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/insn-modes-inline.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/c-family/c-pragma.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/id/LC_MESSAGES/bfd.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/bb-reorder.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/auto-host.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/splay-tree.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/rw/LC_MESSAGES/bfd.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./share/man/man7/fsf-funding.7" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/regs.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-live.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/poly-int-types.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/libfuncs.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/libgcc.a" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/dfp.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/info/dir" is touched by more than one package: [u'host-tar', u'host-lzip', u'host-m4', u'host-bison', u'host-gawk', u'host-binutils', u'host-gmp', u'host-mpfr', u'host-mpc', u'host-gcc-final', u'host-gdb', u'host-autoconf', u'host-automake']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/hsa-builtins.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ifcvt.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-size" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/vi/LC_MESSAGES/opcodes.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./bin/aarch64-linux-gcc-ar" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-outof-ssa.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/prefix.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-propagate.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/glimits.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/tr/LC_MESSAGES/bfd.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./share/locale/pt_BR/LC_MESSAGES/opcodes.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/vec.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-ranlib" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include/stdfix.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/ru/LC_MESSAGES/bfd.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include/stdint-gcc.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/cp/cp-tree.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/coverage.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/id/LC_MESSAGES/opcodes.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include/varargs.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/memory-block.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/zh_CN/LC_MESSAGES/bfd.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/double-int.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-cpp.br_real" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-buildroot-linux-gnu-gcc-ar" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/elfos.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gimple.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/vi/LC_MESSAGES/bfd.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/timevar.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/input.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gimple-ssa-warn-restrict.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gtm-builtins.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/cfgloopmanip.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-pretty-print.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include/float.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-phinodes.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-dump.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/fold-const-call.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./libexec/gcc/aarch64-buildroot-linux-gnu/8.2.0/lto-wrapper" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-diagnostic.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-coalesce.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-strings" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/highlev-plugin-common.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-threadedge.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/fold-const.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/chkp-builtins.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/loop-unroll.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/cfgcleanup.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/cfganal.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/omp-grid.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/graph.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ipa-param-manipulation.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/optabs.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/int-vector-builder.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gimple-builder.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/insn-notes.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/toolchain-wrapper" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/hosthooks-def.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-loop-niter.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ipa-icf.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gcov-io.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/hw-doloop.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./libexec/gcc/aarch64-buildroot-linux-gnu/8.2.0/install-tools/fixincl" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/edit-context.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/hash-set.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ipa-icf-gimple.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/line-map.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/target-insns.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gsyms.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/hsa-brig-format.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-operands.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./libexec/gcc/aarch64-buildroot-linux-gnu/8.2.0/collect2" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/glibc-stdint.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./libexec/gcc/aarch64-buildroot-linux-gnu/8.2.0/install-tools/mkinstalldirs" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/c-tree.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./libexec/gcc/aarch64-buildroot-linux-gnu/8.2.0/liblto_plugin.la" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tm-preds.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/diagnostic.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/file-find.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-addr2line" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-gcov" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/crtbeginT.o" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include/stdnoreturn.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/es/LC_MESSAGES/bfd.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-cfgcleanup.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/cif-code.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/selftest.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gimple-expr.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/genrtl.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/regrename.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/signop.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/hash-traits.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/inchash.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/man/man1/aarch64-buildroot-linux-gnu-gcc.1" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include/iso646.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/reload.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/typeclass.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/selftest-rtl.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/rtl-error.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/sv/LC_MESSAGES/opcodes.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/except.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/omp-offload.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gimple-match.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/aarch64/biarchlp64.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/hashtab.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gimplify-me.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/aarch64/aarch64-tuning-flags.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/backend.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/lcm.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/fixed-value.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/crtendS.o" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/dominance.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ggc.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-c++filt" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/pretty-print.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/collect-utils.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gimple-low.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/cppbuiltin.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ipa-inline.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/hash-map.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gimple-ssa-evrp-analyze.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/hard-reg-set.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ipa-predicate.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include-fixed/README" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/cppdefault.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/b-header-vars" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/typed-splay-tree.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/man/man7/gpl.7" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/diagnostic.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/plugin.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/dwarf2asm.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-buildroot-linux-gnu-gcc-ranlib" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include/stdalign.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/graphds.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-buildroot-linux-gnu-gcc-nm" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/aarch64/aarch64-linux.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/crtbeginS.o" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/treestruct.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/vector-builder.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/hsa-common.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/dbgcnt.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ira-int.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include/arm_neon.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gcse-common.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/bitmap.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/dbxelf.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/expr.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/context.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/builtin-attrs.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-inline.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/dbgcnt.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/install-tools/mkheaders.conf" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/cfghooks.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/safe-ctype.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gensupport.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/conditions.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/diagnostic-color.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/sbitmap.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/libgcov.a" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/insn-modes.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/sync-builtins.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/valtrack.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-alias.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/plugin-api.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/rtl.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/ro/LC_MESSAGES/bfd.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/c-family/c-objc.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/color-macros.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/ga/LC_MESSAGES/opcodes.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./share/locale/sv/LC_MESSAGES/bfd.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssanames.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/target.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/cfgbuild.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/target-globals.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/hwint.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/realmpfr.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/md5.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/wide-int-bitmask.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-if-conv.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/params.list" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/version.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ipa-utils.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/filenames.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-data-ref.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/info/bfd.info" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/statistics.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gengtype.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-affine.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/es/LC_MESSAGES/opcodes.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/pass-instances.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-buildroot-linux-gnu-cpp" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-scalar-evolution.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/cfgloop.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./libexec/gcc/aarch64-buildroot-linux-gnu/8.2.0/install-tools/mkheaders" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-cfg.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gcov-counter.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-check.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/da/LC_MESSAGES/bfd.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include/arm_fp16.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/builtin-types.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/basic-block.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/fr/LC_MESSAGES/opcodes.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-vectorizer.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/install-tools/macro_list" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./libexec/gcc/aarch64-buildroot-linux-gnu/8.2.0/liblto_plugin.so.0" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/obstack.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/vmsdbg.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/hash-map-traits.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/aarch64/aarch64-fusion-pairs.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/mode-classes.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/vtable-verify.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/bversion.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-buildroot-linux-gnu-gcc-8.2.0.br_real" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gimple-iterator.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include/stdarg.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/nl/LC_MESSAGES/opcodes.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/substring-locations.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/crtend.o" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/varasm.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/rtl.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/trans-mem.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-chrec.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/aarch64/aarch64-protos.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/graphite.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/selftest-diagnostic.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/uk/LC_MESSAGES/bfd.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./bin/aarch64-linux-gcc-ranlib" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/flag-types.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/initfini-array.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/rtlhooks-def.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/c-family/c-common.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/system.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/pass_manager.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/hash-table.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-dom.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/profile-count.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/auto-profile.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/generic-match.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tm_p.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-as" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-ar" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tracer.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/c-family/c-common.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/passes.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/stab.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include-fixed/limits.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/regcprop.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/predict.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gimple.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/hooks.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/dwarf2out.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-object-size.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ssa.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-scopedtables.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/spellcheck-tree.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-hash-traits.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/file-prefix-map.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/shrink-wrap.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/ja/LC_MESSAGES/bfd.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include/stdint.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/omp-low.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include/stddef.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/cselib.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/poly-int.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/coretypes.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/it/LC_MESSAGES/opcodes.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/read-rtl-function.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-objcopy" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ubsan.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/omp-expand.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./libexec/gcc/aarch64-buildroot-linux-gnu/8.2.0/liblto_plugin.so" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/profile.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/stmt.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/convert.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/linux.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/sr/LC_MESSAGES/opcodes.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/params.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-stdarg.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gcc-plugin.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/options.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/is-a.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/ro/LC_MESSAGES/opcodes.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/builtins.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/symtab.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include-fixed/syslimits.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ipa-ref.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/params-list.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-vector-builder.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/lto-section-names.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/sel-sched-ir.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/lto-compress.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/explow.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-core.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/install-tools/include/limits.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/cfgexpand.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/configargs.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-objdump" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/reg-notes.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ira.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gcc-rich-location.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/man/man1/aarch64-buildroot-linux-gnu-gcov-tool.1" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/calls.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gimple-fold.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./libexec/gcc/aarch64-buildroot-linux-gnu/8.2.0/cc1" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-streamer.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/fibonacci_heap.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/timevar.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ssa-iterators.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-buildroot-linux-gnu-gcov-tool" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/insn-constants.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-gcc.br_real" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-dce.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/expmed.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/libiberty.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/rtx-vector-builder.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/vec-perm-indices.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/print-tree.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/lto-streamer.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-eh.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gcc.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/lra-int.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gsstruct.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gtype-desc.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/insn-flags.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/aarch64/aarch64-arches.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gimple-streamer.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ddg.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/errors.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include/gcov.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/print-rtl.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/cfg-flags.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/insn-addr.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/rtl-chkp.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/data-streamer.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/install-tools/fixinc_list" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/alloc-pool.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/sel-sched.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-parloops.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-gcc" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/de/LC_MESSAGES/opcodes.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-vrp.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/function.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/lower-subreg.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/opts.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-gcov-dump" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/man/man1/aarch64-buildroot-linux-gnu-cpp.1" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tsan.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gcc-symtab.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/hosthooks.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/toplev.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/stringpool.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ipa-reference.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./libexec/gcc/aarch64-buildroot-linux-gnu/8.2.0/lto1" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/target-def.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/fi/LC_MESSAGES/opcodes.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/objc/objc-tree.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-gcc-8.2.0" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-gcc-nm" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-buildroot-linux-gnu-cpp.br_real" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-dfa.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/plugin.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/run-rtl-passes.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/zh_CN/LC_MESSAGES/opcodes.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/insn-codes.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/sr/LC_MESSAGES/bfd.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/domwalk.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/recog.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-cpp" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/flags.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/brig-builtins.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ansidecl.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/man/man7/gfdl.7" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/crtfastmath.o" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/value-prof.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/addresses.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/tr/LC_MESSAGES/opcodes.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/intl.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/wide-int.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/cgraph.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-into-ssa.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gimple-predict.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-nested.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/builtins.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ccmp.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/sanitizer.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/uk/LC_MESSAGES/opcodes.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/collect2-aix.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/xcoff.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/install-tools/gsyslimits.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/linux-protos.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/man/man1/aarch64-buildroot-linux-gnu-gcov.1" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/output.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/ggc-internal.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-strip" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/debug.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/collect2.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/c-family/c-pretty-print.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/symbol-summary.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gcse.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/sreal.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-loop-manip.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-gprof" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include/stdatomic.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/dojump.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include/unwind.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-buildroot-linux-gnu-gcc.br_real" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gimple-walk.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-buildroot-linux-gnu-gcc-8.2.0" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/params.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/include/stdbool.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-iterator.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/cfgrtl.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/diagnostic-core.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/df.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-chkp.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/target.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/wide-int-print.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-loop-ivopts.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-sccvn.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-buildroot-linux-gnu-gcov-dump" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/man/man8/fsck.8" is touched by more than one package: [u'host-util-linux', u'host-e2fsprogs']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/machmode.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/cpplib.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/optabs-libfuncs.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/stor-layout.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-readelf" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/omp-simd-clone.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/limity.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./sbin/fsck" is touched by more than one package: [u'host-util-linux', u'host-e2fsprogs']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/read-md.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-pass.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./libexec/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/gengtype" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/crtbegin.o" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-ter.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/et-forest.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./share/locale/fi/LC_MESSAGES/bfd.mo" is touched by more than one package: [u'host-binutils', u'host-gdb']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/target-hooks-macros.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/machmode.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-hasher.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/sel-sched-dump.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/rtlhash.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/gsyslimits.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/sese.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/opts-diagnostic.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/optabs-query.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/alias.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/dce.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/vr-values.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/config/aarch64/aarch64-opts.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-buildroot-linux-gnu-gcc" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/predict.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/memmodel.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/mem-stats.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/optabs.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-loop.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-ccp.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/emit-rtl.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tsystem.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/langhooks-def.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/tree-ssa-threadupdate.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/omp-builtins.def" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/sparseset.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/spellcheck.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/optabs-tree.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./libexec/gcc/aarch64-buildroot-linux-gnu/8.2.0/liblto_plugin.so.0.0.0" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-ld" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/targhooks.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/params-enum.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/sched-int.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./bin/aarch64-linux-elfedit" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/dbxout.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+Warning: host file "./lib/gcc/aarch64-buildroot-linux-gnu/8.2.0/plugin/include/dumpfile.h" is touched by more than one package: [u'host-gcc-initial', u'host-gcc-final']
+grep: ./.config: 没有那个文件或目录
+grep: ./.config: 没有那个文件或目录
+find: ‘/optee/out-br/target/usr/libexec/’: 没有那个文件或目录
+/usr/bin/xterm: cannot load font "-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1"
+/usr/bin/xterm: cannot load font "-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1"
+qemu-system-aarch64: terminating on signal 2
+make: *** [Makefile:186: run] 中断

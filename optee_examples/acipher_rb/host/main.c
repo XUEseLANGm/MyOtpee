@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 			" data_dec <input_file> <output_file>\n"
 			" data_read <key_id>\n"
 			" data_del <key_id>\n"
-			" key_gen <key_id> <key_type> <key_size>\n"
+			" key_gen <key_type> <key_size>\n"
 			" key_import <key_id> <key_file>\n"
 			" key_export <key_id> <key_file>", argv[0]);
 	}
@@ -64,10 +64,15 @@ int main(int argc, char *argv[])
 			errx(1, "Usage: %s rb_acipher %s <key_id>", argv[0], action);
 		}
 	} else if (strcmp(action, "key_gen") == 0) {
-		if (argc != 2) {
-			errx(1, "Usage: %s key_gen", argv[0]);
+		if (argc != 3) {
+			errx(1, "Usage: %s key_gen <key_type>", argv[0]);
 		}
-
+		op.paramTypes = TEEC_PARAM_TYPES(TEEC_VALUE_INPUT,
+							TEEC_NONE,
+							TEEC_NONE,
+							TEEC_NONE);
+		op.params[0].value.a = strtoul(sub_action, NULL, 10);
+		printf("Key type: %u\n", op.params[0].value.a);
 		res = TEEC_InvokeCommand(&sess, TA_ACIPHER_CMD_GEN_KEY, &op, &err_origin);
 
 	} else if (strcmp(action, "key_import") == 0 || strcmp(action, "key_export") == 0) {

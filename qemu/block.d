@@ -1,9 +1,9 @@
-block.o: block.c /optee/qemu/include/qemu/osdep.h \
- /optee/qemu/./config-host.h /optee/qemu/include/exec/poison.h \
- /optee/qemu/include/qemu/compiler.h \
- /optee/qemu/include/sysemu/os-posix.h /optee/qemu/include/glib-compat.h \
- /usr/include/glib-2.0/glib.h /usr/include/glib-2.0/glib/galloca.h \
- /usr/include/glib-2.0/glib/gtypes.h \
+block.o: block.c /root/optee/qemu/include/qemu/osdep.h \
+ /optee/qemu/./config-host.h /root/optee/qemu/include/exec/poison.h \
+ /root/optee/qemu/include/qemu/compiler.h \
+ /root/optee/qemu/include/sysemu/os-posix.h \
+ /root/optee/qemu/include/glib-compat.h /usr/include/glib-2.0/glib.h \
+ /usr/include/glib-2.0/glib/galloca.h /usr/include/glib-2.0/glib/gtypes.h \
  /usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h \
  /usr/include/glib-2.0/glib/gmacros.h \
  /usr/include/glib-2.0/glib/gversionmacros.h \
@@ -70,84 +70,111 @@ block.o: block.c /optee/qemu/include/qemu/osdep.h \
  /usr/include/glib-2.0/glib/deprecated/grel.h \
  /usr/include/glib-2.0/glib/deprecated/gthread.h \
  /usr/include/glib-2.0/glib/glib-autocleanups.h \
- /optee/qemu/include/qemu/typedefs.h block/trace.h \
- /optee/qemu/include/qemu-common.h /optee/qemu/include/qemu/fprintf-fn.h \
- /optee/qemu/include/qemu/module.h /optee/qemu/./trace/control.h \
+ /root/optee/qemu/include/qemu/typedefs.h block/trace.h \
+ /root/optee/qemu/include/qemu-common.h \
+ /root/optee/qemu/include/qemu/fprintf-fn.h \
+ /root/optee/qemu/include/qemu/module.h /optee/qemu/./trace/control.h \
  /optee/qemu/./trace/event-internal.h \
- /optee/qemu/./trace/control-internal.h /optee/qemu/include/qom/cpu.h \
- /optee/qemu/include/hw/qdev-core.h /optee/qemu/include/qemu/queue.h \
- /optee/qemu/include/qemu/atomic.h /optee/qemu/include/qemu/bitmap.h \
- /optee/qemu/include/qemu/bitops.h /optee/qemu/include/qemu/host-utils.h \
- /optee/qemu/include/qemu/bswap.h \
- /optee/qemu/include/fpu/softfloat-types.h \
- /optee/qemu/include/qemu/atomic.h /optee/qemu/include/qom/object.h \
- /optee/qemu/./qapi/qapi-builtin-types.h /optee/qemu/include/qapi/util.h \
- /optee/qemu/include/hw/irq.h /optee/qemu/include/hw/hotplug.h \
- /optee/qemu/include/disas/bfd.h /optee/qemu/include/qemu/fprintf-fn.h \
- /optee/qemu/include/exec/hwaddr.h /optee/qemu/include/exec/memattrs.h \
+ /optee/qemu/./trace/control-internal.h \
+ /root/optee/qemu/include/qom/cpu.h \
+ /root/optee/qemu/include/hw/qdev-core.h \
+ /root/optee/qemu/include/qemu/queue.h \
+ /root/optee/qemu/include/qemu/atomic.h \
+ /root/optee/qemu/include/qemu/bitmap.h \
+ /root/optee/qemu/include/qemu/bitops.h \
+ /root/optee/qemu/include/qemu/host-utils.h \
+ /root/optee/qemu/include/qemu/bswap.h \
+ /root/optee/qemu/include/fpu/softfloat-types.h \
+ /root/optee/qemu/include/qemu/atomic.h \
+ /root/optee/qemu/include/qom/object.h \
+ /optee/qemu/./qapi/qapi-builtin-types.h \
+ /root/optee/qemu/include/qapi/util.h /root/optee/qemu/include/hw/irq.h \
+ /root/optee/qemu/include/hw/hotplug.h \
+ /root/optee/qemu/include/disas/bfd.h \
+ /root/optee/qemu/include/qemu/fprintf-fn.h \
+ /root/optee/qemu/include/exec/hwaddr.h \
+ /root/optee/qemu/include/exec/memattrs.h \
  /optee/qemu/./qapi/qapi-types-run-state.h \
- /optee/qemu/include/qemu/rcu_queue.h /optee/qemu/include/qemu/thread.h \
- /optee/qemu/include/qemu/processor.h \
- /optee/qemu/include/qemu/thread-posix.h /optee/qemu/include/qemu/qsp.h \
- /optee/qemu/include/qemu/log-for-trace.h \
- /optee/qemu/include/block/block_int.h \
- /optee/qemu/include/block/accounting.h \
- /optee/qemu/include/qemu/timed-average.h \
- /optee/qemu/include/qemu/timer.h /optee/qemu/include/qemu/notify.h \
- /optee/qemu/include/qemu/host-utils.h /optee/qemu/include/block/block.h \
- /optee/qemu/include/block/aio.h \
- /optee/qemu/include/qemu/event_notifier.h \
+ /root/optee/qemu/include/qemu/rcu_queue.h \
+ /root/optee/qemu/include/qemu/thread.h \
+ /root/optee/qemu/include/qemu/processor.h \
+ /root/optee/qemu/include/qemu/thread-posix.h \
+ /root/optee/qemu/include/qemu/qsp.h \
+ /root/optee/qemu/include/qemu/log-for-trace.h \
+ /root/optee/qemu/include/block/block_int.h \
+ /root/optee/qemu/include/block/accounting.h \
+ /root/optee/qemu/include/qemu/timed-average.h \
+ /root/optee/qemu/include/qemu/timer.h \
+ /root/optee/qemu/include/qemu/notify.h \
+ /root/optee/qemu/include/qemu/host-utils.h \
+ /root/optee/qemu/include/block/block.h \
+ /root/optee/qemu/include/block/aio.h \
+ /root/optee/qemu/include/qemu/event_notifier.h \
  /optee/qemu/./qapi/qapi-types-block-core.h \
  /optee/qemu/./qapi/qapi-types-common.h \
  /optee/qemu/./qapi/qapi-types-crypto.h \
  /optee/qemu/./qapi/qapi-types-job.h \
  /optee/qemu/./qapi/qapi-types-sockets.h \
- /optee/qemu/include/block/aio-wait.h /optee/qemu/include/qemu/iov.h \
- /optee/qemu/include/qemu/coroutine.h /optee/qemu/include/qemu/lockable.h \
- /optee/qemu/include/block/dirty-bitmap.h \
- /optee/qemu/include/qemu/hbitmap.h /optee/qemu/include/qemu/bitops.h \
- /optee/qemu/include/block/blockjob.h /optee/qemu/include/qemu/job.h \
- /optee/qemu/include/qemu/ratelimit.h /optee/qemu/include/qemu/stats64.h \
- /optee/qemu/include/block/snapshot.h \
- /optee/qemu/include/qemu/main-loop.h /optee/qemu/include/qemu/throttle.h \
- /optee/qemu/include/block/nbd.h /optee/qemu/./qapi/qapi-types-block.h \
+ /root/optee/qemu/include/block/aio-wait.h \
+ /root/optee/qemu/include/qemu/iov.h \
+ /root/optee/qemu/include/qemu/coroutine.h \
+ /root/optee/qemu/include/qemu/lockable.h \
+ /root/optee/qemu/include/block/dirty-bitmap.h \
+ /root/optee/qemu/include/qemu/hbitmap.h \
+ /root/optee/qemu/include/qemu/bitops.h \
+ /root/optee/qemu/include/block/blockjob.h \
+ /root/optee/qemu/include/qemu/job.h \
+ /root/optee/qemu/include/qemu/ratelimit.h \
+ /root/optee/qemu/include/qemu/stats64.h \
+ /root/optee/qemu/include/block/snapshot.h \
+ /root/optee/qemu/include/qemu/main-loop.h \
+ /root/optee/qemu/include/qemu/throttle.h \
+ /root/optee/qemu/include/block/nbd.h \
+ /optee/qemu/./qapi/qapi-types-block.h \
  /optee/qemu/./qapi/qapi-types-block-core.h \
- /optee/qemu/include/io/channel-socket.h /optee/qemu/include/io/channel.h \
- /optee/qemu/include/io/task.h /optee/qemu/include/qemu/sockets.h \
+ /root/optee/qemu/include/io/channel-socket.h \
+ /root/optee/qemu/include/io/channel.h /root/optee/qemu/include/io/task.h \
+ /root/optee/qemu/include/qemu/sockets.h \
  /optee/qemu/./qapi/qapi-types-sockets.h \
- /optee/qemu/include/crypto/tlscreds.h \
- /optee/qemu/./qapi/qapi-types-crypto.h /optee/qemu/include/block/qdict.h \
- /optee/qemu/include/qapi/qmp/qdict.h \
- /optee/qemu/include/qapi/qmp/qobject.h \
- /optee/qemu/include/qemu/error-report.h module_block.h \
- /optee/qemu/include/qemu/module.h /optee/qemu/include/qapi/error.h \
+ /root/optee/qemu/include/crypto/tlscreds.h \
+ /optee/qemu/./qapi/qapi-types-crypto.h \
+ /root/optee/qemu/include/block/qdict.h \
+ /root/optee/qemu/include/qapi/qmp/qdict.h \
+ /root/optee/qemu/include/qapi/qmp/qobject.h \
+ /root/optee/qemu/include/qemu/error-report.h module_block.h \
+ /root/optee/qemu/include/qemu/module.h \
+ /root/optee/qemu/include/qapi/error.h \
  /optee/qemu/./qapi/qapi-types-common.h \
- /optee/qemu/include/qapi/qmp/qjson.h \
- /optee/qemu/include/qapi/qmp/qnull.h \
- /optee/qemu/include/qapi/qmp/qstring.h \
- /optee/qemu/include/qapi/qobject-output-visitor.h \
- /optee/qemu/include/qapi/visitor.h qapi/qapi-visit-block-core.h \
+ /root/optee/qemu/include/qapi/qmp/qjson.h \
+ /root/optee/qemu/include/qapi/qmp/qnull.h \
+ /root/optee/qemu/include/qapi/qmp/qstring.h \
+ /root/optee/qemu/include/qapi/qobject-output-visitor.h \
+ /root/optee/qemu/include/qapi/visitor.h qapi/qapi-visit-block-core.h \
  /optee/qemu/./qapi/qapi-builtin-visit.h qapi/qapi-types-block-core.h \
  qapi/qapi-visit-common.h qapi/qapi-types-common.h \
  qapi/qapi-visit-crypto.h qapi/qapi-types-crypto.h qapi/qapi-visit-job.h \
  qapi/qapi-types-job.h qapi/qapi-visit-sockets.h \
- qapi/qapi-types-sockets.h /optee/qemu/include/sysemu/block-backend.h \
- /optee/qemu/include/block/throttle-groups.h \
- /optee/qemu/include/sysemu/sysemu.h /optee/qemu/include/qemu/uuid.h \
- /optee/qemu/include/qemu/option.h /optee/qemu/include/block/qapi.h \
- /optee/qemu/include/qemu/cutils.h /optee/qemu/include/qemu/id.h
+ qapi/qapi-types-sockets.h \
+ /root/optee/qemu/include/sysemu/block-backend.h \
+ /root/optee/qemu/include/block/throttle-groups.h \
+ /root/optee/qemu/include/sysemu/sysemu.h \
+ /root/optee/qemu/include/qemu/uuid.h \
+ /root/optee/qemu/include/qemu/option.h \
+ /root/optee/qemu/include/block/qapi.h \
+ /root/optee/qemu/include/qemu/cutils.h \
+ /root/optee/qemu/include/qemu/id.h
 
-/optee/qemu/include/qemu/osdep.h:
+/root/optee/qemu/include/qemu/osdep.h:
 
 /optee/qemu/./config-host.h:
 
-/optee/qemu/include/exec/poison.h:
+/root/optee/qemu/include/exec/poison.h:
 
-/optee/qemu/include/qemu/compiler.h:
+/root/optee/qemu/include/qemu/compiler.h:
 
-/optee/qemu/include/sysemu/os-posix.h:
+/root/optee/qemu/include/sysemu/os-posix.h:
 
-/optee/qemu/include/glib-compat.h:
+/root/optee/qemu/include/glib-compat.h:
 
 /usr/include/glib-2.0/glib.h:
 
@@ -315,15 +342,15 @@ block.o: block.c /optee/qemu/include/qemu/osdep.h \
 
 /usr/include/glib-2.0/glib/glib-autocleanups.h:
 
-/optee/qemu/include/qemu/typedefs.h:
+/root/optee/qemu/include/qemu/typedefs.h:
 
 block/trace.h:
 
-/optee/qemu/include/qemu-common.h:
+/root/optee/qemu/include/qemu-common.h:
 
-/optee/qemu/include/qemu/fprintf-fn.h:
+/root/optee/qemu/include/qemu/fprintf-fn.h:
 
-/optee/qemu/include/qemu/module.h:
+/root/optee/qemu/include/qemu/module.h:
 
 /optee/qemu/./trace/control.h:
 
@@ -331,75 +358,75 @@ block/trace.h:
 
 /optee/qemu/./trace/control-internal.h:
 
-/optee/qemu/include/qom/cpu.h:
+/root/optee/qemu/include/qom/cpu.h:
 
-/optee/qemu/include/hw/qdev-core.h:
+/root/optee/qemu/include/hw/qdev-core.h:
 
-/optee/qemu/include/qemu/queue.h:
+/root/optee/qemu/include/qemu/queue.h:
 
-/optee/qemu/include/qemu/atomic.h:
+/root/optee/qemu/include/qemu/atomic.h:
 
-/optee/qemu/include/qemu/bitmap.h:
+/root/optee/qemu/include/qemu/bitmap.h:
 
-/optee/qemu/include/qemu/bitops.h:
+/root/optee/qemu/include/qemu/bitops.h:
 
-/optee/qemu/include/qemu/host-utils.h:
+/root/optee/qemu/include/qemu/host-utils.h:
 
-/optee/qemu/include/qemu/bswap.h:
+/root/optee/qemu/include/qemu/bswap.h:
 
-/optee/qemu/include/fpu/softfloat-types.h:
+/root/optee/qemu/include/fpu/softfloat-types.h:
 
-/optee/qemu/include/qemu/atomic.h:
+/root/optee/qemu/include/qemu/atomic.h:
 
-/optee/qemu/include/qom/object.h:
+/root/optee/qemu/include/qom/object.h:
 
 /optee/qemu/./qapi/qapi-builtin-types.h:
 
-/optee/qemu/include/qapi/util.h:
+/root/optee/qemu/include/qapi/util.h:
 
-/optee/qemu/include/hw/irq.h:
+/root/optee/qemu/include/hw/irq.h:
 
-/optee/qemu/include/hw/hotplug.h:
+/root/optee/qemu/include/hw/hotplug.h:
 
-/optee/qemu/include/disas/bfd.h:
+/root/optee/qemu/include/disas/bfd.h:
 
-/optee/qemu/include/qemu/fprintf-fn.h:
+/root/optee/qemu/include/qemu/fprintf-fn.h:
 
-/optee/qemu/include/exec/hwaddr.h:
+/root/optee/qemu/include/exec/hwaddr.h:
 
-/optee/qemu/include/exec/memattrs.h:
+/root/optee/qemu/include/exec/memattrs.h:
 
 /optee/qemu/./qapi/qapi-types-run-state.h:
 
-/optee/qemu/include/qemu/rcu_queue.h:
+/root/optee/qemu/include/qemu/rcu_queue.h:
 
-/optee/qemu/include/qemu/thread.h:
+/root/optee/qemu/include/qemu/thread.h:
 
-/optee/qemu/include/qemu/processor.h:
+/root/optee/qemu/include/qemu/processor.h:
 
-/optee/qemu/include/qemu/thread-posix.h:
+/root/optee/qemu/include/qemu/thread-posix.h:
 
-/optee/qemu/include/qemu/qsp.h:
+/root/optee/qemu/include/qemu/qsp.h:
 
-/optee/qemu/include/qemu/log-for-trace.h:
+/root/optee/qemu/include/qemu/log-for-trace.h:
 
-/optee/qemu/include/block/block_int.h:
+/root/optee/qemu/include/block/block_int.h:
 
-/optee/qemu/include/block/accounting.h:
+/root/optee/qemu/include/block/accounting.h:
 
-/optee/qemu/include/qemu/timed-average.h:
+/root/optee/qemu/include/qemu/timed-average.h:
 
-/optee/qemu/include/qemu/timer.h:
+/root/optee/qemu/include/qemu/timer.h:
 
-/optee/qemu/include/qemu/notify.h:
+/root/optee/qemu/include/qemu/notify.h:
 
-/optee/qemu/include/qemu/host-utils.h:
+/root/optee/qemu/include/qemu/host-utils.h:
 
-/optee/qemu/include/block/block.h:
+/root/optee/qemu/include/block/block.h:
 
-/optee/qemu/include/block/aio.h:
+/root/optee/qemu/include/block/aio.h:
 
-/optee/qemu/include/qemu/event_notifier.h:
+/root/optee/qemu/include/qemu/event_notifier.h:
 
 /optee/qemu/./qapi/qapi-types-block-core.h:
 
@@ -411,79 +438,79 @@ block/trace.h:
 
 /optee/qemu/./qapi/qapi-types-sockets.h:
 
-/optee/qemu/include/block/aio-wait.h:
+/root/optee/qemu/include/block/aio-wait.h:
 
-/optee/qemu/include/qemu/iov.h:
+/root/optee/qemu/include/qemu/iov.h:
 
-/optee/qemu/include/qemu/coroutine.h:
+/root/optee/qemu/include/qemu/coroutine.h:
 
-/optee/qemu/include/qemu/lockable.h:
+/root/optee/qemu/include/qemu/lockable.h:
 
-/optee/qemu/include/block/dirty-bitmap.h:
+/root/optee/qemu/include/block/dirty-bitmap.h:
 
-/optee/qemu/include/qemu/hbitmap.h:
+/root/optee/qemu/include/qemu/hbitmap.h:
 
-/optee/qemu/include/qemu/bitops.h:
+/root/optee/qemu/include/qemu/bitops.h:
 
-/optee/qemu/include/block/blockjob.h:
+/root/optee/qemu/include/block/blockjob.h:
 
-/optee/qemu/include/qemu/job.h:
+/root/optee/qemu/include/qemu/job.h:
 
-/optee/qemu/include/qemu/ratelimit.h:
+/root/optee/qemu/include/qemu/ratelimit.h:
 
-/optee/qemu/include/qemu/stats64.h:
+/root/optee/qemu/include/qemu/stats64.h:
 
-/optee/qemu/include/block/snapshot.h:
+/root/optee/qemu/include/block/snapshot.h:
 
-/optee/qemu/include/qemu/main-loop.h:
+/root/optee/qemu/include/qemu/main-loop.h:
 
-/optee/qemu/include/qemu/throttle.h:
+/root/optee/qemu/include/qemu/throttle.h:
 
-/optee/qemu/include/block/nbd.h:
+/root/optee/qemu/include/block/nbd.h:
 
 /optee/qemu/./qapi/qapi-types-block.h:
 
 /optee/qemu/./qapi/qapi-types-block-core.h:
 
-/optee/qemu/include/io/channel-socket.h:
+/root/optee/qemu/include/io/channel-socket.h:
 
-/optee/qemu/include/io/channel.h:
+/root/optee/qemu/include/io/channel.h:
 
-/optee/qemu/include/io/task.h:
+/root/optee/qemu/include/io/task.h:
 
-/optee/qemu/include/qemu/sockets.h:
+/root/optee/qemu/include/qemu/sockets.h:
 
 /optee/qemu/./qapi/qapi-types-sockets.h:
 
-/optee/qemu/include/crypto/tlscreds.h:
+/root/optee/qemu/include/crypto/tlscreds.h:
 
 /optee/qemu/./qapi/qapi-types-crypto.h:
 
-/optee/qemu/include/block/qdict.h:
+/root/optee/qemu/include/block/qdict.h:
 
-/optee/qemu/include/qapi/qmp/qdict.h:
+/root/optee/qemu/include/qapi/qmp/qdict.h:
 
-/optee/qemu/include/qapi/qmp/qobject.h:
+/root/optee/qemu/include/qapi/qmp/qobject.h:
 
-/optee/qemu/include/qemu/error-report.h:
+/root/optee/qemu/include/qemu/error-report.h:
 
 module_block.h:
 
-/optee/qemu/include/qemu/module.h:
+/root/optee/qemu/include/qemu/module.h:
 
-/optee/qemu/include/qapi/error.h:
+/root/optee/qemu/include/qapi/error.h:
 
 /optee/qemu/./qapi/qapi-types-common.h:
 
-/optee/qemu/include/qapi/qmp/qjson.h:
+/root/optee/qemu/include/qapi/qmp/qjson.h:
 
-/optee/qemu/include/qapi/qmp/qnull.h:
+/root/optee/qemu/include/qapi/qmp/qnull.h:
 
-/optee/qemu/include/qapi/qmp/qstring.h:
+/root/optee/qemu/include/qapi/qmp/qstring.h:
 
-/optee/qemu/include/qapi/qobject-output-visitor.h:
+/root/optee/qemu/include/qapi/qobject-output-visitor.h:
 
-/optee/qemu/include/qapi/visitor.h:
+/root/optee/qemu/include/qapi/visitor.h:
 
 qapi/qapi-visit-block-core.h:
 
@@ -507,18 +534,18 @@ qapi/qapi-visit-sockets.h:
 
 qapi/qapi-types-sockets.h:
 
-/optee/qemu/include/sysemu/block-backend.h:
+/root/optee/qemu/include/sysemu/block-backend.h:
 
-/optee/qemu/include/block/throttle-groups.h:
+/root/optee/qemu/include/block/throttle-groups.h:
 
-/optee/qemu/include/sysemu/sysemu.h:
+/root/optee/qemu/include/sysemu/sysemu.h:
 
-/optee/qemu/include/qemu/uuid.h:
+/root/optee/qemu/include/qemu/uuid.h:
 
-/optee/qemu/include/qemu/option.h:
+/root/optee/qemu/include/qemu/option.h:
 
-/optee/qemu/include/block/qapi.h:
+/root/optee/qemu/include/block/qapi.h:
 
-/optee/qemu/include/qemu/cutils.h:
+/root/optee/qemu/include/qemu/cutils.h:
 
-/optee/qemu/include/qemu/id.h:
+/root/optee/qemu/include/qemu/id.h:
