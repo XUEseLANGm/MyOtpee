@@ -9,27 +9,32 @@
 #include <tee_internal_api_extensions.h>
 #include <acipher_ta.h>
 #define TEE_TYPE_INVALID 0x00000000
+#define MAX_ALIAS_LENGTH 20
 #define MAX_KEYS 16
 
 struct acipher {
 	TEE_ObjectHandle key;
-	TEE_ObjectHandle db_handle;    
-    struct persistent_key_db *db_header; 
+	// TEE_ObjectHandle db_handle;    
+    // struct key_db *db_header; 
 };
 
-struct key_store {
-    const char *alias;  // 逻辑名称
-    uint32_t storage_id;   // 物理存储ID
+struct key_info {
+    char alias[MAX_ALIAS_LENGTH];	// 逻辑名称
+    uint32_t storage_id;	// 物理存储ID
     uint32_t key_type;
 	uint32_t key_size;
 };
 
-struct persistent_key_db {
-    uint32_t key_count;                   // 当前密钥数量
-    struct key_store entries[MAX_KEYS];   // 密钥条目
+struct key_db {
+    uint32_t key_count;	// 当前密钥数量
+    struct key_info keys[MAX_KEYS];	// 密钥条目
 };
 
-static uint32_t convert_key_type(uint32_t user_type) {
+TEE_ObjectHandle key_db_obj = NULL;
+struct key_db *key_datebase = NULL;
+// struct key_info keyinfo[MAX_KEYS];
+
+static uint32_t TA_Convert_Key_Type(uint32_t user_type) {
     switch(user_type) {
         case 1: return TEE_TYPE_RSA_KEYPAIR;   
         case 2: return TEE_TYPE_DSA_KEYPAIR;       
@@ -43,7 +48,7 @@ static uint32_t convert_key_type(uint32_t user_type) {
     }
 }
 
-void generate_random_suffix(char *buf, size_t len) {
+void TA_Generate_Random(char *buf, size_t len) {
 	uint8_t random_bytes[8]; 
     TEE_GenerateRandom(random_bytes, sizeof(random_bytes));
     
@@ -52,97 +57,289 @@ void generate_random_suffix(char *buf, size_t len) {
     }
 	buf[len - 1] = '\0';
 }
-TEE_Result add_key_to_db(struct acipher *state, const char *alias, uint32_t storage_id, 
+TEE_Result TA_Add_Key2db(struct key_info *keyinfo, char alias[MAX_ALIAS_LENGTH], uint32_t storage_id, 
                          uint32_t key_type, uint32_t key_size) {
-	if (state->db_header->key_count >= MAX_KEYS) {
+	
+	// 检查数据库是否为空
+	if (key_datebase == NULL) {
+        return TEE_ERROR_BAD_STATE;
+    }
+
+	// 检查数据库容量
+	if (key_datebase->key_count >= MAX_KEYS) {
 		return TEE_ERROR_OVERFLOW;
 	}
 
-    state->db_header->entries[state->db_header->key_count] = (struct key_store){
-        .alias = alias,
-        .storage_id = storage_id,
-        .key_type = key_type,
-        .key_size = key_size
-    };
-    state->db_header->key_count++;
+	// 检查是否已存在相同别名的密钥
+	// for (uint32_t i = 0; i < key_datebase->key_count; i++) {
+	// 	// printf("%x : %s\n",i, key_datebase->keys[i].alias);
+    //     if (strncmp(key_datebase->keys[i].alias, alias, strlen(alias)) == 0) {
+	// 		printf("%s\n", key_datebase->keys[i].alias);
+	// 		printf("%s\n", alias);
+    //         return TEE_ERROR_ACCESS_CONFLICT;
+    //     }
+    // }
+
+	for (uint32_t i = 0; i < key_datebase->key_count; i++) {
+		printf("%x : %s\n",i, key_datebase->keys[i].alias);
+    }
+	for (uint32_t i = 0; i < key_datebase->key_count; i++) {
+        if (strncmp(key_datebase->keys[i].alias, alias, strlen(alias)) == 0) {
+			printf("%s\n", key_datebase->keys[i].alias);
+			printf("%s\n", alias);
+            return TEE_ERROR_ACCESS_CONFLICT;
+        }
+    }
+
+	strncpy(keyinfo->alias, alias, MAX_ALIAS_LENGTH - 1);
+    keyinfo->alias[MAX_ALIAS_LENGTH - 1] = '\0'; 
+
+	keyinfo->storage_id = storage_id;
+	keyinfo->key_type = key_type;
+	keyinfo->key_size = key_size;
+
+	key_datebase->key_count++;
 
     return TEE_SUCCESS;
 }
-static TEE_Result cmd_gen_key(struct acipher *state, uint32_t pt,
-			      TEE_Param params[TEE_NUM_PARAMS])
+static TEE_Result TA_Gen_Key(struct acipher *state, uint32_t param_types, TEE_Param params[TEE_NUM_PARAMS])
 {
+	DMSG("Entering TA_Gen_Key");
 	TEE_Result res;
-	uint32_t key_size;
 	TEE_ObjectHandle key;
-	const uint32_t key_type = convert_key_type(params[0].value.a);
-	const uint32_t exp_pt = TEE_PARAM_TYPES(TEE_PARAM_TYPE_VALUE_INPUT,
-						TEE_PARAM_TYPE_NONE,
-						TEE_PARAM_TYPE_NONE,
-						TEE_PARAM_TYPE_NONE);
+	uint32_t key_size = 1024;
+	uint32_t raw_key_type = params[0].value.a;  //原始key_type
+	const uint32_t key_type = TA_Convert_Key_Type(raw_key_type);
+	const uint32_t  expected_param_types = TEE_PARAM_TYPES(TEE_PARAM_TYPE_VALUE_INPUT, TEE_PARAM_TYPE_NONE, TEE_PARAM_TYPE_NONE, TEE_PARAM_TYPE_NONE);
 
-	if (pt != exp_pt)
+	TEE_ObjectHandle persistent_key;
+	char alias[MAX_ALIAS_LENGTH],rand[16];
+
+	uint32_t storage_id = TEE_STORAGE_PRIVATE; 
+
+	// 获取密钥信息的变量
+	uint32_t key_size_bits = 0;
+	uint32_t key_size_bytes = 0;
+	uint8_t *key_buffer = NULL;
+
+	if (param_types != expected_param_types)
 		return TEE_ERROR_BAD_PARAMETERS;
 
-
-	key_size = 1024;
-
+	DMSG("breakpoint 2");
+	// 分配临时密钥对象
 	res = TEE_AllocateTransientObject(key_type, key_size, &key);
 	if (res) {
 		EMSG("TEE_AllocateTransientObject(%#" PRIx32 ", %" PRId32 "): %#" PRIx32, key_type, key_size, res);
 		return res;
 	}
 
+	// 将生成的密钥存储到临时密钥对象中
 	res = TEE_GenerateKey(key, key_size, NULL, 0);
 	if (res) {
-		EMSG("TEE_GenerateKey(%" PRId32 "): %#" PRIx32,
-		     key_size, res);
-		TEE_FreeTransientObject(key);
-		return res;
-	}else{
-		DMSG("Key generated successfully");
+		EMSG("TEE_GenerateKey(%" PRId32 "): %#" PRIx32, key_size, res);
+		goto error;
 	}
 
-	TEE_ObjectInfo key_info;
-    TEE_GetObjectInfo(key, &key_info);
+	// 获取密钥信息
+	TEE_GetObjectBufferAttribute(key, TEE_ATTR_SECRET_VALUE, NULL, &key_size_bits);
+	key_size_bytes = (key_size_bits + 7) / 8;
+	key_buffer = TEE_Malloc(key_size_bytes, 0);
 
-    // 3. 持久化密钥
-    TEE_ObjectHandle persistent_key;
-	char alias[20],rand[16];
-	generate_random_suffix(rand, sizeof(rand));
-	snprintf(alias, sizeof(alias), "%x_%s",params[0].value.a,rand);
-	uint32_t storage_id = TEE_STORAGE_PRIVATE; 
-    res = add_key_to_db(state, alias, TEE_STORAGE_PRIVATE, key_info.objectType, key_size);
-	DMSG("break point 1");
-    if (res == TEE_SUCCESS) {
-		// 密钥信息存储到db成功，创建持久化存储对象
+	TEE_GetObjectBufferAttribute(key, TEE_ATTR_SECRET_VALUE, key_buffer, &key_size_bits);
+
+	// 生成密钥alias = key_type_randomNumber
+	TA_Generate_Random(rand, sizeof(rand));
+	snprintf(alias, sizeof(alias), "%x_%s", raw_key_type, rand);
+
+	DMSG("alias :%s", alias);
+    // res = TA_Add_Key2db(&key_datebase->keys[key_datebase->key_count], alias, storage_id, key_type, key_size);
+	res = TA_Add_Key2db(&(key_datebase->keys[key_datebase->key_count]), alias, storage_id, key_type, key_size);
+	if (res == TEE_SUCCESS) {
+		// 密钥信息成功存储到datebase，创建持久化存储对象
         res = TEE_CreatePersistentObject(
 				storage_id,
 				alias, strlen(alias),
 				TEE_DATA_FLAG_ACCESS_READ | TEE_DATA_FLAG_ACCESS_WRITE,
 				NULL,
-				&key_info,
-				sizeof(key_info),
+				&key_buffer,
+				sizeof(key_buffer),
 				&persistent_key
     	);
-		DMSG("break point 1.5");
+
 		if (res != TEE_SUCCESS) {
-			EMSG("Failed to persist key: 0x%x", res);
-			TEE_CloseObject(persistent_key);
 			// 如果持久化失败，删除临时密钥对象
-			state->db_header->key_count--;
-			return res;
+			EMSG("Failed to create persist key: 0x%x", res);
+			key_datebase->key_count--;
+			goto error;
     	}
+
+		// res = TEE_WriteObjectData(persistent_key, &key_buffer, key_size_bytes*sizeof(uint8_t));
+
+		if (res != TEE_SUCCESS) {
+			EMSG("Failed to Write persist key: 0x%x", res);
+			goto error;
+		}
+
 		TEE_FreeTransientObject(key);
     }else{
-		//如果密钥信息存储到db失败，返回失败结果
-		return res;
+		//密钥信息存储到datebase失败，返回失败结果
+		EMSG("Failed to add key to database: 0x%x", res);
+		goto error;
 	}
-	DMSG("break point 2");
 	TEE_FreeTransientObject(state->key);
 	state->key = persistent_key;
+	
+	TEE_SeekObjectData(key_db_obj, 0, TEE_DATA_SEEK_SET);
+	res = TEE_WriteObjectData(key_db_obj, key_datebase, sizeof(struct key_db));
+	if (res != TEE_SUCCESS) {
+		EMSG("Failed to Write DB: %#" PRIx32, res);
+		goto error;
+	}
+
+	// TEE_CloseObject(persistent_key);
 	return TEE_SUCCESS;
+
+error:
+	// 如果发生错误，释放资源并返回错误码
+	if (key) {
+		TEE_FreeTransientObject(key);
+	}
+	if (persistent_key != TEE_HANDLE_NULL) {
+		TEE_CloseAndDeletePersistentObject(persistent_key);
+	}
+	if (key_buffer) {
+		TEE_Free(key_buffer);
+	}
+	return res;
 }
 
+TEE_Result TA_Open_Database(void *session){
+
+	struct acipher *state = session;
+
+	// 尝试打开存储密钥的数据库
+	uint32_t flags = TEE_DATA_FLAG_ACCESS_READ | TEE_DATA_FLAG_ACCESS_WRITE | TEE_DATA_FLAG_ACCESS_WRITE_META;
+	// struct key_db *db_data = NULL;
+	uint32_t key_count = 0;
+
+	TEE_Result res = TEE_OpenPersistentObject(TEE_STORAGE_PRIVATE,
+                                        "keydatabase", sizeof("keydatabase"),
+                                        flags, &key_db_obj);
+
+	// 如果找到密钥数据库，则打开该数据库
+	if (res == TEE_SUCCESS) {
+		DMSG("Found existing key database");
+		key_datebase = TEE_Malloc(sizeof(struct key_db), TEE_MALLOC_FILL_ZERO);
+		if (!key_datebase) {
+			// 返回内存不足错误码
+			res = TEE_ERROR_OUT_OF_MEMORY;
+            goto error;
+		}
+		
+		// 将句柄中存储的数据保存到key_datebase中
+		res = TEE_ReadObjectData(key_db_obj, key_datebase, sizeof(struct key_db),&key_count);
+		DMSG("key_count = %x", key_datebase->key_count);
+		if (res != TEE_SUCCESS) {
+			EMSG("Failed to read DB Handle: %#" PRIx32, res);
+			goto error;
+		}
+	// 如果未找到密钥数据库，则创建数据库
+	} else if (res ==TEE_ERROR_ITEM_NOT_FOUND) {
+		DMSG("Creating new key database");
+		
+		// 创建新的空数据库
+		res = TEE_CreatePersistentObject(TEE_STORAGE_PRIVATE,
+									"keydatabase", sizeof("keydatabase"),
+									flags, TEE_HANDLE_NULL, NULL, 0,
+									&key_db_obj);
+		if (res != TEE_SUCCESS) {
+			EMSG("Failed to create key database: %#" PRIx32, res);
+			goto error;
+		}
+		
+		// 初始化数据库结构
+		key_datebase = TEE_Malloc(sizeof(struct key_db), TEE_MALLOC_FILL_ZERO);
+		if (!key_datebase) {
+			res = TEE_ERROR_OUT_OF_MEMORY;
+            goto error;
+		}
+		
+		key_datebase->key_count = 0;
+		
+		// 保存密钥数据库信息
+		res = TEE_WriteObjectData(key_db_obj, key_datebase, sizeof(struct key_db));
+		if (res != TEE_SUCCESS) {
+			EMSG("Failed to init DB: %#" PRIx32, res);
+			goto error;
+		}
+
+	} else {
+		EMSG("Unexpected DB error: %#" PRIx32, res);
+		goto error;
+	}
+	return TEE_SUCCESS;
+
+error:
+    // 统一错误处理：释放所有资源
+    if (key_datebase) {
+        TEE_Free(key_datebase);
+        key_datebase = NULL;
+    }
+    if (key_db_obj != TEE_HANDLE_NULL) {
+        if (res == TEE_ERROR_ITEM_NOT_FOUND) {
+            // 如果是创建失败，删除未完成的数据库
+            TEE_CloseAndDeletePersistentObject(key_db_obj);
+        } else {
+            // 否则仅关闭
+            TEE_CloseObject(key_db_obj);
+        }
+    }
+    if (state) {
+        TEE_Free(state);
+    }
+    return res;
+}
+
+TEE_Result read_persistent_object(const char *alias, void **out_data, size_t *out_size) {
+    TEE_ObjectHandle object = TEE_HANDLE_NULL;
+    TEE_Result res;
+    
+    // 打开持久化对象
+    res = TEE_OpenPersistentObject(
+        TEE_STORAGE_PRIVATE,    // 存储区域
+        alias,                  // 对象别名
+        strlen(alias),          // 别名长度
+        TEE_DATA_FLAG_ACCESS_READ,  // 访问权限
+        &object                // 返回的对象句柄
+    );
+    
+    if (res != TEE_SUCCESS) {
+        EMSG("Failed to open persistent object: 0x%x", res);
+        return res;
+    }
+
+    // 获取对象大小
+	TEE_ObjectInfo info;
+	TEE_GetObjectInfo(object, &info);
+	uint32_t size = info.dataSize;
+
+    // 分配内存并读取数据
+    *out_data = TEE_Malloc(size, 0);
+    if (!*out_data) {
+        TEE_CloseObject(object);
+        return TEE_ERROR_OUT_OF_MEMORY;
+    }
+
+    res = TEE_ReadObjectData(object, *out_data, size, out_size);
+    if (res != TEE_SUCCESS) {
+        TEE_Free(*out_data);
+        *out_data = NULL;
+        EMSG("Failed to read object data: 0x%x", res);
+    }
+
+    TEE_CloseObject(object);
+    return res;
+}
 
 TEE_Result TA_CreateEntryPoint(void)
 {
@@ -174,128 +371,44 @@ TEE_Result TA_OpenSessionEntryPoint(uint32_t param_types,
 	state->key = TEE_HANDLE_NULL;
 	*session = state;
 	
+	// 执行命令前先打开数据库
+	TA_Open_Database(session);
+
 	return TEE_SUCCESS;
 }
+void TA_Showkeys(){
+	void *key_data = NULL;
+	size_t key_size = 0;
 
+	DMSG("has been called");
+	if (key_datebase == NULL) {
+		EMSG("Key database is not initialized.");
+		return;
+	}
+
+	DMSG("Current key count: %u", key_datebase->key_count);
+	for (uint32_t i = 0; i < key_datebase->key_count; i++) {
+		read_persistent_object(key_datebase->keys[i].alias, &key_data, &key_size);
+		printf("Keysize : %x\n",key_size);
+	}
+}
 void TA_CloseSessionEntryPoint(void *session)
 {
 	DMSG("has been called");
+	// TA_Open_Database(session);
 	struct acipher *state = session;
 
-	
-	TEE_Result res = TEE_WriteObjectData(state->db_handle, state->db_header, 
-								sizeof(struct persistent_key_db));
-	DMSG("break point 3");
-	if (res != TEE_SUCCESS) {
-		DMSG("break point 3.5");
-		EMSG("Failed to init DB: %#" PRIx32, res);
-		TEE_Free(state->db_header);
-		TEE_CloseAndDeletePersistentObject(state->db_handle);
-		TEE_Free(state);
-	}
-	DMSG("break point 4");
-	
-	// TEE_FreeTransientObject(state->key);
-	// TEE_Free(state);
-	
-	DMSG("break point 5");
-}
-
-TEE_Result open_database(void *session){
-
-	struct acipher *state = session;
-
-	// 尝试打开存储密钥ID的数据库
-	TEE_ObjectHandle persistent_db_obj = NULL;
-	struct persistent_key_db *db_data = NULL;
-	uint32_t flags = TEE_DATA_FLAG_ACCESS_READ | TEE_DATA_FLAG_ACCESS_WRITE | 
-                TEE_DATA_FLAG_ACCESS_WRITE_META;
-	uint32_t count = 0;
-	// 尝试打开现有的持久化存储对象
-	TEE_Result res = TEE_OpenPersistentObject(TEE_STORAGE_PRIVATE,
-                                        "keydatabase", sizeof("keydatabase"),
-                                        flags, &persistent_db_obj);
-
-	
-	if (res == TEE_SUCCESS) {
-		DMSG("Found existing key database");
-		// 读取数据库头信息（不加载全部密钥，按需加载）
-		db_data = TEE_Malloc(sizeof(struct persistent_key_db), TEE_MALLOC_FILL_ZERO);
-		if (!db_data) {
-			TEE_CloseObject(persistent_db_obj);
-			TEE_Free(state);
-			return TEE_ERROR_OUT_OF_MEMORY;
-		}
-		
-		res = TEE_ReadObjectData(persistent_db_obj, db_data, 
-							sizeof(struct persistent_key_db),&count);
-		if (res != TEE_SUCCESS) {
-			EMSG("Failed to read DB header: %#" PRIx32, res);
-			TEE_Free(db_data);
-			TEE_CloseObject(persistent_db_obj);
-			TEE_Free(state);
-			return res;
-		}
-
-		state->db_handle = persistent_db_obj;
-		state->db_header = db_data;
-	} else if (res ==TEE_ERROR_ITEM_NOT_FOUND) {
-		DMSG("Creating new key database");
-		
-		// 创建新的空数据库
-		res = TEE_CreatePersistentObject(TEE_STORAGE_PRIVATE,
-									"keydatabase", sizeof("keydatabase"),
-									flags, TEE_HANDLE_NULL, NULL, 0,
-									&persistent_db_obj);
-		if (res != TEE_SUCCESS) {
-			EMSG("Failed to create key database: %#" PRIx32, res);
-			TEE_Free(state);
-			return res;
-		}
-		
-		// 初始化数据库结构
-		db_data = TEE_Malloc(sizeof(struct persistent_key_db), TEE_MALLOC_FILL_ZERO);
-		if (!db_data) {
-			TEE_CloseAndDeletePersistentObject(persistent_db_obj);
-			TEE_Free(state);
-			return TEE_ERROR_OUT_OF_MEMORY;
-		}
-		
-		TEE_MemFill(db_data, 0, sizeof(struct persistent_key_db));
-		db_data->key_count = 0;
-		
-		// 写回空数据库
-		res = TEE_WriteObjectData(persistent_db_obj, db_data, 
-								sizeof(struct persistent_key_db));
-		if (res != TEE_SUCCESS) {
-			EMSG("Failed to init DB: %#" PRIx32, res);
-			TEE_Free(db_data);
-			TEE_CloseAndDeletePersistentObject(persistent_db_obj);
-			TEE_Free(state);
-			return res;
-		}else{
-			DMSG("New key database created successfully");
-		}
-		 
-		state->db_handle = persistent_db_obj;
-		state->db_header = db_data;
-	} else {
-		EMSG("Unexpected DB error: %#" PRIx32, res);
-		TEE_Free(state);
-		return res;
-	}
-	return TEE_SUCCESS;
+	TEE_CloseObject(key_db_obj);
+	TEE_Free(state);
 }
 
 TEE_Result TA_InvokeCommandEntryPoint(void *session, uint32_t cmd,
 				      uint32_t param_types,
 				      TEE_Param params[TEE_NUM_PARAMS])
 {
-	open_database(session);
-	// struct acipher *state = session;
 	switch (cmd) {
 		case TA_ACIPHER_CMD_GEN_KEY:
-			return cmd_gen_key(session, param_types, params);
+			return TA_Gen_Key(session, param_types, params);
 		default:
 			EMSG("Unknown command 0x%" PRIx32, cmd);
 			return TEE_ERROR_BAD_PARAMETERS;
