@@ -165,16 +165,14 @@ static TEE_Result TA_Gen_Key(struct acipher *state, uint32_t param_types, TEE_Pa
 				sizeof(key_buffer),
 				&persistent_key
     	);
-
+		DMSG("RES of TEE_CreatePersistentObject for persistent_key : %#x", res);
 		if (res != TEE_SUCCESS) {
 			// 如果持久化失败，删除临时密钥对象
 			EMSG("Failed to create persist key: 0x%x", res);
 			key_datebase->key_count--;
 			goto error;
     	}
-
-		// res = TEE_WriteObjectData(persistent_key, &key_buffer, key_size_bytes*sizeof(uint8_t));
-
+		
 		if (res != TEE_SUCCESS) {
 			EMSG("Failed to Write persist key: 0x%x", res);
 			goto error;
@@ -196,7 +194,7 @@ static TEE_Result TA_Gen_Key(struct acipher *state, uint32_t param_types, TEE_Pa
 		goto error;
 	}
 
-	// TEE_CloseObject(persistent_key);
+	TEE_CloseObject(persistent_key);
 	return TEE_SUCCESS;
 
 error:
@@ -322,20 +320,20 @@ TEE_Result read_persistent_object(const char *alias, void **out_data, size_t *ou
 	TEE_ObjectInfo info;
 	TEE_GetObjectInfo(object, &info);
 	uint32_t size = info.dataSize;
+	DMSG("%s type: %x, size: %u", alias, info.objectType, size);
+    // // 分配内存并读取数据
+    // *out_data = TEE_Malloc(size, 0);
+    // if (!*out_data) {
+    //     TEE_CloseObject(object);
+    //     return TEE_ERROR_OUT_OF_MEMORY;
+    // }
 
-    // 分配内存并读取数据
-    *out_data = TEE_Malloc(size, 0);
-    if (!*out_data) {
-        TEE_CloseObject(object);
-        return TEE_ERROR_OUT_OF_MEMORY;
-    }
-
-    res = TEE_ReadObjectData(object, *out_data, size, out_size);
-    if (res != TEE_SUCCESS) {
-        TEE_Free(*out_data);
-        *out_data = NULL;
-        EMSG("Failed to read object data: 0x%x", res);
-    }
+    // res = TEE_ReadObjectData(object, *out_data, size, out_size);
+    // if (res != TEE_SUCCESS) {
+    //     TEE_Free(*out_data);
+    //     *out_data = NULL;
+    //     EMSG("Failed to read object data: 0x%x", res);
+    // }
 
     TEE_CloseObject(object);
     return res;
@@ -376,7 +374,7 @@ TEE_Result TA_OpenSessionEntryPoint(uint32_t param_types,
 
 	return TEE_SUCCESS;
 }
-void TA_Showkeys(){
+void TA_Showkeys(void){
 	void *key_data = NULL;
 	size_t key_size = 0;
 
@@ -389,7 +387,7 @@ void TA_Showkeys(){
 	DMSG("Current key count: %u", key_datebase->key_count);
 	for (uint32_t i = 0; i < key_datebase->key_count; i++) {
 		read_persistent_object(key_datebase->keys[i].alias, &key_data, &key_size);
-		printf("Keysize : %x\n",key_size);
+		printf("Keysize : %lx\n",key_size);
 	}
 }
 void TA_CloseSessionEntryPoint(void *session)
@@ -406,9 +404,16 @@ TEE_Result TA_InvokeCommandEntryPoint(void *session, uint32_t cmd,
 				      uint32_t param_types,
 				      TEE_Param params[TEE_NUM_PARAMS])
 {
+	TEE_Result res;
 	switch (cmd) {
+		// case TA_ACIPHER_CMD_GEN_KEY:
+		// 	return TA_Gen_Key(session, param_types, params);
 		case TA_ACIPHER_CMD_GEN_KEY:
-			return TA_Gen_Key(session, param_types, params);
+			res = TA_Gen_Key(session, param_types, params);
+			if (res == TEE_SUCCESS) {
+				TA_Showkeys();
+			}
+			return res;
 		default:
 			EMSG("Unknown command 0x%" PRIx32, cmd);
 			return TEE_ERROR_BAD_PARAMETERS;
