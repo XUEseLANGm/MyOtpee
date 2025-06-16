@@ -24,10 +24,6 @@ int main(int argc, char *argv[])
 	TEEC_Context ctx;
 	TEEC_Session sess;
 	TEEC_Operation op;
-	size_t key_size;
-	void *inbuf;
-	size_t inbuf_len;
-	size_t n;
 	const TEEC_UUID uuid = TA_ACIPHER_UUID;
 
 	// Check input parameters
