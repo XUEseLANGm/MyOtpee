@@ -3,6 +3,12 @@
         "tee_svc_cryp.h": "c",
         "hello_world_ta.h": "c",
         "tee_internal_api_extensions.h": "c",
-        "inttypes.h": "c"
+        "inttypes.h": "c",
+        "tee_internal_api.h": "c",
+        "hash_map": "c",
+        "hash_set": "c",
+        "bitset": "c",
+        "chrono": "c",
+        "algorithm": "c"
     }
 }

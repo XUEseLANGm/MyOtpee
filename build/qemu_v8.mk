@@ -208,6 +208,7 @@ run-only:
 		-append 'console=ttyAMA0,38400 keep_bootcon root=/dev/vda2' \
 		-device virtio-blk-device,drive=storage \
 		-drive if=none,id=storage,file=/optee_store.img,format=raw \
+		-dtb qemu.dtb \
 		$(QEMU_EXTRA_ARGS)  
 
 ifneq ($(filter check,$(MAKECMDGOALS)),)

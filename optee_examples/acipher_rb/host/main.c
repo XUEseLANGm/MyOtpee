@@ -16,6 +16,19 @@
 #include <acipher_ta.h>
 
 // rb_acipher data_enc\dec\read\del key_gen\import\export
+static void CA_Showkeys(struct key_db *key_datebase){
+	if (key_datebase == NULL) {
+		printf("Receive Key database failed.");
+		return ;
+	}
+
+	printf("Current key count: %u", key_datebase->key_count);
+	for (uint32_t i = 0; i < key_datebase->key_count; i++) {
+		printf("alias: %s ", key_datebase->keys[i].alias);
+		printf("key_type: %x ", key_datebase->keys[i].key_type);
+		printf("key_size: %x\n", key_datebase->keys[i].key_size);
+	}
+}
 
 int main(int argc, char *argv[])
 {
@@ -24,6 +37,8 @@ int main(int argc, char *argv[])
 	TEEC_Context ctx;
 	TEEC_Session sess;
 	TEEC_Operation op;
+	struct key_db key_datebase;
+	TEEC_SharedMemory shm;
 	const TEEC_UUID uuid = TA_ACIPHER_UUID;
 
 	// Check input parameters
@@ -35,6 +50,7 @@ int main(int argc, char *argv[])
 			" data_read <key_id>\n"
 			" data_del <key_id>\n"
 			" key_gen <key_type> <key_size>\n"
+			" key_list \n"
 			" key_import <key_id> <key_file>\n"
 			" key_export <key_id> <key_file>", argv[0]);
 	}
@@ -68,9 +84,43 @@ int main(int argc, char *argv[])
 							TEEC_NONE,
 							TEEC_NONE);
 		op.params[0].value.a = strtoul(sub_action, NULL, 10);
-		printf("Key type: %u\n", op.params[0].value.a);
 		res = TEEC_InvokeCommand(&sess, TA_ACIPHER_CMD_GEN_KEY, &op, &err_origin);
 
+	} else if (strcmp(action, "key_list") == 0) {
+		if (argc != 2) {
+			errx(1, "Usage: key_list");
+		}
+
+		// 分配并注册共享内存用于读取key_db
+		memset(&shm, 0, sizeof(shm));
+    	// shm.size = sizeof(struct key_db);  // 516KB
+		shm.size = 10*1024;  // 516KB
+		printf("shm.size = %zu\n", shm.size);
+		// shm.buffer = malloc(shm.size);
+		shm.flags = TEEC_MEM_INPUT | TEEC_MEM_OUTPUT;  // CA和TA均可读写
+		
+		res = TEEC_AllocateSharedMemory(&ctx, &shm);
+		if (res != TEEC_SUCCESS) {
+			printf("TEEC_RegisterSharedMemory failed: 0x%x\n", res);
+			TEEC_CloseSession(&sess);
+			TEEC_FinalizeContext(&ctx);
+			return 1;
+		}
+		
+		// 定义TEEC_Operation参数
+		op.paramTypes = TEEC_PARAM_TYPES(TEEC_MEMREF_PARTIAL_INOUT,
+							TEEC_NONE,
+							TEEC_NONE,
+							TEEC_NONE);
+	
+		op.params[0].memref.parent = &shm;
+		op.params[0].memref.size = shm.size;
+		op.params[0].memref.offset = 0;  
+		res = TEEC_InvokeCommand(&sess, TA_ACIPHER_CMD_LIST_KEY, &op, &err_origin);
+		if( res != TEEC_SUCCESS) {
+			errx(1, "TEEC_InvokeCommand(TA_ACIPHER_CMD_LIST_KEY): %#" PRIx32, res);
+		}
+		// CA_Showkeys(&shm);
 	} else if (strcmp(action, "key_import") == 0 || strcmp(action, "key_export") == 0) {
 		if (argc != 5) {
 			errx(1, "Usage: %s rb_acipher %s <key_id> <key_file>", argv[0], action);

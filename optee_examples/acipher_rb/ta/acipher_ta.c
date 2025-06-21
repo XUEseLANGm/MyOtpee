@@ -14,18 +14,6 @@ struct acipher {
 	TEE_ObjectHandle key;
 };
 
-struct key_info {
-    char alias[MAX_ALIAS_LENGTH];	// 逻辑名称
-    uint32_t storage_id;	// 物理存储ID
-    uint32_t key_type;
-	uint32_t key_size;
-};
-
-struct key_db {
-    uint32_t key_count;	// 当前密钥数量
-    struct key_info keys[MAX_KEYS];	// 密钥条目
-};
-
 TEE_ObjectHandle key_db_obj = NULL;
 struct key_db *key_datebase = NULL;
 // struct key_info keyinfo[MAX_KEYS];
@@ -310,6 +298,56 @@ static void TA_Showkeys(void){
 		printf("Keysize : %lx\n",key_size);
 	}
 }
+
+void debug_shm_info(void) {
+    uint32_t total_size, free_size;
+    
+    TEE_GetPropertyAsU32(TEE_PROPSET_TEE_IMPLEMENTATION,
+                       "gpd.tee.memory.dynshm.size",
+                       &total_size);
+    
+    TEE_GetPropertyAsU32(TEE_PROPSET_TEE_IMPLEMENTATION,
+                       "gpd.tee.memory.dynshm.available",
+                       &free_size);
+    
+    IMSG("Dynamic Shared Memory: Total=%u bytes (%.1f KB), Free=%u bytes", 
+         total_size, (float)total_size / 1024, free_size);
+}
+
+static TEE_Result TA_Listkeys(struct acipher *state, uint32_t param_types, TEE_Param params[TEE_NUM_PARAMS])
+{
+
+	DMSG("DEBUG 1");
+	debug_shm_info();
+	DMSG("DEBUG 2");
+	
+	// 检查参数
+	// if (param_types != TEE_PARAM_TYPES(
+	// 	TEE_PARAM_TYPE_MEMREF_INOUT,  // 输出缓冲区
+	// 	TEE_PARAM_TYPE_NONE,
+	// 	TEE_PARAM_TYPE_NONE,
+	// 	TEE_PARAM_TYPE_NONE)) {
+	// 	return TEE_ERROR_BAD_PARAMETERS;
+	// }
+	
+	// // 检查输出缓冲区大小
+	// if (params[0].memref.size < sizeof(struct key_db)) {
+	// 	return TEE_ERROR_SHORT_BUFFER;
+	// }
+
+	// struct key_db *keydb = (struct key_db *)params[0].memref.buffer;
+	// if (!keydb) {
+	// 	return TEE_ERROR_BAD_PARAMETERS;
+	// }
+
+	// memset(keydb, 0, sizeof(struct key_db));
+	// keydb->key_count = key_datebase->key_count;
+	// for (size_t i = 0; i < MAX_KEYS; i++)
+	// 	keydb->keys[i] = key_datebase->keys[i];
+	
+	return TEE_SUCCESS;
+}
+
 TEE_Result TA_CreateEntryPoint(void)
 {
 	/* Nothing to do */
@@ -339,7 +377,7 @@ TEE_Result TA_OpenSessionEntryPoint(uint32_t param_types,
 
 	state->key = TEE_HANDLE_NULL;
 	*session = state;
-	
+
 	// 执行命令前先打开数据库
 	TA_Open_Database(session);
 
@@ -356,6 +394,8 @@ void TA_CloseSessionEntryPoint(void *session)
 	TEE_Free(state);
 }
 
+
+
 TEE_Result TA_InvokeCommandEntryPoint(void *session, uint32_t cmd,
 				      uint32_t param_types,
 				      TEE_Param params[TEE_NUM_PARAMS])
@@ -363,6 +403,8 @@ TEE_Result TA_InvokeCommandEntryPoint(void *session, uint32_t cmd,
 	switch (cmd) {
 		case TA_ACIPHER_CMD_GEN_KEY:
 			return TA_Gen_Key(session, param_types, params);
+		case TA_ACIPHER_CMD_LIST_KEY:
+			return TA_Listkeys(session, param_types, params);
 		default:
 			EMSG("Unknown command 0x%" PRIx32, cmd);
 			return TEE_ERROR_BAD_PARAMETERS;

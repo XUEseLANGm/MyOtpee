@@ -2,11 +2,8 @@
 /*
  * Copyright (c) 2018, Linaro Limited
  */
-// #include <inttypes.h>
-// #include <string.h>
-// #include <tee_internal_api.h>
-// #include <tee_internal_api_extensions.h>
 
+#include <inttypes.h>
 #ifndef __ACIPHER_TA_H__
 #define __ACIPHER_TA_H__
 
@@ -40,21 +37,18 @@
 
 #define TA_ACIPHER_CMD_DELETE_DATA		6
 
+#define TA_ACIPHER_CMD_LIST_KEY		7
+
 #endif /* __ACIPHER_TA_H */
 
-// uint32_t TA_Convert_Key_Type(uint32_t user_type);
-
-// void TA_Generate_Random(char *buf, size_t len);
-
-// TEE_Result TA_Add_Key2db(struct key_info *keyinfo, char alias[MAX_ALIAS_LENGTH], uint32_t storage_id, uint32_t key_type, uint32_t key_size);
-
-// TEE_Result TA_Gen_Key(struct acipher *state, uint32_t param_types, TEE_Param params[TEE_NUM_PARAMS]);
-
-// TEE_Result TA_Open_Database(void *session);
-
-// TEE_Result TA_Read_Persistent_Object(const char *alias, void **out_data, size_t *out_size);
-
-// void TA_Showkeys(void);
-
-
-                
+struct key_info {
+    char alias[MAX_ALIAS_LENGTH];	// 逻辑名称
+    uint32_t storage_id;	// 物理存储ID
+    uint32_t key_type;
+	uint32_t key_size;
+};
+            
+struct key_db {
+    uint32_t key_count;	// 当前密钥数量
+    struct key_info keys[MAX_KEYS];	// 密钥条目
+};
