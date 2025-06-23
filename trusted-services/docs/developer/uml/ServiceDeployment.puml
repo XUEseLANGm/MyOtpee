@@ -1,0 +1,84 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2020-2021, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml
+
+!include ../../uml/style-component.puml
+
+skinparam component {
+	BackgroundColor COLOR_BLUE2
+}
+
+skinparam package {
+	BackgroundColor COLOR_BLUE1
+}
+
+package "tools" {
+	component sw_qa as "Software QA Tools"
+	component compiler_toolchain as "Compiler Toolchain"
+}
+
+package "protocols" {
+	component proto_protobuf as "Protobuf interface definition"
+	component proto_packed_c as "Packed-C interface definition"
+}
+
+package "platform" {
+	component plat_interfaces as "Common driver interfaces"
+	component plat_providers as "Platform providers"
+}
+
+package "deployments" {
+	component deploy_deploy as "Deployment"
+	component depoy_build_cfg as "Deployment specific build configuration"
+	component deploy_init as "Deployment specific service initialization"
+}
+
+package "components" {
+	component comp_src as "Source files"
+	component comp_test_cases as "Test cases"
+	component comp_adapters as "Adapters"
+}
+
+package "external" {
+	component ext_all as "External components/libraries"
+}
+
+package "environments" {
+	component env_build_cfg as "Environment build configuration"
+	component env_libs as "Environment libraries"
+	component env_hdrs as "Environment header files"
+	component env_inst as "installation"
+	env_build_cfg-[hidden]->env_libs
+	env_build_cfg-[hidden]->env_hdrs
+}
+
+deploy_deploy ...> depoy_build_cfg
+deploy_deploy .up.> deploy_init
+
+deploy_deploy ..left..> proto_protobuf
+deploy_deploy ..left..> proto_packed_c
+
+deploy_deploy ..right..> env_build_cfg
+deploy_deploy ..right..> env_libs
+deploy_deploy ..right..> env_hdrs
+deploy_deploy ..right..> env_inst
+
+deploy_deploy ..up..> sw_qa
+deploy_deploy ..up..> compiler_toolchain
+
+deploy_deploy ..> ext_all
+
+deploy_deploy ..down..> comp_src
+deploy_deploy ..down..> comp_test_cases
+deploy_deploy ..down..> comp_adapters
+
+deploy_init -[hidden]up-> proto_protobuf
+
+comp_adapters ...> plat_interfaces
+
+@enduml

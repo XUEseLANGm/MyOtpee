@@ -1,0 +1,22 @@
+#-------------------------------------------------------------------------------
+# Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+#-------------------------------------------------------------------------------
+
+set(CMAKE_INSTALL_PREFIX "@BUILD_INSTALL_DIR@" CACHE STRING "")
+set(CMAKE_TOOLCHAIN_FILE "@TS_EXTERNAL_LIB_TOOLCHAIN_FILE@" CACHE STRING "")
+set(MEMORY_LEAK_DETECTION OFF CACHE BOOL "")
+set(LONGLONG ON CACHE BOOL "")
+set(C++11 ON CACHE BOOL "")
+set(BRANCH_PROTECTION @BRANCH_PROTECTION@ CACHE STRING "")
+
+string(TOUPPER @CMAKE_CROSSCOMPILING@ CMAKE_CROSSCOMPILING) # CMake expects TRUE
+if (CMAKE_CROSSCOMPILING)
+	set(TESTS OFF CACHE BOOL "")
+	set(EXTENSIONS OFF BOOL "")
+	set(HAVE_FORK OFF CACHE BOOL "")
+	set(CPP_PLATFORM "armcc" CACHE STRING "")
+	set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY CACHE BOOL "")
+endif()

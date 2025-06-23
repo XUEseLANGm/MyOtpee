@@ -1,0 +1,25 @@
+#
+# Arm SCP/MCP Software
+# Copyright (c) 2024-2025, Arm Limited and Contributors. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+
+.beetle-security-test:
+  image: ${CI_REGISTRY_IMAGE}/scp-tester-amd64:${DOCKER_IMAGE_TAG}
+  tags:
+    - amd64
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+    GIT_DEPTH: 1
+    CODE_COVERAGE: "true"
+  parallel:
+    matrix:
+      - SCP_CI_PLATFORM:
+        - sgm776
+  before_script:
+    - echo "PROJECT_TYPE = $PROJECT_TYPE"
+    - ln -s $(pwd) /$PROJECT_TYPE
+  script:
+    - echo "platform under test $SCP_CI_PLATFORM"
+    - /scp_tester_entrypoint.sh $PROJECT_TYPE beetle_security

@@ -1,0 +1,23 @@
+#
+# Copyright (c) 2020-2023, Arm Limited and Contributors. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+
+# Include packages needed for socument generation
+-r docs/requirements.txt
+
+# Include packages needed for nanopb
+-r external/nanopb/requirements.txt
+
+# Include packages needed for build test tool
+-r tools/b-test/requirements.txt
+
+# Include packages needed for custom Python tools
+-r tools/python/requirements.txt
+
+# Include c-picker needed for firmware-test-builder
+git+https://git.trustedfirmware.org/TS/trusted-services.git@topics/c-picker
+
+# codespell needed for checkpatch
+codespell==2.1.0

@@ -1,0 +1,94 @@
+openapi: "3.1.0"
+info:
+  title: Firmware Test API
+  description: |
+    A public API for testing and experimenting with Arm firmware features.
+
+    Copyright 2023, Arm Limited and Contributors. All rights reserved.
+  version: 0.0.1
+  license:
+    name: 3-Clause BSD
+    identifier: BSD-3-Clause
+
+servers:
+  - url: http://127.0.0.1/api/v1
+
+paths:
+  /services:
+    get:
+      operationId: "listServices"
+      summary: List firmware service information
+      responses:
+        '200':
+          description: A list of serviceInfo objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ServiceInfo"
+
+  /services/{servicename}:
+    get:
+      operationId: "getServiceInfo"
+      summary: Get information about a firmware service
+      parameters:
+        - name: servicename
+          in: path
+          description: e.g. fwu, crypto
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Information about the named service
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceInfo'
+
+  /services/{servicename}/call/{opcode}:
+    put:
+      operationId: "callServiceOp"
+      summary: Call service operation
+      parameters:
+        - name: servicename
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: opcode
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Call parameters
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: Call response
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+
+components:
+  schemas:
+    ServiceInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The services's unique id
+        servicename:
+          type: string
+          description: Service name
+        status:
+          type: string
+          description: Service status

@@ -1,0 +1,381 @@
+#!/bin/bash
+#
+# Copyright (c) 2020-2023, Arm Limited and contributors. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+
+# Exit with error if any command fails
+set -e
+
+# Read in user specific environment settings
+if [ -e user.env ]
+then
+	echo "Reding user specific settings from user.env"
+	source user.env
+fi
+
+# Default to non-verbose mode.
+VERBOSE=${VERBOSE:-0}
+
+# Additional environment specific CMake flags
+CMAKE_EXTRA_FLAGS=${CMAKE_EXTRA_FLAGS:-""}
+
+# Get root of TS repo.
+TS_ROOT=${TS_ROOT:-$(git rev-parse --show-toplevel)}
+
+# Number of threads to use in parallel
+NUMBER_OF_PROCESSORS=${NUMBER_OF_PROCESSORS:-$(( $(nproc) * 2 ))}
+
+# By default run as much as we can
+FAIL_FAST=${FAIL_FAST:-0}
+
+# Directory to install projects to.
+INSTALL_PREFIX=${INSTALL_PREFIX:-./install}
+
+# Directory to place cmake build directories to
+BUILD_PREFIX=${BUILD_PREFIX:-.}
+
+# Global exit code.
+exit_code=0
+
+# List of supported tests.
+test_list=(
+{% for config in data %}
+	"{{config.name}}"
+{% endfor %}
+)
+
+# Convert test name to build directory
+function name-to-bdir() {
+	printf "$BUILD_PREFIX/build-%s" "$1"
+}
+
+unset btest_logdir_root
+function name-to-logfile {
+	local config_name="$1"
+	if [ -z "$btest_logdir_root" ]
+	then
+		printf "%s/build.log" $(name-to-bdir "$1")
+	else
+		printf "$btest_logdir_root/build-%s.log" "$1"
+	fi
+}
+
+# Wrap cmake to allow verbose vs non-verbose mode
+function _cmake() {
+	log_file=$1
+	shift
+	if [ "$VERBOSE" != "0" ]
+	then
+		cmake "$@" 2>&1 | tee -a "$log_file"
+		return ${PIPESTATUS[0]}
+	else
+		cmake "$@" >>"$log_file" 2>&1
+	fi
+}
+
+{% for config in data %}
+# Run build test "{{config.name}}"
+{{config.name}}() {
+	echo "##################################################################"
+	echo "########################## {{config.name}} started."
+
+	{% if config.os_id is defined %}
+	if [ "$OS_ID" != "{{config.os_id}}" ]
+	then
+		echo "Test case is not supported on this host."
+		echo "########################## $COLOR_YELLOW {{config.name}} skipped $COLOR_RESET"
+		echo "##################################################################"
+		return
+	fi
+	{% endif %}
+	b_dir=$(name-to-bdir "{{config.name}}")
+	log_file=$(name-to-logfile "{{config.name}}")
+	rm -rf "$b_dir"
+	mkdir -p "$b_dir"
+
+	if [ -n "$_ccache" ]
+	then
+		ccache_option=-DCMAKE_C_COMPILER_LAUNCHER=$_ccache
+	fi
+
+	local retval=0
+
+	# jinja2 is removing single newlines. Adding a comment stops this behavior.
+	if _cmake "$log_file" -S "{{config.src}}" -B "$b_dir" $ccache_option {% for param in config.params %} "{{param}}" {% endfor %} ${CMAKE_EXTRA_FLAGS} #keep newline
+	then
+		if _cmake "$log_file" --build "$b_dir" -j "${NUMBER_OF_PROCESSORS}" --verbose
+		then
+			if _cmake "$log_file" --install "$b_dir" --prefix "$INSTALL_PREFIX"
+			then
+				echo "########################## $COLOR_GREEN {{config.name}} passed $COLOR_RESET"
+			else
+				retval=$?
+				echo "For details see: $log_file"
+				echo "########################## $COLOR_RED {{config.name}} failed $COLOR_RESET"
+			fi
+		else
+			retval=$?
+			echo "For details see: $log_file"
+			echo "########################## $COLOR_RED {{config.name}} failed $COLOR_RESET"
+		fi
+	else
+		retval=$?
+		echo "For details see: $log_file"
+		echo "########################## $COLOR_RED {{config.name}} failed $COLOR_RESET"
+	fi
+	echo "##################################################################"
+	return $retval
+}
+
+{% endfor %}
+
+# Clean intermediate files
+do_clean() {
+	{% for config in data %}
+	b_dir=$(name-to-bdir "{{config.name}}")
+	if [ -d "$b_dir" ]
+	then
+		echo "Removing $b_dir"
+		rm -rf "$b_dir"
+	fi
+	{% endfor %}
+}
+
+# Print usage info
+do_help() {
+	cat <<END_HELP
+Build test runner
+=================
+
+Invocation::
+    ``$0 [<options>] [<command>]``
+
+The file "user.env" is sourced from the current directory. Use it to set
+environment specific defaults. For config variables see the start of this script
+and any "$<XXXX>" in the "params" array of any command in test_data.yaml
+Some variables to note
+    - VERBOSE : <0/1> make the script output more info.
+        VERBOSE=$VERBOSE
+    - TS_ROOT : Root directory of the TS repo.
+        TS_ROOT=$TS_ROOT
+    - NUMBER_OF_PROCESSORS: number of processors in the system. Used for setting
+        the number of parallel processes during build
+        NUMBER_OF_PROCESSORS=$NUMBER_OF_PROCESSORS
+    - CMAKE_EXTRA_FLAGS: additional environment specific CMake flags
+        CMAKE_EXTRA_FLAGS=-DNEWLIB_LIBC_PATH=/path/to/newlib
+    - FAIL_FAST: <0/1> see -f
+        FAIL_FAST=$FAIL_FAST
+    - INSTALL_PREFIX: <path> see -i
+        INSTALL_PREFIX=$INSTALL_PREFIX
+    - BUILD_PREFIX: <path> see -b
+        BUILD_PREFIX=$BUILD_PREFIX
+
+Options:
+    -b|--build-prefix: <path>
+            - directory for cmake build directories
+    --color|--no-color
+            - force or disable output coloring
+    -f|--fail-fast
+            - exit after the first test failure
+    -i|--install-prefix <path>
+            - directory to install build results to.
+    -l|--log-dir <path>
+            - directory to save log files to. If not set, files are saved
+              to the build directory.
+    -p <regexp>
+            - filter out all test cases whose name is not matching regexp.
+              regexp is a regular expression understood by grep
+Commands:
+    ""      - no command/default -> run all test cases
+    clean   - remove build directories
+    help    - print this text
+    <test case> - run the specified test. This can be specified multiple times
+              to allow running a list of tests.
+        available test cases $([ -n "$pattern" ] && echo "( matching '$pattern' )"):
+            $(echo "${test_list[@]}" | sed "s/ /\n            /g")
+END_HELP
+}
+
+set_color_mode() {
+	_tput=$(which tput 2>/dev/null) || true "never mind"
+
+	local mode="$1"
+
+	[ "$mode" = "auto" ] || [ "$mode" = "on" ] || [ "$mode" = "off" ] || {
+		echo "ERROR: invalid argument. Valid values are auto, on and off."
+		return 1
+	}
+
+
+	# If requested mode is on, but cannot use colors, fail with an error.
+	[ -z "$_tput" ] && [ "$mode" = "on" ] && {
+		echo "set_color_mode(), ERROR: command tput can not be found, failed to force colors to on."
+		return 1
+	}
+
+	# If tput is not available turn colors off
+	[ -z "$_tput" ] && mode="off"
+
+	# If mode == auto and running in a terminal, turn colors on
+	[ "$mode" = "auto" ] && [ -t 0 ] && mode="on"
+
+
+	# By default enable colored output if tput is present and running in a terminal
+	if [ "$mode" = "on" ]
+	then
+		COLOR_YELLOW=$(tput setaf 3)
+		COLOR_RESET=$(tput sgr0)
+		COLOR_RED=$(tput setaf 1)
+		COLOR_GREEN=$(tput setaf 2)
+	else
+		COLOR_YELLOW=
+		COLOR_RESET=
+		COLOR_RED=
+		COLOR_GREEN=
+	fi
+
+	return 0
+}
+
+#################### Entry point ###################################
+
+OS_ID=$(uname -o )
+
+set_color_mode "auto"
+
+_ccache=$(which ccache 2>/dev/null) || true "never mind"
+
+process_commands() {
+	local exit_code=0
+	while true
+	do
+		case $1 in
+			{% for config in data %}
+			{{config.name}})
+				{{config.name}} || {
+					exit_code=$?
+					[ "$FAIL_FAST" -ne 0 ] && break
+				}
+				;;
+			{% endfor %}
+			clean)
+				do_clean || {
+					exit_code=$?
+					break
+				}
+				;;
+			help)
+				do_help
+				break
+				;;
+			"")
+				for _test in "${test_list[@]}"
+				do
+					"$_test" || {
+						exit_code=$?
+						[ "$FAIL_FAST" -ne 0 ] && break
+					}
+				done
+				break
+				;;
+			*)
+				echo "${COLOR_RED}Error: invalid command: $1 $COLOR_RESET"
+				do_help
+				exit_code=1
+				break
+				;;
+		esac
+		shift
+		[ 0 -eq $# ] && break
+	done
+	return $exit_code
+}
+
+while true
+do
+	# parse options
+	arg=$1
+	case $arg in
+		-p)
+			shift
+			pattern=$1
+			if [ -z "$pattern" ]
+			then
+				echo "${COLOR_RED}Error: missing argument <search regexp>. $COLOR_RESET"
+				exit_code=1
+				break
+			else
+				readarray -t test_list < <(printf "%s\n" "${test_list[@]}" | grep -- "$pattern")
+				{% raw %}
+				[ 0 -eq ${#test_list[@]} ] && {
+				{% endraw %}
+					echo "${COLOR_RED}Error: -p <regexp> matches no tests. $COLOR_RESET"
+					exit_code=1
+					break
+				}
+			fi
+			;;
+		--no-color)
+			set_color_mode "off"
+			;;
+		--color)
+			set_color_mode "on"
+			;;
+		-f|--fail-fast)
+			FAIL_FAST=1
+			;;
+		-l|--log-dir)
+			shift
+			btest_logdir_root=$1
+			[ -z "$btest_logdir_root" ] && {
+				echo "${COLOR_RED}Error: missing argument <path>. $COLOR_RESET"
+				exit_code=1
+				break
+			}
+
+			[ -d "$btest_logdir_root" ] || {
+				mkdir -p "$btest_logdir_root"
+			}
+			;;
+		-i|--install-prefix)
+			shift
+			INSTALL_PREFIX="$1"
+			[ -z "$INSTALL_PREFIX" ] && {
+				echo "${COLOR_RED}Error: missing argument <path> after $arg. $COLOR_RESET"
+				exit_code=1
+				break
+			}
+
+			[ -d "$INSTALL_PREFIX" ] || {
+				echo "${COLOR_RED}Error: install directory $INSTALL_PREFIX can not be found. $COLOR_RESET"
+				exit_code=1
+				break
+			}
+			;;
+		-b|--build-prefix)
+			shift
+			BUILD_PREFIX="$1"
+			[ -z "$BUILD_PREFIX" ] && {
+				echo "${COLOR_RED}Error: missing argument <path> after $arg. $COLOR_RESET"
+				exit_code=1
+				break
+			}
+
+			[ -d "$BUILD_PREFIX" ] || {
+				echo "${COLOR_RED}Error: build directory $BUILD_PREFIX can not be found. $COLOR_RESET"
+				exit_code=1
+				break
+			}
+			;;
+		*)
+			# parse commands
+			process_commands "$@" || exit_code=$?
+			break
+			;;
+	esac
+	shift
+done
+
+exit $exit_code

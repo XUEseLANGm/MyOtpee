@@ -1,0 +1,32 @@
+From 388b2d044d3cdab89b7e5e6de94436ca78e1a13b Mon Sep 17 00:00:00 2001
+From: Imre Kis <imre.kis@arm.com>
+Date: Thu, 11 Apr 2024 14:20:16 +0200
+Subject: [PATCH] Fix race condition in directory creation
+
+nanopb_generator.py tests if the output directory exists and creates it
+if not. Because of these two steps are not atomic, there's a chance of
+multiple processes trying to create the directory. One process will
+succeed but the other will fail because the directory already exists.
+Allow existing directory on makedirs call to prevent this issue.
+
+Signed-off-by: Imre Kis <imre.kis@arm.com>
+---
+ generator/nanopb_generator.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/generator/nanopb_generator.py b/generator/nanopb_generator.py
+index c11f6fa..999aaf7 100755
+--- a/generator/nanopb_generator.py
++++ b/generator/nanopb_generator.py
+@@ -2597,7 +2597,7 @@ def main_cli():
+         for path, data in to_write:
+             dirname = os.path.dirname(path)
+             if dirname and not os.path.exists(dirname):
+-                os.makedirs(dirname)
++                os.makedirs(dirname, exist_ok=True)
+ 
+             with open(path, 'w', encoding='utf-8') as f:
+                 f.write(data)
+-- 
+2.25.1
+

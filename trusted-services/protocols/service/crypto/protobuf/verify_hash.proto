@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) 2020-2021, Arm Limited and Contributors. All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+syntax = "proto3";
+
+package ts_crypto;
+
+message VerifyHashIn {
+  uint32 id = 1;
+  uint32 alg = 2;
+  bytes hash = 3;
+  bytes signature = 4;
+}
+
+message VerifyHashOut {}

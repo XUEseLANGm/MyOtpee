@@ -1,0 +1,28 @@
+#
+# Copyright (c) 2020-2023, Arm Limited and Contributors. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+
+#Ignore cmake build directory
+**/build/
+**/build[-_]*/
+
+#Ignore documentation build output.
+**/_build*/
+
+#Ignore pyhton intermediate files.
+**/__pycache__/
+
+#Ignore IDE settings
+**/.vscode
+# vscode/clangd
+**/.clangd
+**/compile_commands.json
+
+**/.cproject
+**/.project
+**/.pydevproject
+**/.settings/
+tools/bash/uefi_authenticated_variables/temp_files/
+tools/bash/uefi_authenticated_variables/auth_vectors/

@@ -1,0 +1,30 @@
+#-------------------------------------------------------------------------------
+# Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+#-------------------------------------------------------------------------------
+
+set(CMAKE_INSTALL_PREFIX @BUILD_INSTALL_DIR@ CACHE STRING "")
+set(CMAKE_TOOLCHAIN_FILE @TS_EXTERNAL_LIB_TOOLCHAIN_FILE@ CACHE STRING "")
+set(BUILD_SHARED_LIBS Off CACHE BOOL "")
+set(BUILD_STATIC_LIBS On CACHE BOOL "")
+set(nanopb_BUILD_RUNTIME On CACHE BOOL "")
+set(nanopb_BUILD_GENERATOR On CACHE BOOL "")
+set(nanopb_MSVC_STATIC_RUNTIME Off BOOL "")
+set(BRANCH_PROTECTION @BRANCH_PROTECTION@ CACHE STRING "")
+
+# Specify location of python binary and avoid discovery.
+set(Python_EXECUTABLE "@Python_EXECUTABLE@" CACHE PATH "Location of python3 executable")
+
+string(TOUPPER @CMAKE_CROSSCOMPILING@ CMAKE_CROSSCOMPILING) # CMake expects TRUE
+if (CMAKE_CROSSCOMPILING)
+	set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY CACHE STRING "")
+endif()
+
+# Override the install directory of the generator. TS will first look at
+# NEWLIB_INSTALL_DIR (aka. BUILD_INSTALL_DIR), then let cmake do system specific
+# search.
+set(nanopb_PYTHON_INSTDIR_OVERRIDE "@BUILD_INSTALL_DIR@/lib/python" CACHE PATH "")
+
+@_cmake_fragment@

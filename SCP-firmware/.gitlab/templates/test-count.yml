@@ -1,0 +1,22 @@
+#
+# Arm SCP/MCP Software
+# Copyright (c) 2024-2025, Arm Limited and Contributors. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+
+.test-count:
+  image: ${CI_REGISTRY_IMAGE}/ci-base:${DOCKER_IMAGE_TAG}
+  script:
+    - |
+    - /test_count_entrypoint.sh "
+      -ft artifacts/fwk_test.log
+      -ut artifacts/mod_test.log
+      -pt artifacts/prod_test.log
+      -s artifacts/
+      -r ./artifacts/test_count_report.html"
+  artifacts:
+    when: on_success
+    expire_in: 2 days
+    paths:
+      - artifacts/test_count_report.html

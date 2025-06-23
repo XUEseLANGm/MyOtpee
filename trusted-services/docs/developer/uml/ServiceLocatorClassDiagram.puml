@@ -1,0 +1,37 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2020-2021, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml
+
+class service_client
+
+class rpc_caller
+{
+	rpc_call_handle call_begin()
+	int call_invoke()
+	void call_end()
+}
+
+abstract class service_context
+{
+	{abstract} rpc_caller open()
+	{abstract} void close(rpc_caller)
+}
+
+class service_locator <<singleton>>
+{
+	service_context query(service_name)
+	void relinquish(service_context)
+}
+
+service_locator ..> "finds" service_context
+service_context ..> "opens session" rpc_caller
+service_client ..> "queries" service_locator
+service_client --> service_context
+service_client --> rpc_caller
+
+@enduml

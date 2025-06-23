@@ -1,0 +1,11 @@
+#
+# Arm SCP/MCP Software
+# Copyright (c) 2024-2025, Arm Limited and Contributors. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+
+.banned-api:
+  image: ${CI_REGISTRY_IMAGE}/ci-base:${DOCKER_IMAGE_TAG}
+  script:
+    - python3 tools/check_api.py

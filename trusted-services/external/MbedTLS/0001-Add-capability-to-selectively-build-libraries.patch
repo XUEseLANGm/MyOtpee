@@ -1,0 +1,144 @@
+From 009b346144f4efd6c7f6ca0ceaead89e7333bba7 Mon Sep 17 00:00:00 2001
+From: Gyorgy Szing <Gyorgy.Szing@arm.com>
+Date: Tue, 28 Mar 2023 18:20:44 +0200
+Subject: [PATCH] Add capability to selectively build libraries
+
+Introduce the BUILD_X509 and BUILD_TLS options which allows disabling
+or enabling building of these libraries.
+
+Uptream-status: Invalid [other]
+  - This is a Trusted Services specific change, there is no intention
+    to upstream this change.
+
+Signed-off-by: Gyorgy Szing <Gyorgy.Szing@arm.com>
+Signed-off-by: Imre Kis <imre.kis@arm.com>
+---
+ library/CMakeLists.txt | 77 +++++++++++++++++++++++++++++++-----------
+ 1 file changed, 57 insertions(+), 20 deletions(-)
+
+diff --git a/library/CMakeLists.txt b/library/CMakeLists.txt
+index e6705de55..3244bd086 100644
+--- a/library/CMakeLists.txt
++++ b/library/CMakeLists.txt
+@@ -2,6 +2,8 @@ option(USE_STATIC_MBEDTLS_LIBRARY "Build Mbed TLS static library." ON)
+ option(USE_SHARED_MBEDTLS_LIBRARY "Build Mbed TLS shared library." OFF)
+ option(LINK_WITH_PTHREAD "Explicitly link Mbed TLS library to pthread." OFF)
+ option(LINK_WITH_TRUSTED_STORAGE "Explicitly link Mbed TLS library to trusted_storage." OFF)
++option(BUIILD_X509 "Build x509 library too." ON)
++option(BUILD_TLS "Build TLS library too" OFF)
+ 
+ # Set the project root directory if it's not already defined, as may happen if
+ # the library folder is included directly by a parent project, without
+@@ -257,7 +259,15 @@ if (USE_STATIC_MBEDTLS_LIBRARY)
+     set(mbedcrypto_static_target ${mbedcrypto_target})
+ endif()
+ 
+-set(target_libraries ${mbedcrypto_target} ${mbedx509_target} ${mbedtls_target})
++set(target_libraries ${mbedcrypto_target})
++
++if (BUIILD_X509)
++    list(APPEND target_libraries ${mbedx509_target})
++endif()
++
++if (BUILD_TLS)
++    list(APPEND target_libraries ${mbedtls_target})
++endif()
+ 
+ if(USE_STATIC_MBEDTLS_LIBRARY AND USE_SHARED_MBEDTLS_LIBRARY)
+     string(APPEND mbedtls_static_target    "_static")
+@@ -265,9 +275,15 @@ if(USE_STATIC_MBEDTLS_LIBRARY AND USE_SHARED_MBEDTLS_LIBRARY)
+     string(APPEND mbedcrypto_static_target "_static")
+ 
+     list(APPEND target_libraries
+-        ${mbedcrypto_static_target}
+-        ${mbedx509_static_target}
+-        ${mbedtls_static_target})
++        ${mbedcrypto_static_target})
++
++    if (BUIILD_X509 OR BUIILD_TLS)
++        list(APPEND target_libraries ${mbedx509_static_target})
++    endif()
++
++    if (BUILD_TLS)
++        list(APPEND target_libraries ${mbedtls_static_target})
++    endif()
+ endif()
+ 
+ set(p256m_target "${MBEDTLS_TARGET_PREFIX}p256m")
+@@ -286,13 +302,17 @@ if(USE_STATIC_MBEDTLS_LIBRARY)
+         target_link_libraries(${mbedcrypto_static_target} PUBLIC ${p256m_target})
+     endif()
+ 
+-    add_library(${mbedx509_static_target} STATIC ${src_x509})
+-    set_target_properties(${mbedx509_static_target} PROPERTIES OUTPUT_NAME mbedx509)
+-    target_link_libraries(${mbedx509_static_target} PUBLIC ${libs} ${mbedcrypto_static_target})
++    if (BUIILD_X509 OR BUIILD_TLS)
++        add_library(${mbedx509_static_target} STATIC ${src_x509})
++        set_target_properties(${mbedx509_static_target} PROPERTIES OUTPUT_NAME mbedx509)
++        target_link_libraries(${mbedx509_static_target} PUBLIC ${libs} ${mbedcrypto_static_target})
++    endif()
+ 
+-    add_library(${mbedtls_static_target} STATIC ${src_tls})
+-    set_target_properties(${mbedtls_static_target} PROPERTIES OUTPUT_NAME mbedtls)
+-    target_link_libraries(${mbedtls_static_target} PUBLIC ${libs} ${mbedx509_static_target})
++    if (BUILD_TLS)
++        add_library(${mbedtls_static_target} STATIC ${src_tls})
++        set_target_properties(${mbedtls_static_target} PROPERTIES OUTPUT_NAME mbedtls)
++        target_link_libraries(${mbedtls_static_target} PUBLIC ${libs} ${mbedx509_static_target})
++    endif()
+ endif(USE_STATIC_MBEDTLS_LIBRARY)
+ 
+ if(USE_SHARED_MBEDTLS_LIBRARY)
+@@ -308,14 +328,16 @@ if(USE_SHARED_MBEDTLS_LIBRARY)
+     if(TARGET ${p256m_target})
+         target_link_libraries(${mbedcrypto_target} PUBLIC ${p256m_target})
+     endif()
+-
+-    add_library(${mbedx509_target} SHARED ${src_x509})
+-    set_target_properties(${mbedx509_target} PROPERTIES VERSION 3.6.0 SOVERSION 7)
+-    target_link_libraries(${mbedx509_target} PUBLIC ${libs} ${mbedcrypto_target})
+-
+-    add_library(${mbedtls_target} SHARED ${src_tls})
+-    set_target_properties(${mbedtls_target} PROPERTIES VERSION 3.6.0 SOVERSION 21)
+-    target_link_libraries(${mbedtls_target} PUBLIC ${libs} ${mbedx509_target})
++    if (BUIILD_X509 OR BUILD_TLS)
++        add_library(${mbedx509_target} SHARED ${src_x509})
++        set_target_properties(${mbedx509_target} PROPERTIES VERSION 3.6.0 SOVERSION 7)
++        target_link_libraries(${mbedx509_target} PUBLIC ${libs} ${mbedcrypto_target})
++    endif()
++    if (BUILD_TLS)
++        add_library(${mbedtls_target} SHARED ${src_tls})
++        set_target_properties(${mbedtls_target} PROPERTIES VERSION 3.6.0 SOVERSION 21)
++        target_link_libraries(${mbedtls_target} PUBLIC ${libs} ${mbedx509_target})
++    endif()
+ endif(USE_SHARED_MBEDTLS_LIBRARY)
+ 
+ foreach(target IN LISTS target_libraries)
+@@ -351,7 +373,22 @@ endforeach(target)
+ 
+ set(lib_target "${MBEDTLS_TARGET_PREFIX}lib")
+ 
+-add_custom_target(${lib_target} DEPENDS ${mbedcrypto_target} ${mbedx509_target} ${mbedtls_target})
++add_custom_target(${lib_target} DEPENDS ${mbedcrypto_target})
++
++if(BUIILD_X509 OR BUIILD_TLS)
++    add_dependencies(${lib_target} ${mbedx509_target})
++endif()
++
++if(BUIILD_TLS)
++    add_dependencies(${lib_target} ${mbedtls_target})
++endif()
++
+ if(USE_STATIC_MBEDTLS_LIBRARY AND USE_SHARED_MBEDTLS_LIBRARY)
+-    add_dependencies(${lib_target} ${mbedcrypto_static_target} ${mbedx509_static_target} ${mbedtls_static_target})
++    add_dependencies(${lib_target} ${mbedcrypto_static_target})
++    if(BUIILD_X509 OR BUIILD_TLS)
++        add_dependencies(${lib_target} ${mbedx509_static_target})
++    endif()
++    if(BUIILD_TLS)
++        add_dependencies(${lib_target} ${mbedtls_static_target})
++    endif()
+ endif()
+-- 
+2.25.1
+

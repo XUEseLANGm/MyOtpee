@@ -1,0 +1,73 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+name: CI
+
+on: [push, pull_request]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  # Run test on AMD64 host
+  test-on-amd64-host:
+    uses: ./.github/workflows/reuse_test.yml
+    with:
+      runs-on: ubuntu-latest
+      container: ghcr.io/ivila/teaclave-trustzone-sdk-ci-runner:ubuntu-24.04
+
+  # Run test on ARM64 host
+  test-on-arm64-host:
+    uses: ./.github/workflows/reuse_test.yml
+    with:
+      runs-on: ubuntu-24.04-arm
+      container: ghcr.io/ivila/teaclave-trustzone-sdk-ci-runner:ubuntu-24.04
+
+  # Run systest of optee_teec and build systest of optee_utee on ARM64
+  systest:
+    runs-on: ubuntu-24.04-arm
+    container: ghcr.io/ivila/teaclave-trustzone-sdk-ci-runner:ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare Environment
+        run: |
+          # Setup Rust and toolchains
+          ./setup.sh
+          source "$HOME/.cargo/env"
+          # Build optee_os and optee_client for qemu_v8
+          ./build_optee_libraries.sh $HOME
+          # Setup environment
+          export OPTEE_DIR=$HOME
+          source environment
+          # Run systest
+          export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$OPTEE_DIR/optee_client/export_arm64/usr/lib
+          (cd optee-teec && cargo run -p systest)
+          (cd optee-utee && cargo build -p systest)
+
+  license:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check License Header
+        uses: apache/skywalking-eyes/header@501a28d2fb4a9b962661987e50cf0219631b32ff

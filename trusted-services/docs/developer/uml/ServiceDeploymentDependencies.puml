@@ -1,0 +1,24 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2022, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml
+
+component Deployment
+component Infrastructure
+component Environment
+component Configuration
+component Adapter
+component Adapter as pl_adapter
+component Platform
+
+Deployment -down.> Infrastructure
+Deployment -down.> Environment
+Deployment -down.> Configuration
+Deployment -down.> Platform
+Infrastructure -down.> "0..*" Adapter
+Platform -down.> "0..*" "pl_adapter"
+@enduml

@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) 2020-2021, Arm Limited and Contributors. All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+syntax = "proto3";
+
+package ts_crypto;
+
+message AsymmetricDecryptIn {
+  uint32 id = 1;
+  uint32 alg = 2;
+  bytes ciphertext = 3;
+  bytes salt = 4;
+}
+
+message AsymmetricDecryptOut {
+  bytes plaintext = 1;
+}

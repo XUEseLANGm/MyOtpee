@@ -1,0 +1,118 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2020-2021, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml
+
+class ffa_internal_api {
+  .. SVC call ..
+  + ffa_svc()
+}
+
+package "FF-A layer" {
+  class ffa_api {
+    .. Setup and discovery interfaces ..
+    + ffa_version()
+    + ffa_features()
+    + ffa_rx_release()
+    + ffa_rxtx_map()
+    + ffa_rxtx_unmap()
+    + ffa_partition_info_get()
+    + ffa_id_get()
+
+    .. CPU cycle management interfaces ..
+    + ffa_msg_wait()
+
+    .. Messaging interfaces ..
+    + ffa_msg_send_direct_req()
+    + ffa_msg_send_direct_resp()
+
+    .. Memory management interfaces ..
+    + ffa_mem_donate()
+    + ffa_mem_donate_rxtx()
+    + ffa_mem_lend()
+    + ffa_mem_lend_rxtx()
+    + ffa_mem_share()
+    + ffa_mem_share_rxtx()
+    + ffa_mem_retrieve_req()
+    + ffa_mem_retrieve_req_rxtx()
+    + ffa_mem_relinquish()
+    + ffa_mem_reclaim()
+
+    .. Interrupt handler definition ..
+    + ffa_interrupt_handler()
+  }
+
+  class ffa_memory_descriptors {
+    .. Transaction buffer handling ..
+    + ffa_init_mem_transaction_buffer()
+
+    .. Transaction descriptor ..
+    + ffa_init_mem_transaction_desc()
+    + ffa_get_mem_transaction_desc()
+
+    .. Memory access descriptor ..
+    + ffa_reserve_mem_access_desc()
+    + ffa_add_mem_access_desc()
+    + ffa_get_mem_access_desc_count()
+    + ffa_get_mem_access_desc()
+
+    .. Memory region ..
+    + ffa_add_memory_region()
+    + ffa_get_memory_region()
+  }
+}
+
+package "SP layer" {
+  class sp_rxtx {
+    .. RXTX buffer handling ..
+    + sp_rxtx_buffer_map()
+    + sp_rxtx_buffer_unmap()
+    + sp_rxtx_buffer_alignment_boundary_get()
+    + sp_rxtx_buffer_rx_get()
+    + sp_rxtx_buffer_tx_get()
+  }
+
+  class sp_memory_management {
+    .. Donate ..
+    + sp_memory_donate()
+    + sp_memory_donate_dynamic()
+    + sp_memory_donate_dynamic_is_supported()
+
+    .. Lend ..
+    + sp_memory_lend()
+    + sp_memory_lend_dynamic()
+    + sp_memory_lend_dynamic_is_supported()
+
+    .. Share ..
+    + sp_memory_share()
+    + sp_memory_share_dynamic()
+    + sp_memory_share_dynamic_is_supported()
+
+    .. Retrieve ..
+    + sp_memory_retrieve()
+    + sp_memory_retrieve_dynamic()
+    + sp_memory_retrieve_dynamic_is_supported()
+
+    .. Relinquish ..
+    + sp_memory_relinquish()
+
+    .. Reclaim ..
+    + sp_memory_reclaim()
+  }
+}
+
+
+ffa_api -left-> ffa_internal_api
+
+ffa_api -[hidden]-> ffa_memory_descriptors
+
+sp_rxtx -left-> ffa_api
+sp_memory_management --> ffa_api
+sp_memory_management -left-> ffa_memory_descriptors
+sp_memory_management -up-> sp_rxtx
+
+@enduml

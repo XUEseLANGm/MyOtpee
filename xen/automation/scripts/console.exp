@@ -1,0 +1,51 @@
+#!/usr/bin/expect -f
+
+if {[info exists env(TEST_TIMEOUT_OVERRIDE)]} {
+    set timeout $env(TEST_TIMEOUT_OVERRIDE)
+} elseif {[info exists env(TEST_TIMEOUT)]} {
+    set timeout $env(TEST_TIMEOUT)
+} else {
+    set timeout 1500
+}
+
+log_file -a $env(TEST_LOG)
+
+match_max 10000
+
+eval spawn $env(TEST_CMD)
+
+expect_after {
+    -re "(.*)\r" {
+        exp_continue -continue_timer
+    }
+    timeout {send_error "ERROR-Timeout!\n"; exit 1}
+    eof {send_error "ERROR-EOF!\n"; exit 1}
+}
+
+if {[info exists env(UBOOT_CMD)]} {
+    expect "=>"
+
+    send "$env(UBOOT_CMD)\r"
+}
+
+if {[info exists env(LOG_MSG)]} {
+    expect {
+        "$env(PASSED)" {
+            expect "$env(LOG_MSG)"
+            exit 0
+        }
+        "$env(LOG_MSG)" {
+            expect "$env(PASSED)"
+            exit 0
+        }
+    }
+}
+
+expect {
+    "$env(PASSED)" {
+        exit 0
+    }
+}
+
+expect eof
+

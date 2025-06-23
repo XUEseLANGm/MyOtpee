@@ -1,0 +1,34 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2024, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml
+package "Normal World" {
+  package "EL-1" {
+    [arm-ffa-user] as driver
+    [Linux kernel] as kernel
+  }
+  package "EL-0" {
+    [shell]
+    [xtest]
+  }
+}
+package "Secure World" {
+  package "SEL-0" {
+    [Test SP] as sp
+  }
+  package "SEL-1" {
+    [OP-TEE kernel] as optee
+  }
+}
+
+[shell] -> driver: Load driver
+[shell] -> [xtest] : Call xtest -t ffa_spmc
+[xtest] -> driver: Open
+driver -> kernel: Send FF-A message
+kernel -> optee: Forward FF-A message
+optee -> sp: Forward FF-A message
+@enduml

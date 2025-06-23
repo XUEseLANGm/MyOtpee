@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) 2020-2021, Arm Limited and Contributors. All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+syntax = "proto3";
+
+package ts_crypto;
+
+import "service/crypto/protobuf/key_attributes.proto";
+
+message ImportKeyIn {
+  KeyAttributes attributes = 1;
+  bytes data = 3;
+}
+
+message ImportKeyOut {
+  uint32 id = 1;
+}

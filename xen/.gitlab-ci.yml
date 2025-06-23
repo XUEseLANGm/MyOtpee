@@ -1,0 +1,28 @@
+variables:
+  XEN_REGISTRY: registry.gitlab.com/xen-project/xen
+
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^(master|smoke|^coverity-tested\/.*|stable-.*)$/
+      when: never
+    - when: always
+
+stages:
+  - containers
+  - analyze
+  - build
+  - test
+
+include:
+  - local: 'automation/gitlab-ci/containers.yaml'
+    rules:
+      - if: $XEN_CI_REBUILD_CONTAINERS
+  - local: 'automation/gitlab-ci/analyze.yaml'
+    rules:
+      - if: $XEN_CI_REBUILD_CONTAINERS == null
+  - local: 'automation/gitlab-ci/build.yaml'
+    rules:
+      - if: $XEN_CI_REBUILD_CONTAINERS == null
+  - local: 'automation/gitlab-ci/test.yaml'
+    rules:
+      - if: $XEN_CI_REBUILD_CONTAINERS == null

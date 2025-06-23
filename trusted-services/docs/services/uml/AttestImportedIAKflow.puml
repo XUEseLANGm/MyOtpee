@@ -1,0 +1,21 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml
+participant "factory app"
+participant "attestation service"
+participant "keystore"
+
+hnote over "keystore": empty
+"factory app" -> "attestation service" : import_iak
+"attestation service" -> "keystore" : check_exists
+"attestation service" <-- "keystore" : false
+"attestation service" -> "keystore" : store_key
+hnote over "keystore": provisioned
+"factory app" <-- "attestation service" : success
+
+@enduml

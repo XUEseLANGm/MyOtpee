@@ -1,0 +1,4 @@
+#Ignore instaniated template.
+run.sh
+# Ignore user specific setting script
+user.env

@@ -1,0 +1,57 @@
+# ---- 构建输出 ----
+/out/
+/out-br/
+/debug/
+/release/
+*.o
+*.a
+*.ko
+*.so
+*.elf
+*.bin
+*.img
+*.map
+*.d
+*.lst
+
+# ---- 依赖项 ----
+/optee_client/build/
+/optee_test/bin/
+/buildroot/output/
+/sdk/downloads/
+/sdk/dl/
+
+# ---- IDE/编辑器 ----
+*~
+.*.sw?
+.vscode/
+.idea/
+*.suo
+*.user
+.project
+.cproject
+.settings/
+*.uvproj
+
+# ---- 系统/平台 ----
+*.dtb
+*.dtbo
+/platform_config.h
+/logs/
+*.log
+*.trace
+.repo/
+toolchains/
+
+# ---- 可选忽略 ----
+/bin/
+/firmware/
+/toolchains/
+/doc/_build/
+/doc/html/
+/doc/latex/
+.env
+*.key
+*.pem
+*.cert
+

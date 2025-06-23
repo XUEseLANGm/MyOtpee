@@ -1,0 +1,107 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2023, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml TS RPC call sequence
+
+autoactivate on
+
+participant "Service caller" as service_caller
+participant "RPC caller session" as rpc_session
+participant "TS RPC caller" as rpc_caller
+participant "SPMC" as spmc
+participant "TS RPC endpoint" as endpoint
+participant "Service" as service
+
+service_caller -> rpc_session: open(service_uuid)
+
+' Sesssion open
+rpc_session -> rpc_caller: find_and_open_session(service_uuid)
+
+rpc_caller -> spmc: FFA_PARTITION_INFO_GET(ts_rpc_uuid)
+spmc --> rpc_caller: FF-A endpoint_id
+
+rpc_caller -> endpoint: TS_RPC_VERSION_GET
+endpoint --> rpc_caller: TS RPC protocol version
+
+rpc_caller -> endpoint: TS_RPC_SERVICE_INFO_GET(service_uuid)
+endpoint --> rpc_caller: Service interface_id
+
+rpc_caller --> rpc_session: TS RPC status
+
+rpc_session --> service_caller: TS RPC status
+
+' Begin
+service_caller -> rpc_session: begin(request_length, response_max_length)
+
+rpc_session -> rpc_session: allocate_buffer(MAX(request_length, response_max_length))
+rpc_session --> rpc_session: buffer
+
+rpc_session -> rpc_caller: create_shared_memory(endpoint_id, buffer)
+
+rpc_caller -> spmc: FFA_MEM_SHARE(endpoint_id, buffer)
+spmc --> rpc_caller: memory_handle, memory_tag
+
+rpc_caller -> endpoint: TS_RPC_MEM_RETRIEVE(memory_handle, memory_tag)
+
+endpoint -> spmc: FFA_MEM_RETRIEVE(memory_handle, memory_tag)
+spmc --> endpoint: buffer
+
+endpoint --> rpc_caller: TS RPC status
+
+rpc_caller --> rpc_session: TS RPC status, shared_memory
+
+rpc_session --> service_caller: Request buffer
+
+' Serialize
+service_caller -> service_caller: Serialize parameters to request buffer
+service_caller --> service_caller
+
+' Invoke
+service_caller -> rpc_session: invoke(opcode)
+
+rpc_session -> rpc_caller: call(opcode, shared_memory, request_length)
+
+rpc_caller -> endpoint: service_call(interface_id, opcode, memory_handle, request_length)
+
+endpoint -> service: service_call(opcode, request)
+service --> endpoint: service status, response
+
+endpoint --> rpc_caller: TS RPC status, service status, response length
+
+rpc_caller --> rpc_session: TS RPC status, service status, response length
+
+rpc_session --> service_caller: TS RPC status, service status, response
+
+' Deserialize
+service_caller -> service_caller: Deserialize return values from the response buffer
+service_caller --> service_caller
+
+' End
+service_caller -> rpc_session: end()
+
+rpc_session -> rpc_caller: release_shared_memory(shared_memory)
+
+rpc_caller -> endpoint: TS_RPC_MEM_RELINQUISH(memory_handle)
+
+endpoint -> spmc: FFA_MEMORY_RELINQUISH(memory_handle)
+spmc --> endpoint: FFA_SUCCESS
+
+endpoint --> rpc_caller: TS RPC status
+
+rpc_caller -> spmc: FFA_MEM_RECLAIM(memory_handle)
+spmc --> rpc_caller: FFA_SUCCESS
+
+rpc_caller -> rpc_caller: free(buffer)
+rpc_caller --> rpc_caller
+
+rpc_caller --> rpc_session: TS RPC status
+
+rpc_session --> service_caller: TS RPC status
+
+service_caller -> rpc_session: close()
+rpc_session --> service_caller: TS RPC status
+@enduml

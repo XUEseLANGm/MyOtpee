@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-only
+
+arm-ffa-user-objs := arm_ffa_user.o
+obj-m := arm-ffa-user.o

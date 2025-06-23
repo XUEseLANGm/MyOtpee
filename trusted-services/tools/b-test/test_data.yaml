@@ -1,0 +1,293 @@
+#
+# Copyright (c) 2020-2024, Arm Limited and Contributors. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+
+$schema: ./test_data.schema.json,
+data:
+    - name: "attestation-default-opteesp"
+      src: "$TS_ROOT/deployments/attestation/config/default-opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "attestation-default-sp"
+      src: "$TS_ROOT/deployments/attestation/config/default-sp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "block-storage-cfi-flash-optee"
+      src: "$TS_ROOT/deployments/block-storage/config/cfi-flash-optee"
+      params:
+            - "-GUnix Makefiles"
+    - name: "block-storage-default-opteesp"
+      src: "$TS_ROOT/deployments/block-storage/config/default-opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "block-storage-default-sp"
+      src: "$TS_ROOT/deployments/block-storage/config/default-sp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "block-storage-semihosted-opteesp"
+      src: "$TS_ROOT/deployments/block-storage/config/semihosted-opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "component-test-arm-linux"
+      src: "$TS_ROOT/deployments/component-test/arm-linux"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "component-test-linux-pc"
+      src: "$TS_ROOT/deployments/component-test/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "component-test-coverage-linux-pc"
+      src: "$TS_ROOT/deployments/component-test/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+            - "-DCOVERAGE=1"
+    - name: "crypto-default-opteesp"
+      src: "$TS_ROOT/deployments/crypto/config/default-opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "crypto-default-sp"
+      src: "$TS_ROOT/deployments/crypto/config/default-sp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "env-test-baremetal-fvp_base_revc-opteesp"
+      src: "$TS_ROOT/deployments/env-test/config/baremetal-fvp_base_revc-opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "env-test-baremetal-fvp_base_revc-sp"
+      src: "$TS_ROOT/deployments/env-test/config/baremetal-fvp_base_revc-sp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "env-test-n1sdp-opteesp"
+      src: "$TS_ROOT/deployments/env-test/config/n1sdp-opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "fwu-tool-linux-pc"
+      src: "$TS_ROOT/deployments/fwu-tool/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "fwu-default-opteesp"
+      src: "$TS_ROOT/deployments/fwu/config/default-opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "fwu-default-sp"
+      src: "$TS_ROOT/deployments/fwu/config/default-sp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "internal-trusted-storage-default-opteesp"
+      src: "$TS_ROOT/deployments/internal-trusted-storage/config/default-opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "internal-trusted-storage-default-sp"
+      src: "$TS_ROOT/deployments/internal-trusted-storage/config/default-sp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "internal-trusted-storage-shared-flash-opteesp"
+      src: "$TS_ROOT/deployments/internal-trusted-storage/config/shared-flash-opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "libpsats-arm-linux"
+      src: "$TS_ROOT/deployments/libpsats/arm-linux"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "libpsats-linux-pc"
+      src: "$TS_ROOT/deployments/libpsats/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "libpsats-coverage-linux-pc"
+      src: "$TS_ROOT/deployments/libpsats/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+            - "-DCOVERAGE=1"
+    - name: "libsp-linux-pc"
+      src: "$TS_ROOT/deployments/libsp/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "libsp-coverage-linux-pc"
+      src: "$TS_ROOT/deployments/libsp/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+            - "-DCOVERAGE=1"
+    - name: "libsp-opteesp"
+      src: "$TS_ROOT/deployments/libsp/opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "libts-arm-linux"
+      src: "$TS_ROOT/deployments/libts/arm-linux"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "libts-linux-pc"
+      src: "$TS_ROOT/deployments/libts/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "libts-coverage-linux-pc"
+      src: "$TS_ROOT/deployments/libts/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+            - "-DCOVERAGE=1"
+    - name: "platform-inspect-arm-linux"
+      src: "$TS_ROOT/deployments/platform-inspect/arm-linux"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "platform-inspect-linux-pc"
+      src: "$TS_ROOT/deployments/platform-inspect/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "protected-storage-default-opteesp"
+      src: "$TS_ROOT/deployments/protected-storage/config/default-opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "protected-storage-default-sp"
+      src: "$TS_ROOT/deployments/protected-storage/config/default-sp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "protected-storage-shared-flash-opteesp"
+      src: "$TS_ROOT/deployments/protected-storage/config/shared-flash-opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "psa-api-test-crypto-arm-linux"
+      src: "$TS_ROOT/deployments/psa-api-test/crypto/arm-linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "psa-api-test-crypto-linux-pc"
+      src: "$TS_ROOT/deployments/psa-api-test/crypto/linux-pc"
+      params:
+            - "-GUnix Makefiles"
+    - name: "psa-api-test-initial_attestation-arm-linux"
+      src: "$TS_ROOT/deployments/psa-api-test/initial_attestation/arm-linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "psa-api-test-initial_attestation-linux-pc"
+      src: "$TS_ROOT/deployments/psa-api-test/initial_attestation/linux-pc"
+      params:
+            - "-GUnix Makefiles"
+    - name: "psa-api-test-internal_trusted_storage-arm-linux"
+      src: "$TS_ROOT/deployments/psa-api-test/internal_trusted_storage/arm-linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "psa-api-test-internal_trusted_storage-linux-pc"
+      src: "$TS_ROOT/deployments/psa-api-test/internal_trusted_storage/linux-pc"
+      params:
+            - "-GUnix Makefiles"
+    - name: "psa-api-test-protected_storage-arm-linux"
+      src: "$TS_ROOT/deployments/psa-api-test/protected_storage/arm-linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "psa-api-test-protected_storage-linux-pc"
+      src: "$TS_ROOT/deployments/psa-api-test/protected_storage/linux-pc"
+      params:
+            - "-GUnix Makefiles"
+    - name: "se-proxy-corstone1000-opteesp"
+      src: "$TS_ROOT/deployments/se-proxy/config/corstone1000-opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "se-proxy-default-opteesp"
+      src: "$TS_ROOT/deployments/se-proxy/config/default-opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "se-proxy-default-sp"
+      src: "$TS_ROOT/deployments/se-proxy/config/default-sp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "smm-gateway-default-opteesp"
+      src: "$TS_ROOT/deployments/smm-gateway/config/default-opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "smm-gateway-default-sp"
+      src: "$TS_ROOT/deployments/smm-gateway/config/default-sp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "smm-gateway-linux-pc"
+      src: "$TS_ROOT/deployments/smm-gateway/config/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "smm-gateway-coverage-linux-pc"
+      src: "$TS_ROOT/deployments/smm-gateway/config/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+            - "-DCOVERAGE=1"
+    - name: "spm-test1-opteesp"
+      src: "$TS_ROOT/deployments/spm-test1/opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "spm-test2-opteesp"
+      src: "$TS_ROOT/deployments/spm-test2/opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "spm-test3-opteesp"
+      src: "$TS_ROOT/deployments/spm-test3/opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "spm-test4-opteesp"
+      src: "$TS_ROOT/deployments/spm-test4/opteesp"
+      params:
+            - "-GUnix Makefiles"
+    - name: "ts-demo-arm-linux"
+      src: "$TS_ROOT/deployments/ts-demo/arm-linux"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "ts-demo-linux-pc"
+      src: "$TS_ROOT/deployments/ts-demo/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "ts-remote-test-arm-linux"
+      src: "$TS_ROOT/deployments/ts-remote-test/arm-linux"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "ts-remote-test-linux-pc"
+      src: "$TS_ROOT/deployments/ts-remote-test/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "ts-service-test-arm-linux"
+      src: "$TS_ROOT/deployments/ts-service-test/arm-linux"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "ts-service-test-linux-pc"
+      src: "$TS_ROOT/deployments/ts-service-test/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "ts-service-test-coverage-linux-pc"
+      src: "$TS_ROOT/deployments/ts-service-test/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+            - "-DCOVERAGE=1"
+    - name: "uefi-test-arm-linux"
+      src: "$TS_ROOT/deployments/uefi-test/arm-linux"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "uefi-test-linux-pc"
+      src: "$TS_ROOT/deployments/uefi-test/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+    - name: "uefi-test-coverage-linux-pc"
+      src: "$TS_ROOT/deployments/uefi-test/linux-pc"
+      os_id : "GNU/Linux"
+      params:
+            - "-GUnix Makefiles"
+            - "-DCOVERAGE=1"

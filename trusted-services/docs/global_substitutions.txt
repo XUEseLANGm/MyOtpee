@@ -1,0 +1,27 @@
+.. |TF-A| replace:: :term:`TF-A`
+.. |TS| replace:: :term:`TS`
+
+.. |C identifier like string| replace:: :term:`C identifier like string`
+
+.. |TS_MAIL_LIST| replace:: `TS Mailing List`_
+.. |TS_REPO| replace:: `TS repository`_
+.. |LCS| replace:: :term:`LCS`
+.. |ACLE| replace:: :term:`ACLE`
+.. |REST| replace:: reST
+.. |SEMVER| replace:: `Semantic Versioning`_
+.. |PSA| replace:: :term:`PSA`
+.. |FF-A| replace:: :term:`FF-A`
+.. |TRUSTZONE| replace:: :term:`TrustZone`
+.. |NWd| replace:: :term:`Normal World`
+.. |SWd| replace:: :term:`Secure World`
+
+.. _`TS Mailing List`: https://lists.trustedfirmware.org/mailman3/lists/trusted-services.lists.trustedfirmware.org/
+.. _`TS repository`: https://review.trustedfirmware.org/admin/repos/TS/trusted-services
+.. _`Semantic Versioning`: https://semver.org/spec/v2.0.0.html
+
+..
+   --------------
+
+   *Copyright (c) 2020-2024, Arm Limited and Contributors. All rights reserved.*
+
+   SPDX-License-Identifier: BSD-3-Clause

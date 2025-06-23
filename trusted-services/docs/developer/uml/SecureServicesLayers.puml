@@ -1,0 +1,46 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2020-2021, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml
+
+!include ../../uml/style-component.puml
+
+package "Client Processing Environment" COLOR_GREY1 {
+	NS_COMPONENT trusted_service_client as "Trusted Service client"
+	NS_IFC ns_rpc as "RPC"
+	NS_COMPONENT rpc_caller as "RPC Caller"
+	NS_IFC ns_messaging as "messaging"
+	NS_COMPONENT ns_messaging_layer as "Messaging Layer"
+}
+trusted_service_client --down-> ns_rpc
+ns_rpc-down->rpc_caller
+rpc_caller-down->ns_messaging
+ns_messaging-down->ns_messaging_layer
+
+package "Secure Processing Environment" COLOR_BLUE2 {
+	S_COMPONENT trusted_service_provider as "Trusted Service Provider"
+	S_COMPONENT rpc_endpoint as "RPC endpoint"
+	S_COMPONENT s_messaging_layer as "Messaging Layer"
+	S_COMPONENT backend_service as "Backend Service"
+	S_IFC s_rpc as "RPC"
+	S_IFC s_messaging as "messaging"
+	S_IFC s_backend as "backend interface"
+}
+
+trusted_service_provider --down-> s_rpc
+s_rpc-down->rpc_endpoint
+rpc_endpoint-down->s_messaging
+s_messaging-down->s_messaging_layer
+
+trusted_service_provider-down->s_backend
+s_backend-down->backend_service
+
+trusted_service_client<.>trusted_service_provider
+rpc_caller<.>rpc_endpoint
+ns_messaging_layer<.>s_messaging_layer
+
+@enduml

@@ -1,0 +1,25 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml
+
+node crypto_sp {
+	[its_frontend:0] -> [secure_storage_client:0]
+}
+
+node protected_store_sp {
+	[secure_storage_provider:1] -> [secure_storage_client:1]
+}
+
+node sel1_sp {
+	[secure_storage_provider:2] -> [optee_store:2]
+}
+
+[secure_storage_client:0] -> [secure_storage_provider:1]
+[secure_storage_client:1] -> [secure_storage_provider:2]
+
+@enduml

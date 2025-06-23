@@ -1,0 +1,45 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2022, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml
+
+class rpc_interface {
+  +rpc_status_t {abstract}receive(call_req)
+}
+
+class service_provider {
+  +void init(handlers, num_handlers)
+  +void extend(service_provider)
+  -rpc_status_t receive(call_req)
+}
+
+class block_storage_provider {
+  +void init(block_store)
+  +void regsiter_serializer(encoding, serializer)
+  -rpc_status_t open_handler(call_req)
+  -rpc_status_t close_handler(call_req)
+  -rpc_status_t get_partition_info_handler(call_req)
+  -rpc_status_t read_handler(call_req)
+  -rpc_status_t write_handler(call_req)
+  -rpc_status_t erase_handler(call_req)
+}
+
+class block_store {
+  +int {abstract}open(client_id, uuid, *handle)
+  +int {abstract}close(handle)
+  +int {abstract}get_partition_info(uuid, *partition_info)
+  +int {abstract}read(handle, lba, size, *buffer, *len)
+  +int {abstract}write(handle, lba, *buffer, len)
+  +int {abstract}erase(handle, *lba, num_blocks)
+}
+
+service_provider -up--|> rpc_interface
+block_storage_provider -up--|> service_provider
+block_storage_provider --> block_store
+block_storage_provider --> block_storage_serializer
+
+@enduml

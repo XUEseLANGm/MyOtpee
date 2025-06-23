@@ -1,0 +1,9 @@
+#-------------------------------------------------------------------------------
+# Copyright (c) 2020-2022, Arm Limited and Contributors. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+#-------------------------------------------------------------------------------
+
+protobuf==3.15.2
+grpcio-tools==1.43.0

@@ -1,0 +1,100 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2023, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml
+
+class fw_directory
+class fw_inspector
+class img_dir_serializer
+class stream_manager
+class update_agent
+class fw_store
+class installer
+
+class update_agent {
+	+begin_staging()
+	+end_staging()
+	+cancel_staging()
+	+accept()
+	+select_previous()
+  	+open()
+	+commit()
+	+read_stream()
+	+write_stream()
+}
+
+class fw_directory {
+	+set_boot_info()
+	+add_image_info()
+	+find_image_info()
+	+get_image_info()
+	+num_images()
+}
+
+class fw_inspector {
+	+inspect
+}
+
+class img_dir_serializer {
+	+serialize()
+	+get_len()
+}
+
+class stream_manager {
+	+open_buffer_stream()
+	+open_install_stream()
+	+close_stream()
+	+cancel_streams()
+	+is_open_streams()
+	+read()
+	+write()
+}
+
+class fw_store {
+	+synchronize()
+	+begin_install()
+	+cancel_install()
+	+finalize_install()
+	+select_installer()
+	+write_image()
+	+commit_image()
+	+notify_accepted()
+	+is_accepted()
+	+is_trial()
+	+commit_to_update()
+	+revert_to_previous()
+	+export()
+}
+
+class installer {
+	+begin()
+	+finalize()
+	+abort()
+	+open()
+	+commit()
+	+write()
+	+enumerate()
+}
+
+class installer_index {
+	+register()
+	+find()
+	+get()
+	+get_location_ids()
+}
+
+update_agent -> fw_store
+update_agent -> fw_directory
+update_agent -> fw_inspector
+update_agent -> stream_manager
+update_agent -> img_dir_serializer
+img_dir_serializer ..> fw_directory
+fw_inspector -> installer_index
+fw_inspector ..> installer
+stream_manager ..> installer
+
+@enduml

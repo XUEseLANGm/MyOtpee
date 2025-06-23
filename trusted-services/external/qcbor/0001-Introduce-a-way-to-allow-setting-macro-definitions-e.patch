@@ -1,0 +1,35 @@
+From c435e364e7fc505e59db2f1ec40bb5f62e591f80 Mon Sep 17 00:00:00 2001
+From: Gyorgy Szing <Gyorgy.Szing@arm.com>
+Date: Wed, 18 May 2022 22:54:47 +0000
+Subject: [PATCH 1/3] Introduce a way to allow setting macro definitions
+ externally.
+
+Signed-off-by: Gyorgy Szing <Gyorgy.Szing@arm.com>
+---
+ CMakeLists.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8a5bcd0..59dbb54 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -8,12 +8,15 @@ set(CMAKE_C_FLAGS "-pedantic -Wall -O3 -ffunction-sections")
+ 
+ include_directories(inc)
+ 
++
++add_definitions(${thirdparty_def})
++
+ set(SOURCE
+ 	src/ieee754.c
+ 	src/qcbor_decode.c
+ 	src/qcbor_encode.c
+ 	src/qcbor_err_to_str.c
+ 	src/UsefulBuf.c
+-) 
++)
+ 
+ add_library(qcbor ${SOURCE})
+-- 
+2.17.1
+

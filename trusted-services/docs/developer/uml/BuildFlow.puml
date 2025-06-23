@@ -1,0 +1,55 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2020-2021, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml
+
+(*) --> [cmake command] "Generating"
+note right
+    Generate native build files from deployment
+    configuration files. External components are
+    fetched and built.  Child deployments are
+    generated, built and installed.
+end note
+
+If "success"
+    --> [false]"Generation Errors" #Red
+else
+    --> [true]"Generated"
+Endif
+
+--> [make install command] "Building"
+note right
+    Compile and link to create build output.
+end note
+
+If "success"
+    --> [false]"Build Errors" #Red
+else
+    --> [true]"Built"
+Endif
+
+--> "Installing"
+note right
+    Copy build output files to installation
+    directory specified by CMAKE_INSTALL_PREFIX.
+end note
+
+If "success"
+    --> [false]"Install Errors" #Red
+else
+    --> [true]"Installed"
+Endif
+
+--> "Deploying" #Green
+note right
+    Perform environment specific
+    deployment steps.
+end note
+
+--> "Deployed" #Green
+
+@enduml

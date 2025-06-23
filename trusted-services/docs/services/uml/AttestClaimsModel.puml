@@ -1,0 +1,43 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml
+
+abstract class claim_iterator {
+	{abstract} void first()
+	{abstract} void next()
+	{abstract} bool is_done()
+	{abstract} claim current()
+}
+
+abstract class claim_source {
+	{abstract} bool get_claim(claim *claim)
+}
+
+class claim {
+	+category: int
+	+subject_id: int
+	+variant_id: int
+}
+
+class claims_register <<singleton>> {
+	void add_claim_source(claim_source)
+	void query_by_category(category, claim_vector)
+}
+
+claim <|-- claim_collection
+claim <|-- text_string_claim
+claim <|-- byte_string_claim
+claim <|-- integer_claim
+claim <|-- measurement_claim
+
+claim_iterator ..> claim
+claim_collection ..> claim_iterator
+claim_source ..> claim
+claims_register -> "0..*" claim_source
+
+@enduml

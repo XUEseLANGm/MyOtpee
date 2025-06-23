@@ -1,0 +1,18 @@
+{
+    "$schema" : "http://json-schema.org/schema#",
+    "$id" : "Schema for build test description file",
+    "type": "object",
+    "properties" : {
+        "data" : {
+            "type" : "array",
+            "properties" : {
+                "name" : {"type" : "string"},
+                "src" : {"type" : "string"},
+                "params" : {
+                    "type" : "array",
+                    "items" : [ {"type" : "string"} ]
+                    }
+            }
+        }
+    }
+}

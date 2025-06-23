@@ -1,0 +1,38 @@
+/*
+ * Copyright (c) 2021-2023, Arm Limited and Contributors. All rights reserved.
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+@DTS_TAG@
+
+@DTS_NODE@ {
+	compatible = "arm,ffa-manifest-1.0";
+	ffa-version = <@CFG_FFA_VERSION@>; /* 31:16 - Major, 15:0 - Minor */
+	uuid = <@EXPORT_SP_UUID_DT@>;
+	description = "Attestation";
+	execution-ctx-count = <1>;
+	exception-level = <1>; /* S-EL0 */
+	execution-state = <0>; /* AArch64 */
+	xlat-granule = <0>; /* 4KiB */
+	boot-order = /bits/ 16 <@EXPORT_SP_BOOT_ORDER@>;
+	messaging-method = <3>; /* Direct messaging only */
+	ns-interrupts-action = <2>; /* Non-secure interrupts are signaled */
+	elf-format = <1>;
+
+	boot-params {
+		compatible = "arm,ffa-manifest-boot-params";
+
+		/* Legacy node to keep compatibility with psa-development SPMC. */
+		event-log {
+			param = "EVENT_LOG";		/* The init parameter name */
+			tag = "arm,event-log";		/* Object identifier */
+		};
+	};
+
+	tpm_event_log {
+		compatible = "arm,tpm_event_log";
+		tpm_event_log_addr = <0x0 0x0>;
+		tpm_event_log_size = <0x0>;
+	};
+};

@@ -1,0 +1,28 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml
+
+interface storage_backend
+{
+	+{abstract} set()
+	+{abstract} get()
+	+{abstract} get_info()
+	+{abstract} remove()
+	+{abstract} create()
+	+{abstract} set_extended()
+}
+
+secure_flash_store -u--|> storage_backend
+secure_storage_client -u--|> storage_backend
+null_store -u--|> storage_backend
+
+secure_storage_provider -d--> storage_backend
+its_frontend -d--> storage_backend
+ps_frontend -d--> storage_backend
+
+@enduml

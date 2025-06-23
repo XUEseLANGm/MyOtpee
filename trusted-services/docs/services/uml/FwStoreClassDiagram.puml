@@ -1,0 +1,104 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2023, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml
+
+ class fw_store
+class bank_tracker
+class metadata_manager
+class metadata_serializer
+class installer_index
+class volume_index
+class installer
+class volume
+
+class bank_tracker {
+	+accept()
+	+copy_accept()
+	+set_no_content()
+	+set_holds_content()
+	+set_holds_acceped_content()
+	+is_content()
+	+is_accepted()
+	+is_all_accepted()
+}
+
+class fw_store {
+	+synchronize()
+	+begin_install()
+	+cancel_install()
+	+finalize_install()
+	+select_installer()
+	+write_image()
+	+commit_image()
+	+notify_accepted()
+	+is_accepted()
+	+is_trial()
+	+commit_to_update()
+	+revert_to_previous()
+	+export()
+}
+
+class metadata_manager {
+	+check_and_repair()
+	+update()
+	+get_active_indices()
+	+preload_bank_tracker()
+}
+
+class metadata_serializer {
+	+serialize()
+	+size()
+	+max_size()
+	+deserialize_bank_info()
+	+deserialize_active_indices()
+}
+
+class installer_index {
+	+register()
+	+find()
+	+get()
+	+get_location_ids()
+}
+
+class installer {
+	+begin()
+	+finalize()
+	+abort()
+	+open()
+	+commit()
+	+write()
+	+enumerate()
+}
+
+class volume_index {
+	+add()
+	+find()
+}
+
+class volume {
+	+open()
+	+close()
+	+seek()
+	+size()
+	+read()
+	+write()
+	+erase()
+	+get_storage_ids()
+}
+
+fw_store -> metadata_manager
+fw_store -> bank_tracker
+fw_store -> installer_index
+fw_store -> volume_index
+metadata_manager -> metadata_serializer
+installer_index -> "*" installer
+volume_index -> "*" volume
+metadata_manager -> "2" volume
+installer ..> volume
+
+@enduml

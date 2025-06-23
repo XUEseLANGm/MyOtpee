@@ -1,0 +1,22 @@
+
+#-------------------------------------------------------------------------------
+# Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+#-------------------------------------------------------------------------------
+# cppcheck options to check the whole repo. This is a limited approach as
+# deployment specific settings can not be used (include paths, macro definitions
+# platform, etc...).
+# use this file as:
+#    cppcheck $(sed "s/#.*//g" ".cppcheck") .
+--enable=all --suppress=missingInclude -q --std=c99
+--platform=unix64
+# Output in checkpatch compatible format.
+--template={file}:{line}:{severity}:{id},{message}
+-I components/common/utils/include
+-I components/messaging/ffa/libsp/include
+-I components/rpc/common/interface
+-I components/service/locator/interface
+-I components/messaging/ffa/libsp/include
+-I components/common/utils/include

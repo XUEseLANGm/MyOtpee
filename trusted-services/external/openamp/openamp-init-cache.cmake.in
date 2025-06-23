@@ -1,0 +1,20 @@
+#-------------------------------------------------------------------------------
+# Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2021-2022, Linaro. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+#-------------------------------------------------------------------------------
+
+set(CMAKE_INSTALL_PREFIX "@BUILD_INSTALL_DIR@" CACHE STRING "")
+set(CMAKE_TOOLCHAIN_FILE "@TS_EXTERNAL_LIB_TOOLCHAIN_FILE@" CACHE STRING "")
+set(BUILD_SHARED_LIBS Off CACHE BOOL "")
+set(BUILD_STATIC_LIBS On CACHE BOOL "")
+
+set(LIBMETAL_INCLUDE_DIR "@CMAKE_CURRENT_BINARY_DIR@/libmetal_install/include" CACHE
+    STRING "")
+set(LIBMETAL_LIB "@CMAKE_CURRENT_BINARY_DIR@/libmetal_install/lib" CACHE STRING "")
+set(RPMSG_BUFFER_SIZE "512" CACHE STRING "")
+set(MACHINE "template" CACHE STRING "")
+
+@_cmake_fragment@

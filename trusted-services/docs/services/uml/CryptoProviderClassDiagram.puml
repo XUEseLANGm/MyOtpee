@@ -1,0 +1,49 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2020-2022, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml
+allow_mixing
+left to right direction
+
+
+package CryptoProvider
+{
+	class handler
+	class generate_key_handler
+	class import_key_handler
+	class sign_hash_handler
+	generate_key_handler --|> handler
+	import_key_handler --|> handler
+	sign_hash_handler --|> handler
+}
+package CryptoSerializer
+{
+	class crypto_serializer
+	class protobuf_crypto_serializer
+	class packed_c_crypto_serializer
+	protobuf_crypto_serializer --|> crypto_serializer
+	packed_c_crypto_serializer --|> crypto_serializer
+}
+package MbedCrypto
+{
+	class libmbedcrypto
+}
+package SecureStorage
+{
+	class its_client
+}
+package EntropySource
+{
+	class hw_entropy_source
+}
+
+CryptoProvider ..> CryptoSerializer
+CryptoProvider ..> MbedCrypto
+MbedCrypto ..> SecureStorage
+MbedCrypto ..> EntropySource
+
+@enduml

@@ -1,0 +1,24 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2020-2021, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml
+
+class service_location_strategy
+{
+	{abstract} service_context query(service_name)
+}
+
+class service_locator <<singleton>>
+{
+	void init()
+	void register_strategy(strategy)
+	service_context query(service_name)
+}
+
+service_locator --> "0..*" service_location_strategy
+
+@enduml

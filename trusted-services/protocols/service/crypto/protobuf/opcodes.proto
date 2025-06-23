@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2020-2022, Arm Limited and Contributors. All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+syntax = "proto3";
+
+package ts_crypto;
+
+enum Opcode {
+  NOP                 = 0x0000;
+  GENERATE_KEY        = 0x0101;
+  DESTROY_KEY         = 0x0102;
+  EXPORT_KEY          = 0x0105;
+  EXPORT_PUBLIC_KEY   = 0x0106;
+  IMPORT_KEY          = 0x0107;
+  SIGN_HASH           = 0x0108;
+  VERIFY_HASH         = 0x0109;
+  ASYMMETRIC_DECRYPT  = 0x010a;
+  ASYMMETRIC_ENCRYPT  = 0x010b;
+  GENERATE_RANDOM     = 0x010c;
+  SIGN_MESSAGE        = 0x0110;
+  VERIFY_MESSAGE      = 0x0111;
+}

@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) 2020, Arm Limited and Contributors. All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+syntax = "proto3";
+
+package ts_rpc;
+
+/* Common RPC status codes */
+enum Status {
+  CALL_ACCEPTED = 0;
+  ERROR_EP_DOES_NOT_EXIT = -1;
+  ERROR_INVALID_OPCODE = -2;
+  ERROR_SERIALIZATION_NOT_SUPPORTED = -3;
+  ERROR_INVALID_REQ_BODY = -4;
+  ERROR_INVALID_RESP_BODY = -5;
+  ERROR_RESOURCE_FAILURE = -6;
+  ERROR_NOT_READY = -7;
+  ERROR_INVALID_TRANSACTION = -8;
+  ERROR_INTERNAL = -9;
+  ERROR_INVALID_PARAMETER = -10;
+}

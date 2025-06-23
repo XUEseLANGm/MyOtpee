@@ -1,0 +1,40 @@
+From f118cb26ec8f13e9ff0e0edb1550664d86ecb49a Mon Sep 17 00:00:00 2001
+From: Gyorgy Szing <Gyorgy.Szing@arm.com>
+Date: Mon, 5 Jul 2021 06:45:47 +0000
+Subject: [PATCH 2/3] Add install definition
+
+Add install() calls to define stable way to access build artifacts.
+
+Signed-off-by: Gyorgy Szing <Gyorgy.Szing@arm.com>
+---
+ CMakeLists.txt | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1b4c95c..c4d91c5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -19,3 +19,20 @@ set(SOURCE
+ )
+ 
+ add_library(qcbor ${SOURCE})
++
++install(
++       TARGETS
++               qcbor
++       ARCHIVE DESTINATION
++               lib
++       PUBLIC_HEADER DESTINATION
++               include/qcbor
++       COMPONENT
++               qcbor
++)
++
++install(
++       DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/inc/
++               DESTINATION include
++               COMPONENT qcbor
++)
+-- 
+2.35.0.windows.1
+

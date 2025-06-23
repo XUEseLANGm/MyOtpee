@@ -1,0 +1,25 @@
+#-------------------------------------------------------------------------------
+# Copyright (c) 2021-2023, Arm Limited and Contributors. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+#-------------------------------------------------------------------------------
+
+set(CMAKE_INSTALL_PREFIX @BUILD_INSTALL_DIR@ CACHE STRING "")
+set(CMAKE_TOOLCHAIN_FILE @TS_EXTERNAL_LIB_TOOLCHAIN_FILE@ CACHE STRING "")
+
+set(ENABLE_PROGRAMS Off CACHE BOOL "")
+set(ENABLE_TESTING Off CACHE BOOL "")
+set(UNSAFE_BUILD On CACHE BOOL "")
+set(EXTERNAL_DEFINITIONS -DMBEDTLS_CONFIG_FILE="@MBEDTLS_CONFIG_FILE@" CACHE STRING "")
+set(EXTERNAL_INCLUDE_PATHS @MBEDTLS_EXTRA_INCLUDES@ CACHE STRING "")
+set(BRANCH_PROTECTION @BRANCH_PROTECTION@ CACHE STRING "")
+
+set(Python3_EXECUTABLE "@Python3_EXECUTABLE@" CACHE PATH "Location of python3 executable")
+
+string(TOUPPER @CMAKE_CROSSCOMPILING@ CMAKE_CROSSCOMPILING) # CMake expects TRUE
+if (CMAKE_CROSSCOMPILING)
+	set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY CACHE STRING "")
+endif()
+
+@_cmake_fragment@

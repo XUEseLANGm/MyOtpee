@@ -1,0 +1,37 @@
+#
+# Copyright (c) 2020-2021, Arm Limited. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+
+elements:
+- file: components/messaging/ffa/libsp/sp_memory_management.c
+  type: include
+- file: components/messaging/ffa/libsp/sp_memory_management.c
+  type: function
+  name: is_valid_buffer
+  options: [remove_static]
+- file: components/messaging/ffa/libsp/sp_memory_management.c
+  type: function
+  name: build_mem_region_attr
+  options: [remove_static]
+- file: components/messaging/ffa/libsp/sp_memory_management.c
+  type: function
+  name: parse_mem_region_attr
+  options: [remove_static]
+- file: components/messaging/ffa/libsp/sp_memory_management.c
+  type: function
+  name: build_mem_flags
+  options: [remove_static]
+- file: components/messaging/ffa/libsp/sp_memory_management.c
+  type: function
+  name: parse_mem_flags
+  options: [remove_static]
+- file: components/messaging/ffa/libsp/sp_memory_management.c
+  type: function
+  name: parse_mem_access_perm
+  options: [remove_static]
+- file: components/messaging/ffa/libsp/sp_memory_management.c
+  type: function
+  name: parse_descriptors
+  options: [remove_static]

@@ -1,0 +1,28 @@
+'-------------------------------------------------------------------------------
+' Copyright (c) 2020-2021, Arm Limited and Contributors. All rights reserved.
+'
+' SPDX-License-Identifier: BSD-3-Clause
+'
+'-------------------------------------------------------------------------------
+
+@startuml
+!include colors.puml
+
+'Comonent diagram definitions
+!define NS_COMPONENT component COLOR_GREY2
+!define NS_IFC interface COLOR_GREY2
+!define S_COMPONENT component COLOR_BLUE1
+!define S_IFC interface COLOR_BLUE1
+
+skinparam component {
+	ArrowColor black
+	BorderColor black
+}
+
+skinparam interface {
+	BorderColor black
+}
+
+skinparam BackgroundColor COLOR_ARM_BLUE
+
+@enduml
