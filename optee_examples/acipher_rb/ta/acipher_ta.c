@@ -76,6 +76,112 @@ static TEE_Result TA_Add_Key2db(struct key_info *keyinfo, char alias[MAX_ALIAS_L
 
     return TEE_SUCCESS;
 }
+
+static TEE_Result TA_DecryptTest(char *alias){
+	// foo 位置插入的 RSA 专用测试代码
+    DMSG("--- Starting RSA encryption test with persistent key ---");
+    
+    // 1. 准备测试数据 (RSA加密有长度限制，需要分段处理)
+    const char *plaintext = "OP-TEE RSA test";
+    size_t plaintext_len = strlen(plaintext) + 1; // 包含NULL终止符
+    uint8_t *ciphertext = NULL;
+    uint8_t *decrypted = NULL;
+    size_t ciphertext_len = 0;
+    size_t decrypted_len = 0;
+	uint32_t storage_id = TEE_STORAGE_PRIVATE; 
+    // TEE_Result res = TEE_SUCCESS;
+
+    // 2. 通过alias重新打开持久化RSA密钥对象
+    TEE_ObjectHandle rsa_key = TEE_HANDLE_NULL;
+    TEE_Result res = TEE_OpenPersistentObject(
+            storage_id,
+            alias, strlen(alias),
+            TEE_DATA_FLAG_ACCESS_READ,
+            &rsa_key);
+    
+    if (res != TEE_SUCCESS) {
+        EMSG("Failed to open RSA key: 0x%x", res);
+        // goto cleanup;
+    }
+
+    TEE_OperationHandle oper = TEE_HANDLE_NULL;
+	res = TEE_AllocateOperation(&oper, 
+						TEE_ALG_RSAES_PKCS1_V1_5, 
+						TEE_MODE_ENCRYPT,
+						1024); // 与模数位数一致
+	if (res != TEE_SUCCESS) {
+		EMSG("Allocate operation failed: 0x%x", res);
+	}
+
+	// 设置公钥参数
+	res = TEE_SetOperationKey(oper, rsa_key);
+	if (res != TEE_SUCCESS) {
+		TEE_FreeOperation(oper);
+		return res;
+	}
+
+		DMSG("DEBUG -1");
+
+	DMSG("DEBUG 1");
+	res = TEE_AsymmetricEncrypt(oper,
+							NULL, 0, // 无额外参数
+							plaintext, plaintext_len,
+							NULL, &ciphertext_len); // mod_len复用为输出长度
+
+	ciphertext = TEE_Malloc(ciphertext_len, 0);
+						
+	res = TEE_AsymmetricEncrypt(oper,
+							NULL, 0, // 无额外参数
+							plaintext, plaintext_len,
+							ciphertext, &ciphertext_len); // mod_len复用为输出长度
+							
+	if (res != TEE_SUCCESS) {
+		EMSG("Asymmetric encrypt failed: 0x%x", res);
+	}
+
+	printf("ciphertext:\n"); 
+	for (size_t i = 0; i < ciphertext_len; i++) {
+        printf("%02x ", ciphertext[i]); // 16进制格式
+        if ((i + 1) % 8 == 0) printf("\n");
+    }
+	printf("\n");
+	res = TEE_AllocateOperation(&oper, 
+						TEE_ALG_RSAES_PKCS1_V1_5, 
+						TEE_MODE_DECRYPT,
+						1024); // 与模数位数一致
+	if (res != TEE_SUCCESS) {
+		EMSG("Allocate operation failed: 0x%x", res);
+	}
+
+	// 设置公钥参数
+	res = TEE_SetOperationKey(oper, rsa_key);
+	if (res != TEE_SUCCESS) {
+		TEE_FreeOperation(oper);
+		return res;
+	}
+
+	res = TEE_AsymmetricDecrypt(oper,
+							NULL, 0, // 无额外参数
+							ciphertext, ciphertext_len,
+							NULL, &decrypted_len); // mod_len复用为输出长度
+
+	decrypted = TEE_Malloc(decrypted_len, 0);
+	res = TEE_AsymmetricDecrypt(oper,
+							NULL, 0, // 无额外参数
+							ciphertext, ciphertext_len,
+							decrypted, &decrypted_len); // mod_len复用为输出长度
+	
+	printf("decrypted:\n"); 
+	for (size_t i = 0; i < decrypted_len; i++) {
+        printf("%02x ", decrypted[i]); // 16进制格式
+        if ((i + 1) % 8 == 0) printf("\n");
+    }
+	printf("\n");
+	printf("%s\n", (char *)decrypted);
+
+	DMSG("--- Finished RSA encryption test with persistent key ---");
+}
+
 static TEE_Result TA_Gen_Key(struct acipher *state, uint32_t param_types, TEE_Param params[TEE_NUM_PARAMS])
 {
 	DMSG("Entering TA_Gen_Key");
@@ -115,16 +221,16 @@ static TEE_Result TA_Gen_Key(struct acipher *state, uint32_t param_types, TEE_Pa
 	TA_Generate_Random(rand, sizeof(rand));
 	snprintf(alias, sizeof(alias), "%x_%s", raw_key_type, rand);
 
+	uint32_t flags = TEE_DATA_FLAG_ACCESS_READ | TEE_DATA_FLAG_ACCESS_WRITE |
+					    TEE_DATA_FLAG_OVERWRITE;
+
 	res = TA_Add_Key2db(&(key_datebase->keys[key_datebase->key_count]), alias, storage_id, key_type, key_size);
 	if (res == TEE_SUCCESS) {
 		// 密钥信息成功存储到datebase，创建持久化存储对象
         res = TEE_CreatePersistentObject(
 				storage_id,
 				alias, strlen(alias),
-				TEE_DATA_FLAG_ACCESS_READ | TEE_DATA_FLAG_ACCESS_WRITE,
-				key,
-				0,
-				0,
+				flags,key,NULL,0,
 				&persistent_key
     	);
 		DMSG("RES of TEE_CreatePersistentObject for persistent_key : %#x", res);
@@ -134,11 +240,6 @@ static TEE_Result TA_Gen_Key(struct acipher *state, uint32_t param_types, TEE_Pa
 			key_datebase->key_count--;
 			goto error;
     	}
-		
-		if (res != TEE_SUCCESS) {
-			EMSG("Failed to Write persist key: 0x%x", res);
-			goto error;
-		}
 
 		TEE_FreeTransientObject(key);
     }else{
@@ -155,8 +256,8 @@ static TEE_Result TA_Gen_Key(struct acipher *state, uint32_t param_types, TEE_Pa
 		EMSG("Failed to Write DB: %#" PRIx32, res);
 		goto error;
 	}
-
 	TEE_CloseObject(persistent_key);
+	// TA_DecryptTest(alias);
 	return TEE_SUCCESS;
 
 error:
