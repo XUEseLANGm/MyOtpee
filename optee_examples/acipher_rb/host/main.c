@@ -45,8 +45,8 @@ int main(int argc, char *argv[])
 	if (argc < 2) {
 		errx(1, "Usage: %s <action> <args...>\n"
 			"Actions:\n"
-			" data_enc <input_file> <output_file>\n"
-			" data_dec <input_file> <output_file>\n"
+			" data_enc <key_id> <input_file> \n"
+			" data_dec <key_id> <input_file> \n"
 			" data_read <key_id>\n"
 			" data_del <key_id>\n"
 			" key_gen <key_type> <key_size>\n"
@@ -56,7 +56,6 @@ int main(int argc, char *argv[])
 	}
 
 	char *action = argv[1];
-	char *sub_action = argv[2];
 
 	res = TEEC_InitializeContext(NULL, &ctx);
 	if (res)
@@ -69,23 +68,61 @@ int main(int argc, char *argv[])
 		errx(1, "TEEC_Opensession failed with code 0x%x origin 0x%x", res, err_origin);
 
 	// Validate sub-actions and their arguments
-	if (strcmp(action, "data_enc") == 0 || strcmp(action, "data_dec") == 0) {
-		if (argc != 5) {
-			errx(1, "Usage: %s rb_acipher %s <input_file> <output_file>", argv[0], action);
+	if (strcmp(action, "data_enc") == 0) {
+		if (argc != 4) {
+			errx(1, "Usage: %s rb_acipher %s <key_id> <input_file>", argv[0], action);
 		}
+
+		char *key_id = argv[2];
+		char *input_file = argv[3];
+
+		op.paramTypes = TEEC_PARAM_TYPES(TEEC_MEMREF_TEMP_INPUT,
+					 TEEC_MEMREF_TEMP_INPUT,
+					 TEEC_MEMREF_TEMP_OUTPUT, TEEC_NONE);
+
+		op.params[0].tmpref.buffer = (void*)key_id; 
+		op.params[0].tmpref.size = sizeof(op.params[0].tmpref.buffer);
+		op.params[1].tmpref.buffer =  (void*)input_file; 
+		op.params[1].tmpref.size = sizeof(input_file);
+
+		for(size_t i = 0; i < op.params[0].tmpref.size; i++) {
+			printf("%c", key_id[i]);
+		}
+		printf("\n");
+
+		res = TEEC_InvokeCommand(&sess, TA_ACIPHER_CMD_ENCRYPT, &op, &err_origin);
+
+		printf("Encrypted buffer: \n");
+		for (size_t i = 0; i < op.params[2].tmpref.size; i++)
+			printf("%02x ", ((uint8_t *)op.params[2].tmpref.buffer)[i]);
+		printf("\n");
+
+	} else if (strcmp(action, "data_dec") == 0) {
+		
+		if (argc != 4) {
+			errx(1, "Usage: %s rb_acipher %s <key_id> <input_file>", argv[0], action);
+		}
+
+
 	} else if (strcmp(action, "data_read") == 0 || strcmp(action, "data_del") == 0) {
 		if (argc != 4) {
 			errx(1, "Usage: %s rb_acipher %s <key_id>", argv[0], action);
 		}
 	} else if (strcmp(action, "key_gen") == 0) {
-		if (argc != 3) {
-			errx(1, "Usage: %s key_gen <key_type>", argv[0]);
+		if (argc != 4) {
+			errx(1, "Usage: %s key_gen <key_type> <key_name>", argv[0]);
 		}
+
+		char *key_type = argv[2];
+		char *key_name = argv[3];
+
 		op.paramTypes = TEEC_PARAM_TYPES(TEEC_VALUE_INPUT,
-							TEEC_NONE,
+							TEEC_MEMREF_TEMP_INPUT,
 							TEEC_NONE,
 							TEEC_NONE);
-		op.params[0].value.a = strtoul(sub_action, NULL, 10);
+		op.params[0].value.a = strtoul(key_type, NULL, 10);
+		op.params[1].tmpref.buffer = (void*)key_name;
+		op.params[1].tmpref.size = sizeof(op.params[1].tmpref.buffer); 
 		res = TEEC_InvokeCommand(&sess, TA_ACIPHER_CMD_GEN_KEY, &op, &err_origin);
 
 	} else if (strcmp(action, "key_list") == 0) {

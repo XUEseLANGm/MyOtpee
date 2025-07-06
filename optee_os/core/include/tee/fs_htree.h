@@ -28,10 +28,10 @@
 /* Internal struct provided to let the rpc callbacks know the size if needed */
 struct tee_fs_htree_node_image {
 	/* Note that calc_node_hash() depends on hash first in struct */
-	uint8_t hash[TEE_FS_HTREE_HASH_SIZE];
-	uint8_t iv[TEE_FS_HTREE_IV_SIZE];
-	uint8_t tag[TEE_FS_HTREE_TAG_SIZE];
-	uint16_t flags;
+	uint8_t hash[TEE_FS_HTREE_HASH_SIZE];	// 当前节点所保护的两个子节点和一个数据块的联合哈希值
+	uint8_t iv[TEE_FS_HTREE_IV_SIZE];	// 加密向量
+	uint8_t tag[TEE_FS_HTREE_TAG_SIZE];	// 认证标签
+	uint16_t flags;				// 节点状态或类型标识（如是否为叶子节点、是否有效等）
 };
 
 /*
@@ -50,11 +50,11 @@ struct tee_fs_htree_imeta {
 
 /* Internal struct provided to let the rpc callbacks know the size if needed */
 struct tee_fs_htree_image {
-	uint8_t iv[TEE_FS_HTREE_IV_SIZE];
-	uint8_t tag[TEE_FS_HTREE_TAG_SIZE];
-	uint8_t enc_fek[TEE_FS_HTREE_FEK_SIZE];
-	uint8_t imeta[sizeof(struct tee_fs_htree_imeta)];
-	uint32_t counter;
+	uint8_t iv[TEE_FS_HTREE_IV_SIZE];	// 初始化向量
+	uint8_t tag[TEE_FS_HTREE_TAG_SIZE];	// 认证标签
+	uint8_t enc_fek[TEE_FS_HTREE_FEK_SIZE];		//加密后的文件加密密钥
+	uint8_t imeta[sizeof(struct tee_fs_htree_imeta)];	//内部元数据
+	uint32_t counter;	//版本计数器（用于双版本管理）
 };
 
 /**
