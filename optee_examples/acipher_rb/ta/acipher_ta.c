@@ -197,7 +197,7 @@ static TEE_Result TA_Gen_Key(uint32_t param_types, TEE_Param params[TEE_NUM_PARA
 	memcpy(alias, params[1].memref.buffer, key_name_len);
 	// 确保字符串格式的名称以'\0'结尾
 	((char *)alias)[key_name_len] = '\0';
-
+		
 	TEE_ObjectHandle persistent_key;
 	uint32_t storage_id = TEE_STORAGE_PRIVATE; 
 

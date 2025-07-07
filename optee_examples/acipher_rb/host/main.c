@@ -37,7 +37,6 @@ int main(int argc, char *argv[])
 	TEEC_Context ctx;
 	TEEC_Session sess;
 	TEEC_Operation op;
-	struct key_db key_datebase;
 	TEEC_SharedMemory shm;
 	const TEEC_UUID uuid = TA_ACIPHER_UUID;
 
@@ -81,9 +80,9 @@ int main(int argc, char *argv[])
 					 TEEC_MEMREF_TEMP_OUTPUT, TEEC_NONE);
 
 		op.params[0].tmpref.buffer = (void*)key_id; 
-		op.params[0].tmpref.size = sizeof(op.params[0].tmpref.buffer);
+		op.params[0].tmpref.size = strlen(op.params[0].tmpref.buffer);
 		op.params[1].tmpref.buffer =  (void*)input_file; 
-		op.params[1].tmpref.size = sizeof(input_file);
+		op.params[1].tmpref.size = strlen(input_file);
 
 		for(size_t i = 0; i < op.params[0].tmpref.size; i++) {
 			printf("%c", key_id[i]);
@@ -94,14 +93,53 @@ int main(int argc, char *argv[])
 
 		printf("Encrypted buffer: \n");
 		for (size_t i = 0; i < op.params[2].tmpref.size; i++)
-			printf("%02x ", ((uint8_t *)op.params[2].tmpref.buffer)[i]);
+			printf("%02x", ((uint8_t *)op.params[2].tmpref.buffer)[i]);
 		printf("\n");
 
-	} else if (strcmp(action, "data_dec") == 0) {
-		
-		if (argc != 4) {
-			errx(1, "Usage: %s rb_acipher %s <key_id> <input_file>", argv[0], action);
+		// 为了方便测试，先使用默认文件进行写入
+		FILE *fp = fopen("Ciphertext.bin", "wb");
+		if (fp)
+		{
+			fwrite(op.params[2].tmpref.buffer, sizeof(char), op.params[2].tmpref.size, fp);
+			fclose(fp);
 		}
+
+	} else if (strcmp(action, "data_dec") == 0) {
+		// 为了方便测试，先使用默认文件进行读取
+		if (argc != 3) {
+			errx(1, "Usage: %s rb_acipher %s <key_id> ", argv[0], action);
+		}
+		char *key_id = argv[2];
+		// char *input_file = argv[3];
+	
+		size_t max_size = 1024,real_size=0;
+		void *buffer = malloc(max_size);
+
+		// FILE *fp = fopen(input_file, "r");
+		FILE *fp = fopen("Ciphertext.bin", "r");
+		if (fp)
+		{
+			real_size= fread(buffer, sizeof(char), max_size, fp);
+			fclose(fp);
+		}
+		printf("read buffer: \n");
+		for (size_t i = 0; i < real_size; i++)
+			printf("%02x", ((uint8_t *)buffer)[i]);
+		printf("\n");
+		
+		op.paramTypes = TEEC_PARAM_TYPES(TEEC_MEMREF_TEMP_INPUT,
+				TEEC_MEMREF_TEMP_INPUT,
+				TEEC_MEMREF_TEMP_OUTPUT, TEEC_NONE);
+
+		op.params[0].tmpref.buffer = (void*)key_id; 
+		op.params[0].tmpref.size = strlen(key_id);
+		op.params[1].tmpref.buffer =  buffer; 
+		op.params[1].tmpref.size = real_size;
+
+		printf("read buffer: \n");
+		for (size_t i = 0; i < op.params[1].tmpref.size; i++)
+			printf("%02x", ((uint8_t *)op.params[1].tmpref.buffer)[i]);
+		printf("\n");
 
 
 	} else if (strcmp(action, "data_read") == 0 || strcmp(action, "data_del") == 0) {
@@ -122,7 +160,7 @@ int main(int argc, char *argv[])
 							TEEC_NONE);
 		op.params[0].value.a = strtoul(key_type, NULL, 10);
 		op.params[1].tmpref.buffer = (void*)key_name;
-		op.params[1].tmpref.size = sizeof(op.params[1].tmpref.buffer); 
+		op.params[1].tmpref.size = strlen(op.params[1].tmpref.buffer); 
 		res = TEEC_InvokeCommand(&sess, TA_ACIPHER_CMD_GEN_KEY, &op, &err_origin);
 
 	} else if (strcmp(action, "key_list") == 0) {
@@ -132,7 +170,6 @@ int main(int argc, char *argv[])
 
 		// Register shared memory for reading key_db
     	shm.size = sizeof(struct key_db); 
-		printf("shm.size = %zu\n", shm.size);
 		shm.flags = TEEC_MEM_INPUT | TEEC_MEM_OUTPUT;  // CA和TA均可读写
 		
 		res = TEEC_AllocateSharedMemory(&ctx, &shm);
