@@ -84,12 +84,18 @@ int main(int argc, char *argv[])
 		op.params[1].tmpref.buffer =  (void*)input_file; 
 		op.params[1].tmpref.size = strlen(input_file);
 
+		
+		void *encrypted_buf = malloc(MAX_ENC_SIZE);
+		op.params[2].tmpref.buffer = encrypted_buf;
+		op.params[2].tmpref.size = MAX_ENC_SIZE;
 		for(size_t i = 0; i < op.params[0].tmpref.size; i++) {
 			printf("%c", key_id[i]);
 		}
 		printf("\n");
 
 		res = TEEC_InvokeCommand(&sess, TA_ACIPHER_CMD_ENCRYPT, &op, &err_origin);
+
+		printf("op.params[2].tmpref.size : %zu\n", op.params[2].tmpref.size);
 
 		printf("Encrypted buffer: \n");
 		for (size_t i = 0; i < op.params[2].tmpref.size; i++)
@@ -122,10 +128,6 @@ int main(int argc, char *argv[])
 			real_size= fread(buffer, sizeof(char), max_size, fp);
 			fclose(fp);
 		}
-		printf("read buffer: \n");
-		for (size_t i = 0; i < real_size; i++)
-			printf("%02x", ((uint8_t *)buffer)[i]);
-		printf("\n");
 		
 		op.paramTypes = TEEC_PARAM_TYPES(TEEC_MEMREF_TEMP_INPUT,
 				TEEC_MEMREF_TEMP_INPUT,
@@ -136,11 +138,15 @@ int main(int argc, char *argv[])
 		op.params[1].tmpref.buffer =  buffer; 
 		op.params[1].tmpref.size = real_size;
 
-		printf("read buffer: \n");
-		for (size_t i = 0; i < op.params[1].tmpref.size; i++)
-			printf("%02x", ((uint8_t *)op.params[1].tmpref.buffer)[i]);
-		printf("\n");
+		res = TEEC_InvokeCommand(&sess, TA_ACIPHER_CMD_DECRYPT, &op, &err_origin);
+		if (res != TEEC_SUCCESS) {
+			errx(1, "TEEC_InvokeCommand(TA_ACIPHER_CMD_DECRYPT): %#" PRIx32, res);
+		}
 
+		printf("read buffer: \n");
+		for (size_t i = 0; i < op.params[2].tmpref.size; i++)
+			printf("%c", ((char *)op.params[2].tmpref.buffer)[i]);
+		printf("\n");
 
 	} else if (strcmp(action, "data_read") == 0 || strcmp(action, "data_del") == 0) {
 		if (argc != 4) {

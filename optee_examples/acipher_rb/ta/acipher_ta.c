@@ -453,6 +453,116 @@ static TEE_Result TA_Get_Key(const char *alias, int *key_type_int, TEE_ObjectHan
     return TEE_SUCCESS;
 }
 
+static TEE_Result TA_Dec_Data(uint32_t param_types, TEE_Param params[TEE_NUM_PARAMS])
+{
+	TEE_Result res;
+	int key_type;
+	TEE_OperationHandle op = TEE_HANDLE_NULL;
+	TEE_ObjectHandle key_handle = TEE_HANDLE_NULL;
+	TEE_ObjectInfo key_info;
+	if (param_types != TEE_PARAM_TYPES(
+		TEE_PARAM_TYPE_MEMREF_INPUT,  
+		TEE_PARAM_TYPE_MEMREF_INPUT,
+		TEE_PARAM_TYPE_MEMREF_OUTPUT,
+		TEE_PARAM_TYPE_NONE)) 
+		return TEE_ERROR_BAD_PARAMETERS;
+
+	// 获取密钥名称
+	size_t key_id_len = params[0].memref.size;
+	void *key_id = TEE_Malloc(key_id_len, TEE_MALLOC_FILL_ZERO);
+	memcpy(key_id, params[0].memref.buffer, key_id_len);
+	// 确保字符串格式的名称以'\0'结尾
+	((char *)key_id)[key_id_len] = '\0';
+
+	// 获取秘文
+	void *input_data= params[1].memref.buffer;
+	size_t input_data_len = params[1].memref.size;
+
+	printf("input_data_len : %zu\n", input_data_len);
+	printf("Encrypted buffer: \n");
+		for (size_t i = 0; i < input_data_len; i++)
+			printf("%02x", ((uint8_t *)params[1].memref.buffer)[i]);
+		printf("\n");
+
+	
+	//定义明文
+	void *output_data= NULL;
+	size_t output_data_len = 0;
+
+	// TA_DecryptTest(key_id); 调用测试函数，进行加密解密测试
+	res = TEE_OpenPersistentObject(
+			TEE_STORAGE_PRIVATE,        // 私有存储
+			key_id, strlen(key_id), // 别名作为对象ID
+			TEE_DATA_FLAG_ACCESS_READ,
+			&key_handle
+		);
+
+	// 获取密钥对应的类型，对称密钥 or 非对称密钥
+	res = TA_Get_Key(key_id, &key_type, &key_handle, &key_info);
+	if(res != TEE_SUCCESS) {
+		EMSG("Failed to get key: %s, res=0x%x", (char *)key_id, res);
+		goto error;
+	}
+
+	if(key_type < 0) {
+		EMSG("Invalid key type for alias: %s", (char *)key_id);
+		res = TEE_ERROR_BAD_PARAMETERS;
+		goto error;
+	}else if (key_type == 1) {
+		// 非对称密钥处理
+		DMSG("Using asymmetric key for alias: %s", (char *)key_id);
+		uint32_t alg = TEE_ALG_RSAES_PKCS1_V1_5;
+		res = TEE_AllocateOperation(&op, alg, TEE_MODE_DECRYPT,
+				    // key_info.objectSize);  //后续根据算法修改alg
+					1024);  //后续根据算法修改alg
+		if (res) {
+			EMSG("TEE_AllocateOperation(TEE_MODE_DECRYPT, %#" PRIx32 "): %#" PRIx32, alg, res);
+			return res;
+		}
+
+		res = TEE_SetOperationKey(op, key_handle);
+		if (res) {
+			EMSG("TEE_SetOperationKey: %#" PRIx32, res);
+			goto error;
+		}
+
+		// 获取获取密文长度，并为密文分配空间
+		res = TEE_AsymmetricDecrypt(op, NULL, 0, input_data, input_data_len, NULL,
+				    &output_data_len);
+		output_data = TEE_Malloc(output_data_len, 0);
+		// 接收密文
+		res = TEE_AsymmetricDecrypt(op, NULL, 0, input_data, input_data_len, output_data,
+				    &output_data_len);
+		if (res) {
+			EMSG("TEE_AsymmetricEncrypt: %#" PRIx32, res);
+			goto error;
+		}
+		// 赋值给输出参数
+		memcpy(params[2].memref.buffer, output_data, output_data_len);
+		params[2].memref.size = output_data_len;
+		
+	} else if (key_type == 0) {
+		// 对称密钥处理
+		DMSG("Using symmetric key for alias: %s", (char *)key_id);
+		// 这里可以添加对称加密的逻辑
+	} 
+
+	return TEE_SUCCESS;
+
+	TEE_FreeOperation(op);
+	TEE_CloseObject(key_handle);
+error:
+
+	// 释放资源
+	if(op!=TEE_HANDLE_NULL)
+		TEE_FreeOperation(op);
+	if(key_handle!=TEE_HANDLE_NULL)
+		TEE_CloseObject(key_handle);
+	
+	return res;		
+	
+}
+
 static TEE_Result TA_Enc_Data(uint32_t param_types, TEE_Param params[TEE_NUM_PARAMS])
 {
 	TEE_Result res;
@@ -482,7 +592,7 @@ static TEE_Result TA_Enc_Data(uint32_t param_types, TEE_Param params[TEE_NUM_PAR
 	void *output_data= NULL;
 	size_t output_data_len = 0;
 
-	// TA_DecryptTest(key_id); 调用测试函数，进行加密解密测试
+	// TA_DecryptTest(key_id); //调用测试函数，进行加密解密测试
 	res = TEE_OpenPersistentObject(
 			TEE_STORAGE_PRIVATE,        // 私有存储
 			key_id, strlen(key_id), // 别名作为对象ID
@@ -496,8 +606,6 @@ static TEE_Result TA_Enc_Data(uint32_t param_types, TEE_Param params[TEE_NUM_PAR
 		EMSG("Failed to get key: %s, res=0x%x", (char *)key_id, res);
 		goto error;
 	}
-
-	DMSG("Key type: %d", key_type);
 
 	if(key_type < 0) {
 		EMSG("Invalid key type for alias: %s", (char *)key_id);
@@ -522,7 +630,7 @@ static TEE_Result TA_Enc_Data(uint32_t param_types, TEE_Param params[TEE_NUM_PAR
 		}
 
 		// 获取获取密文长度，并为密文分配空间
-		res = TEE_AsymmetricEncrypt(op, NULL, 0, input_data, input_data_len, output_data,
+		res = TEE_AsymmetricEncrypt(op, NULL, 0, input_data, input_data_len, NULL,
 				    &output_data_len);
 		output_data = TEE_Malloc(output_data_len, 0);
 						
@@ -535,9 +643,15 @@ static TEE_Result TA_Enc_Data(uint32_t param_types, TEE_Param params[TEE_NUM_PAR
 		}
 
 		// 赋值给输出参数
-		params[2].memref.buffer = output_data;
+		//使用memcpy而非直接赋值指针
+		memcpy(params[2].memref.buffer, output_data, output_data_len);
 		params[2].memref.size = output_data_len;
 		DMSG("output_data_len : %zu", output_data_len);
+		for (size_t i = 0; i < output_data_len; i++)
+		{
+			printf("%02x",((uint8_t *)params[2].memref.buffer)[i]);
+		}
+		printf("\n");
 		
 	} else if (key_type == 0) {
 		// 对称密钥处理
@@ -650,6 +764,8 @@ TEE_Result TA_InvokeCommandEntryPoint(void *session, uint32_t cmd,
 			return TA_List_Keys(param_types, params);
 		case TA_ACIPHER_CMD_ENCRYPT:
 			return TA_Enc_Data(param_types, params);
+		case TA_ACIPHER_CMD_DECRYPT:
+			return TA_Dec_Data(param_types, params);
 		default:
 			EMSG("Unknown command 0x%" PRIx32, cmd);
 			return TEE_ERROR_BAD_PARAMETERS;

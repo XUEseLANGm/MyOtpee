@@ -10,7 +10,7 @@
 #define TEE_TYPE_INVALID 0x00000000
 #define MAX_ALIAS_LENGTH 4
 #define MAX_KEYS 16
-#define RANDOM_LENGTH 2
+#define MAX_ENC_SIZE 1024
 
 /* UUID of the acipher example trusted application */
 #define TA_ACIPHER_UUID \
